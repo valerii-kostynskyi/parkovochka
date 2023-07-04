@@ -1,4 +1,4 @@
-import 'package:bloc_exempl/style/colors.dart';
+import 'package:parkovochka/style/colors.dart';
 import 'package:flutter/material.dart' hide Colors;
 
 final lightTheme = ThemeData(

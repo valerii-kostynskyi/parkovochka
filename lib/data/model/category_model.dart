@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 
-import 'package:bloc_exempl/data/model/subcategory_model.dart';
-import 'package:bloc_exempl/util/json_extension.dart';
+import 'package:parkovochka/data/model/subcategory_model.dart';
+import 'package:parkovochka/util/json_extension.dart';
 
 class CategoryModel extends Equatable {
   final int id;

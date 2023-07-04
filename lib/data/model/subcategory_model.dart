@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:bloc_exempl/util/json_extension.dart';
+import 'package:parkovochka/util/json_extension.dart';
 
 class SubcategoryModel extends Equatable {
   final int id;

@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:bloc_exempl/repository/category_repository.dart';
-import 'package:bloc_exempl/repository/impl/category_repository_impl.dart';
-import 'package:bloc_exempl/routes/router.dart';
-import 'package:bloc_exempl/style/theme.dart';
+import 'package:parkovochka/repository/category_repository.dart';
+import 'package:parkovochka/repository/impl/category_repository_impl.dart';
+import 'package:parkovochka/routes/router.dart';
+import 'package:parkovochka/style/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';

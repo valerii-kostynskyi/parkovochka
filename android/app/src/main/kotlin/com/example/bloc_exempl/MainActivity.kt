@@ -1,4 +1,4 @@
-package com.example.bloc_exempl
+package com.example.parkovochka
 
 import io.flutter.embedding.android.FlutterActivity
 

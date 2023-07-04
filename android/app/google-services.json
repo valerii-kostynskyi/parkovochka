@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "981449599664",
+    "project_id": "parkovochka-da2c9",
+    "storage_bucket": "parkovochka-da2c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981449599664:android:b2cd63882c801851c36975",
+        "android_client_info": {
+          "package_name": "com.example.parkovochka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981449599664-0cif7btkgageb6oh0u7gqcpg2f1jnvur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuq4IrDJzk2qbiSeA8H2MCQjLtIPOadY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981449599664-0cif7btkgageb6oh0u7gqcpg2f1jnvur.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

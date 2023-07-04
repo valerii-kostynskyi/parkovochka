@@ -1,4 +1,4 @@
-import 'package:bloc_exempl/util/json_extension.dart';
+import 'package:parkovochka/util/json_extension.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class ListModel<T> extends Equatable {

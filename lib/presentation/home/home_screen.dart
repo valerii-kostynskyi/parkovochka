@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bloc_exempl/presentation/home/bloc/home_bloc.dart';
-import 'package:bloc_exempl/style/theme.dart';
+import 'package:parkovochka/presentation/home/bloc/home_bloc.dart';
+import 'package:parkovochka/style/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -19,9 +19,9 @@ class HomeScreen extends StatelessWidget {
             'parkovochka'.toUpperCase(),
           ),
         ),
-        body: GoogleMap(
+        body: const GoogleMap(
           initialCameraPosition: CameraPosition(
-            target: LatLng(37.422, -122.084),
+            target: LatLng(48.0, 31.0),
             zoom: 10,
           ),
         ),

@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bloc_exempl/presentation/home/home_screen.dart';
+import 'package:parkovochka/presentation/home/home_screen.dart';
 
 part 'router.gr.dart';
 

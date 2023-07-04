@@ -1,8 +1,8 @@
-import 'package:bloc_exempl/data/data_source/api_data_source.dart';
-import 'package:bloc_exempl/data/model/list_model.dart';
-import 'package:bloc_exempl/data/model/response/category_list_response.dart';
-import 'package:bloc_exempl/data/model/subcategory_model.dart';
-import 'package:bloc_exempl/data/model/category_model.dart';
+import 'package:parkovochka/data/data_source/api_data_source.dart';
+import 'package:parkovochka/data/model/list_model.dart';
+import 'package:parkovochka/data/model/response/category_list_response.dart';
+import 'package:parkovochka/data/model/subcategory_model.dart';
+import 'package:parkovochka/data/model/category_model.dart';
 import 'package:dio/dio.dart';
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
