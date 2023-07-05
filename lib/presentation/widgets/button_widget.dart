@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parkovochka/style/theme.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String? text;
@@ -27,7 +28,7 @@ class ButtonWidget extends StatelessWidget {
     this.color,
     this.textStyle,
     this.shapeBorder,
-    this.height = 50,
+    this.height = 60,
     this.elevation = 0,
     this.borderRadius = 15,
     this.disabled = false,
@@ -47,16 +48,16 @@ class ButtonWidget extends StatelessWidget {
           elevation: elevation,
           padding: const EdgeInsets.all(0),
           minWidth: 0,
-          // disabledColor: Get.theme.dividerColor,
+          disabledColor: lightTheme.dividerColor,
           onPressed: onPressed,
-          // color: disabled || loading
-          //     ? context.theme.disabledColor.withOpacity(0.5)
-          //     : (color ?? Get.theme.colorScheme.primary),
+          color: disabled || loading
+              ? lightTheme.disabledColor.withOpacity(0.5)
+              : lightTheme.colorScheme.primary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
           ),
-          child: Row(
-            mainAxisSize: autoSize ? MainAxisSize.min : MainAxisSize.max,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (loading) _loading(),
@@ -67,14 +68,10 @@ class ButtonWidget extends StatelessWidget {
                     child: Text(
                       text!,
                       textAlign: TextAlign.center,
-                      // style: textStyle ??
-                      //     Get.theme.textTheme.labelSmall!.copyWith(
-                      //       fontSize: 14,
-                      //       letterSpacing: 0.3,
-                      //       color: (disabled)
-                      //           ? Get.theme.colorScheme.onBackground
-                      //           : Get.theme.textTheme.labelSmall!.color,
-                      //     ),
+                      style: lightTheme.textTheme.labelSmall!.copyWith(
+                          fontSize: 14,
+                          letterSpacing: 0.3,
+                          color: lightTheme.colorScheme.onBackground),
                     ),
                   ),
                 ),
@@ -96,8 +93,12 @@ class ButtonWidget extends StatelessWidget {
 
   Widget _widget(Widget icon) {
     return Padding(
-      padding: const EdgeInsets.only(right: 9.0),
-      child: icon,
+      padding: const EdgeInsets.only(bottom: 4.0),
+      child: SizedBox(
+        height: 20,
+        width: 20,
+        child: icon,
+      ),
     );
   }
 }

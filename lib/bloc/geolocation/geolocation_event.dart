@@ -9,3 +9,12 @@ abstract class GeolocationEvent extends Equatable {
 
 class LoadGeolocationEvent extends GeolocationEvent {}
 
+class AddMarkerEvent extends GeolocationEvent {
+  final Marker marker;
+
+ const AddMarkerEvent(this.marker);
+
+  @override
+  List<Object> get props => [marker];
+}
+

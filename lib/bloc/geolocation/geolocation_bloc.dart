@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get_it/get_it.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:parkovochka/repository/geolocation_repository.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
@@ -14,6 +15,7 @@ class GeolocationBloc extends Bloc<GeolocationEvent, GeolocationState> {
 
   GeolocationBloc() : super(GeolocationInitialState()) {
     on<LoadGeolocationEvent>(_getCurrentPosition);
+    on<AddMarkerEvent>(_addMarker);
   }
 
   _getCurrentPosition(
@@ -23,12 +25,23 @@ class GeolocationBloc extends Bloc<GeolocationEvent, GeolocationState> {
           await _geolocationRepository.getCurrentPosition();
 
       if (position != null) {
-        print(position);
         emit(GeolocationLoadedState(position: position));
       }
     } catch (exeption, stackTrace) {
       emit(GeolocationErrorState(exeption: exeption));
       GetIt.I<Talker>().handle(exeption, stackTrace);
+    }
+  }
+
+  void _addMarker(AddMarkerEvent event, Emitter<GeolocationState> emit) {
+    try {
+      final GeolocationLoadedState currentState =
+          state as GeolocationLoadedState;
+      final List<Marker> updatedMarkers = List.from(currentState.markers)
+        ..add(event.marker);
+      emit(currentState.copyWith(markers: updatedMarkers));
+    } catch (exception, stackTrace) {
+      GetIt.I<Talker>().handle(exception, stackTrace);
     }
   }
 }
