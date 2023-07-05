@@ -15,6 +15,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final geolocationBloc = GeolocationBloc()..add(LoadGeolocationEvent());
+    GoogleMapController? mapController;
     return BlocProvider(
       create: (context) => geolocationBloc,
       child: Scaffold(
@@ -37,6 +38,10 @@ class HomeScreen extends StatelessWidget {
                 myLocationButtonEnabled: false,
                 myLocationEnabled: true,
                 mapToolbarEnabled: true,
+                onMapCreated: (GoogleMapController controllerMap) {
+                  context.read<GeolocationBloc>().add(LoadGeolocationEvent());
+                  mapController = controllerMap;
+                },
                 initialCameraPosition: CameraPosition(
                   target: LatLng(
                     state.position.latitude,
@@ -87,26 +92,40 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: lightTheme.colorScheme.tertiaryContainer,
-                        borderRadius: BorderRadius.circular(4),
+                  child: Builder(builder: (context) {
+                    return GestureDetector(
+                      onTap: () {
+                        final geolocationState =
+                            context.read<GeolocationBloc>().state;
+                        if (geolocationState is GeolocationLoadedState) {
+                          final currentPosition = geolocationState.position;
+                          mapController?.animateCamera(
+                            CameraUpdate.newLatLng(
+                              LatLng(currentPosition.latitude,
+                                  currentPosition.longitude),
+                            ),
+                          );
+                        }
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: lightTheme.colorScheme.tertiaryContainer,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: Platform.isAndroid
+                              ? MainAxisAlignment.center
+                              : MainAxisAlignment.end,
+                          children: [
+                            const SVGIconWidget(icon: 'icon_location'),
+                            const SizedBox(height: 6),
+                            Text('current location'.toUpperCase()),
+                          ],
+                        ),
                       ),
-                      child: Column(
-                        mainAxisAlignment: Platform.isAndroid
-                            ? MainAxisAlignment.center
-                            : MainAxisAlignment.end,
-                        children: [
-                          const SVGIconWidget(icon: 'icon_location'),
-                          const SizedBox(height: 6),
-                          Text('current location'.toUpperCase()),
-                        ],
-                      ),
-                    ),
-                  ),
+                    );
+                  }),
                 ),
               ],
             ),
