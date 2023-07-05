@@ -5,15 +5,15 @@ part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeState(0)) {
-    on<CounterIncrementEvent>(_onIcrement);
-    on<CounterDecrementEvent>(_onDecrement);
+    on<ZoomInEvent>(_zoomIn);
+    on<ZoomOutEvent>(_zoomOut);
   }
 
-  _onIcrement(CounterIncrementEvent event, Emitter<HomeState> emit) {
-    emit(HomeState(state.count + 1));
+  _zoomIn(ZoomInEvent event, Emitter<HomeState> emit) {
+    emit(HomeState(state.zoomNumber + 1));
   }
 
-  _onDecrement(CounterDecrementEvent event, Emitter<HomeState> emit) {
-    emit(HomeState(state.count - 1));
+  _zoomOut(ZoomOutEvent event, Emitter<HomeState> emit) {
+    emit(HomeState(state.zoomNumber - 1));
   }
 }

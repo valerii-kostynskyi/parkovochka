@@ -1,7 +1,7 @@
 part of 'home_bloc.dart';
 
 class HomeState {
-  final int count;
+  final int zoomNumber;
 
-  HomeState(this.count);
+  HomeState(this.zoomNumber);
 }

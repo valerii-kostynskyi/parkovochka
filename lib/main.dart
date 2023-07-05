@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:parkovochka/repository/category_repository.dart';
-import 'package:parkovochka/repository/impl/category_repository_impl.dart';
+import 'package:parkovochka/repository/geolocation_repository.dart';
+import 'package:parkovochka/repository/impl/geolocation_repository_impl.dart';
 import 'package:parkovochka/routes/router.dart';
 import 'package:parkovochka/style/theme.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +11,7 @@ import 'package:talker_bloc_logger/talker_bloc_logger_observer.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger_settings.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
+import 'bloc/theme/theme_bloc.dart';
 import 'data/data_source/api_data_source.dart';
 import 'data/data_source/impl/api_data_source_impl.dart';
 
@@ -20,9 +21,8 @@ void main() {
   GetIt.instance.registerSingleton(talker);
   GetIt.instance
       .registerSingleton<ApiDataSource>(ApiDataSourceImpl(talker: talker));
-  GetIt.instance.registerSingleton<CategoryRepository>(CategoryRepositoryImpl(
-    GetIt.instance.get<ApiDataSource>(),
-  ));
+  GetIt.instance
+      .registerSingleton<GeolocationRepository>(GeolocationRepositoryImpl());
 
 //
   Bloc.observer = TalkerBlocObserver(
@@ -33,26 +33,32 @@ void main() {
   FlutterError.onError =
       (details) => GetIt.I<Talker>().handle(details.exception, details.stack);
 
-  runZonedGuarded(() => runApp(BlocExemplApp()), (error, stack) {
+  runZonedGuarded(() => runApp(ParkovochkaApp()), (error, stack) {
     GetIt.I<Talker>().handle(error, stack);
   });
 }
 
-class BlocExemplApp extends StatelessWidget {
+class ParkovochkaApp extends StatelessWidget {
   final _appRouter = AppRouter();
 
-  BlocExemplApp({super.key});
+  ParkovochkaApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      theme: lightTheme,
-      routerConfig: _appRouter.config(
-        navigatorObservers: () => [
-          TalkerRouteObserver(
-            GetIt.I<Talker>(),
-          ),
-        ],
+    return BlocProvider(
+      create: (context) => ThemeBloc(),
+      child: BlocBuilder<ThemeBloc, ThemeState>(
+        builder: (context, state) {
+          return MaterialApp.router(
+            theme: lightTheme,
+            debugShowCheckedModeBanner: false,
+            routerConfig: _appRouter.config(
+              navigatorObservers: () => [
+                TalkerRouteObserver(GetIt.I<Talker>()),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
