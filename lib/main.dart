@@ -21,8 +21,8 @@ void main() {
   GetIt.instance.registerSingleton(talker);
   GetIt.instance
       .registerSingleton<ApiDataSource>(ApiDataSourceImpl(talker: talker));
-  GetIt.instance
-      .registerSingleton<GeolocationRepository>(GeolocationRepositoryImpl());
+  GetIt.instance.registerSingleton<GeolocationRepository>(
+      GeolocationRepositoryImpl(ApiDataSourceImpl(talker: talker)));
 
 //
   Bloc.observer = TalkerBlocObserver(

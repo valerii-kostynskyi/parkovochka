@@ -73,61 +73,68 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
-                  child: Builder(builder: (context) {
-                    return ButtonWidget(
-                      onPressed: () {
-                        final geolocationState =
-                            context.read<GeolocationBloc>().state;
-                        if (geolocationState is GeolocationLoadedState) {
-                          final currentPosition = geolocationState.position;
-                          final marker = Marker(
-                            markerId: const MarkerId('current_location'),
-                            position: LatLng(
-                              currentPosition.latitude,
-                              currentPosition.longitude,
-                            ),
-                            icon: BitmapDescriptor.defaultMarkerWithHue(
-                                BitmapDescriptor.hueAzure),
-                          );
-                          context
-                              .read<GeolocationBloc>()
-                              .add(AddMarkerEvent(marker));
-                        }
-                      },
-                      text: 'add parkovochka'.toUpperCase(),
-                      leading: SVGIconWidget(
-                        icon: 'icon_plus',
-                        color: lightTheme.iconTheme.color,
-                      ),
-                    );
-                  }),
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Builder(builder: (context) {
-                    return ButtonWidget(
-                      onPressed: () {
-                        final geolocationState =
-                            context.read<GeolocationBloc>().state;
-                        if (geolocationState is GeolocationLoadedState) {
-                          final currentPosition = geolocationState.position;
-                          mapController?.animateCamera(
-                            CameraUpdate.newLatLng(
-                              LatLng(
+                  child: Builder(
+                    builder: (context) {
+                      return ButtonWidget(
+                        onPressed: () {
+                          final geolocationState =
+                              context.read<GeolocationBloc>().state;
+                          if (geolocationState is GeolocationLoadedState) {
+                            final currentPosition = geolocationState.position;
+                            final marker = Marker(
+                              //TODO chek id is it correct
+                              markerId: MarkerId(
+                                  '${geolocationState.position.latitude}_${geolocationState.position.longitude}'),
+                              position: LatLng(
                                 currentPosition.latitude,
                                 currentPosition.longitude,
                               ),
-                            ),
-                          );
-                        }
-                      },
-                      text: 'current location'.toUpperCase(),
-                      leading: SVGIconWidget(
-                        icon: 'icon_location',
-                        color: lightTheme.iconTheme.color,
-                      ),
-                    );
-                  }),
+                              icon: BitmapDescriptor.defaultMarkerWithHue(
+                                BitmapDescriptor.hueAzure,
+                              ),
+                            );
+                            context
+                                .read<GeolocationBloc>()
+                                .add(AddMarkerEvent(marker));
+                          }
+                        },
+                        text: 'add parkovochka'.toUpperCase(),
+                        leading: SVGIconWidget(
+                          icon: 'icon_plus',
+                          color: lightTheme.iconTheme.color,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Builder(
+                    builder: (context) {
+                      return ButtonWidget(
+                        onPressed: () {
+                          final geolocationState =
+                              context.read<GeolocationBloc>().state;
+                          if (geolocationState is GeolocationLoadedState) {
+                            final currentPosition = geolocationState.position;
+                            mapController?.animateCamera(
+                              CameraUpdate.newLatLng(
+                                LatLng(
+                                  currentPosition.latitude,
+                                  currentPosition.longitude,
+                                ),
+                              ),
+                            );
+                          }
+                        },
+                        text: 'current location'.toUpperCase(),
+                        leading: SVGIconWidget(
+                          icon: 'icon_location',
+                          color: lightTheme.iconTheme.color,
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),

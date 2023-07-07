@@ -1,8 +1,8 @@
+import 'dart:convert';
+
+import 'package:parkovochka/const.dart';
 import 'package:parkovochka/data/data_source/api_data_source.dart';
-import 'package:parkovochka/data/model/list_model.dart';
-import 'package:parkovochka/data/model/response/category_list_response.dart';
-import 'package:parkovochka/data/model/subcategory_model.dart';
-import 'package:parkovochka/data/model/category_model.dart';
+import 'package:parkovochka/data/model/google_place_model.dart';
 import 'package:dio/dio.dart';
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
@@ -16,30 +16,29 @@ class ApiDataSourceImpl implements ApiDataSource {
     dio.interceptors.add(
       TalkerDioLogger(
         talker: talker,
-        settings: const TalkerDioLoggerSettings(
-          //show all data
-          printResponseData: false,
-        ),
+        settings: const TalkerDioLoggerSettings(printResponseData: false),
       ),
     );
   }
 
+
+
+
+
   @override
-  Future<ListModel<CategoryModel>> getCategories({required int offset}) async {
-    final Map<String, dynamic> query = {};
-    query['limit'] = 10.toString();
-    query['offset'] = offset.toString();
-    final response = await dio.get(
-      'http://18.156.192.87/api/categories/',
+  Future<GooglePlaceModel> getLocationDetails({
+    required double lat,
+    required double lng,
+  }) async {
+    final Map<String, dynamic> query = {
+      'key': googleApiKeyIos,
+      'place_id': '$lat,$lng',
+    };
+    Response response = await dio.get(
+      basePlacesURL,
       queryParameters: query,
     );
 
-    return CategoryListResponse.fromJson(response.data);
-  }
-
-  @override
-  Future<List<SubcategoryModel>> getSubcategories({required int categoryId}) {
-    // TODO: implement getSubcategories
-    throw UnimplementedError();
+    return GooglePlaceModel.fromJson(jsonDecode(response.data));
   }
 }
