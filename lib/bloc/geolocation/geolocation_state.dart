@@ -9,20 +9,24 @@ class GeolocationInitialState extends GeolocationState {
 
 class GeolocationLoadedState extends GeolocationState {
   final Position position;
+  final String placeId;
   final List<Marker> markers;
 
   GeolocationLoadedState({
     required this.position,
+    required this.placeId,
     List<Marker>? markers,
   }) : markers = markers ?? [];
 
   GeolocationLoadedState copyWith({
     Position? position,
+     String? placeId,
     List<Marker>? markers,
   }) {
     return GeolocationLoadedState(
       position: position ?? this.position,
       markers: markers ?? this.markers,
+      placeId: placeId ?? this.placeId,
     );
   }
 

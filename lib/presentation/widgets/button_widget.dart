@@ -68,10 +68,7 @@ class ButtonWidget extends StatelessWidget {
                     child: Text(
                       text!,
                       textAlign: TextAlign.center,
-                      style: lightTheme.textTheme.labelSmall!.copyWith(
-                          fontSize: 14,
-                          letterSpacing: 0.3,
-                          color: lightTheme.colorScheme.onBackground),
+                      style: lightTheme.textTheme.labelSmall,
                     ),
                   ),
                 ),

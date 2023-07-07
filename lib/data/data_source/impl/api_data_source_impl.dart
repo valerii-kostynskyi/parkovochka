@@ -21,24 +21,50 @@ class ApiDataSourceImpl implements ApiDataSource {
     );
   }
 
-
-
-
-
   @override
-  Future<GooglePlaceModel> getLocationDetails({
+  Future<String> getPlaceIdFromLatLng({
     required double lat,
     required double lng,
   }) async {
     final Map<String, dynamic> query = {
+      'latlng': '$lat,$lng',
       'key': googleApiKeyIos,
-      'place_id': '$lat,$lng',
+      'result_type': 'point_of_interest',
+    };
+
+    Response response = await dio.get(
+      geocodingURL,
+      queryParameters: query,
+    );
+
+    if (response.statusCode == 200) {
+      final data = response.data;
+      if (data['status'] == 'OK') {
+        final results = data['results'];
+        if (results.isNotEmpty) {
+          final firstResult = results[0];
+          final placeId = firstResult['place_id'];
+          return placeId;
+        }
+      }
+    }
+
+    throw Exception('Failed to retrieve place ID from LatLng.');
+  }
+
+  @override
+  Future<GooglePlaceModel> getLocationDetails({
+    required String placeId,
+  }) async {
+    final Map<String, dynamic> query = {
+      'key': googleApiKeyIos,
+      'place_id': placeId,
     };
     Response response = await dio.get(
       basePlacesURL,
       queryParameters: query,
     );
 
-    return GooglePlaceModel.fromJson(jsonDecode(response.data));
+    return GooglePlaceModel.fromJson(response.data['result']);
   }
 }

@@ -7,6 +7,7 @@ class GeolocationRepositoryImpl implements GeolocationRepository {
   final ApiDataSource _apiDataSource;
 
   GeolocationRepositoryImpl(this._apiDataSource);
+
   @override
   Future<Position?> getCurrentPosition() async {
     LocationPermission permission = await Geolocator.checkPermission();
@@ -22,8 +23,17 @@ class GeolocationRepositoryImpl implements GeolocationRepository {
   }
 
   @override
-  Future<GooglePlaceModel> getLocationDetails(
-      {required double lat, required double lng}) {
-    return _apiDataSource.getLocationDetails(lat: lat, lng: lng);
+  Future<String> getPlaceIdFromLatLng({
+    required double lat,
+    required double lng,
+  }) {
+    return _apiDataSource.getPlaceIdFromLatLng(lat: lat, lng: lng);
+  }
+
+  @override
+  Future<GooglePlaceModel> getLocationDetails({
+    required String placeId,
+  }) {
+    return _apiDataSource.getLocationDetails(placeId: placeId);
   }
 }

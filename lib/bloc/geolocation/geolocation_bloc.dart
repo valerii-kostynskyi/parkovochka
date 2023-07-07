@@ -26,7 +26,17 @@ class GeolocationBloc extends Bloc<GeolocationEvent, GeolocationState> {
           await _geolocationRepository.getCurrentPosition();
 
       if (position != null) {
-        emit(GeolocationLoadedState(position: position));
+        final String placeId =
+            await _geolocationRepository.getPlaceIdFromLatLng(
+          lat: position.latitude,
+          lng: position.longitude,
+        );
+        emit(
+          GeolocationLoadedState(
+            position: position,
+            placeId: placeId,
+          ),
+        );
       }
     } catch (exeption, stackTrace) {
       emit(GeolocationErrorState(exeption: exeption));
@@ -42,12 +52,15 @@ class GeolocationBloc extends Bloc<GeolocationEvent, GeolocationState> {
         ..add(event.marker);
       final double latitude = event.marker.position.latitude;
       final double longitude = event.marker.position.longitude;
-      final GooglePlaceModel placeModel =
-          await _geolocationRepository.getLocationDetails(
+      final String placeId = await _geolocationRepository.getPlaceIdFromLatLng(
         lat: latitude,
         lng: longitude,
       );
-      print(placeModel);
+      final GooglePlaceModel placeModel =
+          await _geolocationRepository.getLocationDetails(
+        placeId: placeId,
+      );
+
       emit(currentState.copyWith(markers: updatedMarkers));
     } catch (exception, stackTrace) {
       GetIt.I<Talker>().handle(exception, stackTrace);

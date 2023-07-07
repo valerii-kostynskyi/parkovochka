@@ -3,8 +3,13 @@ import 'package:parkovochka/data/model/google_place_model.dart';
 
 abstract class GeolocationRepository {
   Future<Position?> getCurrentPosition();
-    Future<GooglePlaceModel> getLocationDetails({
+
+  Future<String> getPlaceIdFromLatLng({
     required double lat,
     required double lng,
+  });
+
+  Future<GooglePlaceModel> getLocationDetails({
+    required String placeId,
   });
 }

@@ -19,8 +19,14 @@ class HomeScreen extends StatelessWidget {
       create: (context) => geolocationBloc,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            'parkovochka'.toUpperCase(),
+          title: SizedBox(
+            height: 30,
+            child: Center(
+              child: SVGIconWidget(
+                icon: 'parkovochka_logo',
+                color: lightTheme.colorScheme.primary,
+              ),
+            ),
           ),
         ),
         body: BlocBuilder<GeolocationBloc, GeolocationState>(
