@@ -4,7 +4,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:parkovochka/data/model/google_place_model.dart';
-import 'package:parkovochka/repository/geolocation_repository.dart';
+import 'package:parkovochka/domain/geolocation_repository.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 part 'geolocation_event.dart';
@@ -45,25 +45,28 @@ class GeolocationBloc extends Bloc<GeolocationEvent, GeolocationState> {
   }
 
   void _addMarker(AddMarkerEvent event, Emitter<GeolocationState> emit) async {
-    try {
-      final GeolocationLoadedState currentState =
-          state as GeolocationLoadedState;
-      final List<Marker> updatedMarkers = List.from(currentState.markers)
-        ..add(event.marker);
-      final double latitude = event.marker.position.latitude;
-      final double longitude = event.marker.position.longitude;
-      final String placeId = await _geolocationRepository.getPlaceIdFromLatLng(
-        lat: latitude,
-        lng: longitude,
-      );
-      final GooglePlaceModel placeModel =
-          await _geolocationRepository.getLocationDetails(
-        placeId: placeId,
-      );
+    if (state is GeolocationLoadedState) {
+      try {
+        final GeolocationLoadedState currentState =
+            state as GeolocationLoadedState;
+        final List<Marker> updatedMarkers = List.from(currentState.markers)
+          ..add(event.marker);
+        final double latitude = event.marker.position.latitude;
+        final double longitude = event.marker.position.longitude;
+        final String placeId =
+            await _geolocationRepository.getPlaceIdFromLatLng(
+          lat: latitude,
+          lng: longitude,
+        );
+        final GooglePlaceModel placeModel =
+            await _geolocationRepository.getLocationDetails(
+          placeId: placeId,
+        );
 
-      emit(currentState.copyWith(markers: updatedMarkers));
-    } catch (exception, stackTrace) {
-      GetIt.I<Talker>().handle(exception, stackTrace);
+        emit(currentState.copyWith(markers: updatedMarkers));
+      } catch (exception, stackTrace) {
+        GetIt.I<Talker>().handle(exception, stackTrace);
+      }
     }
   }
 }

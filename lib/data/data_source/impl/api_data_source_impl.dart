@@ -1,9 +1,8 @@
-import 'dart:convert';
-
 import 'package:parkovochka/const.dart';
 import 'package:parkovochka/data/data_source/api_data_source.dart';
 import 'package:parkovochka/data/model/google_place_model.dart';
 import 'package:dio/dio.dart';
+import 'package:parkovochka/data/model/parking_model.dart';
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -16,7 +15,7 @@ class ApiDataSourceImpl implements ApiDataSource {
     dio.interceptors.add(
       TalkerDioLogger(
         talker: talker,
-        settings: const TalkerDioLoggerSettings(printResponseData: false),
+        settings: const TalkerDioLoggerSettings(printResponseData: true),
       ),
     );
   }
@@ -47,9 +46,33 @@ class ApiDataSourceImpl implements ApiDataSource {
           return placeId;
         }
       }
-    }
+      if (data['status'] == 'ZERO_RESULTS') {
+        final plusCodeGlobal = data['plus_code']['global_code'];
 
-    throw Exception('Failed to retrieve place ID from LatLng.');
+        final Map<String, dynamic> queryPlusCode = {
+          'address': plusCodeGlobal,
+          'key': googleApiKeyIos,
+        };
+
+        Response responsePlusCode = await dio.get(
+          geocodingURL,
+          queryParameters: queryPlusCode,
+        );
+
+        if (responsePlusCode.statusCode == 200) {
+          final dataPlusCode = responsePlusCode.data;
+          if (dataPlusCode['status'] == 'OK') {
+            final resultsPlusCode = dataPlusCode['results'];
+            if (resultsPlusCode.isNotEmpty) {
+              final firstResultPlusCode = resultsPlusCode[0];
+              final placeIdPlusCode = firstResultPlusCode['place_id'];
+              return placeIdPlusCode;
+            }
+          }
+        }
+      }
+    }
+    return '';
   }
 
   @override
@@ -66,5 +89,13 @@ class ApiDataSourceImpl implements ApiDataSource {
     );
 
     return GooglePlaceModel.fromJson(response.data['result']);
+  }
+
+  @override
+  Future<List<ParkingModel>> getParkingList() async {
+    final Response response = await dio.get('$apiUrl/parkings');
+
+    final List<ParkingModel> parkingList = response.data;
+    return parkingList;
   }
 }

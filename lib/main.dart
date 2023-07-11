@@ -1,7 +1,9 @@
 import 'dart:async';
 
-import 'package:parkovochka/repository/geolocation_repository.dart';
-import 'package:parkovochka/repository/impl/geolocation_repository_impl.dart';
+import 'package:parkovochka/domain/geolocation_repository.dart';
+import 'package:parkovochka/domain/impl/geolocation_repository_impl.dart';
+import 'package:parkovochka/domain/impl/parking_repository_impl.dart';
+import 'package:parkovochka/domain/parking_repository.dart';
 import 'package:parkovochka/routes/router.dart';
 import 'package:parkovochka/style/theme.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +25,9 @@ void main() {
       .registerSingleton<ApiDataSource>(ApiDataSourceImpl(talker: talker));
   GetIt.instance.registerSingleton<GeolocationRepository>(
       GeolocationRepositoryImpl(ApiDataSourceImpl(talker: talker)));
+  GetIt.instance.registerSingleton<ParkingRepository>(
+      ParkingRepositoryImpl(ApiDataSourceImpl(talker: talker)));
 
-//
   Bloc.observer = TalkerBlocObserver(
     talker: talker,
     settings: const TalkerBlocLoggerSettings(printStateFullData: false),

@@ -1,22 +1,22 @@
+import 'package:parkovochka/data/model/coordinate_model.dart';
+import 'package:parkovochka/util/json_extension.dart';
+
 class GooglePlaceModel {
-  String formattedAddress;
-  String placeId;
-  Map<String, double> geometry;
+  String address;
+  String googlePlaceId;
+  CoordinateModel coordinate;
 
   GooglePlaceModel({
-    required this.formattedAddress,
-    required this.geometry,
-    required this.placeId,
+    required this.address,
+    required this.coordinate,
+    required this.googlePlaceId,
   });
 
   factory GooglePlaceModel.fromJson(Map<String, dynamic> json) {
     return GooglePlaceModel(
-      formattedAddress: json['formatted_address'],
-      placeId: json['place_id'],
-      geometry: {
-        'lat': json['geometry']['location']['lat'],
-        'lng': json['geometry']['location']['lng'],
-      },
+      address: json.parseJsonAsString(key: 'formatted_address'),
+      googlePlaceId: json.parseJsonAsString(key: 'place_id'),
+      coordinate: CoordinateModel.fromJson(json['geometry']['location']),
     );
   }
 }

@@ -19,14 +19,10 @@ class HomeScreen extends StatelessWidget {
       create: (context) => geolocationBloc,
       child: Scaffold(
         appBar: AppBar(
-          title: SizedBox(
+          centerTitle: true,
+          title: const SVGIconWidget(
             height: 30,
-            child: Center(
-              child: SVGIconWidget(
-                icon: 'parkovochka_logo',
-                color: lightTheme.colorScheme.primary,
-              ),
-            ),
+            icon: 'parkovochka_logo',
           ),
         ),
         body: BlocBuilder<GeolocationBloc, GeolocationState>(
@@ -39,6 +35,20 @@ class HomeScreen extends StatelessWidget {
             if (state is GeolocationLoadedState) {
               final markers = state.markers.toSet();
               return GoogleMap(
+                onTap: (LatLng latLng) {
+                  context.read<GeolocationBloc>().add(
+                        AddMarkerEvent(
+                          Marker(
+                            markerId: MarkerId(
+                                '${latLng.latitude}_${latLng.longitude}'),
+                            position: latLng,
+                            icon: BitmapDescriptor.defaultMarkerWithHue(
+                              BitmapDescriptor.hueRed,
+                            ),
+                          ),
+                        ),
+                      );
+                },
                 cameraTargetBounds: CameraTargetBounds.unbounded,
                 markers: markers,
                 mapType: MapType.normal,
@@ -46,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                 myLocationEnabled: true,
                 mapToolbarEnabled: true,
                 onMapCreated: (GoogleMapController controllerMap) {
-                  context.read<GeolocationBloc>().add(LoadGeolocationEvent());
+                  geolocationBloc.add(LoadGeolocationEvent());
                   mapController = controllerMap;
                 },
                 initialCameraPosition: CameraPosition(
@@ -126,9 +136,14 @@ class HomeScreen extends StatelessWidget {
                             mapController?.animateCamera(
                               CameraUpdate.newLatLng(
                                 LatLng(
-                                  currentPosition.latitude,
-                                  currentPosition.longitude,
+                                  48.621025,
+                                  22.288229,
                                 ),
+                                //current position
+                                // LatLng(
+                                //   currentPosition.latitude,
+                                //   currentPosition.longitude,
+                                // ),
                               ),
                             );
                           }
