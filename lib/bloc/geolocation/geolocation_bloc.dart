@@ -19,6 +19,8 @@ class GeolocationBloc extends Bloc<GeolocationEvent, GeolocationState> {
     on<AddMarkerEvent>(_addMarker);
   }
 
+
+
   _getCurrentPosition(
       LoadGeolocationEvent event, Emitter<GeolocationState> emit) async {
     try {

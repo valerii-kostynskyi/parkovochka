@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		P3nis+H7W8eK6nY0wthqof+t0L8=
+		YgfEpAmhMtENjqcegQNLdwcw2j0=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,31 +54,35 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		oaDBOEfMP4BsE3V8JeL4QjLzf+M=
+		jqetp3HeM5weDnYzUJqkGp/dnRg=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		hugkUQpJ+nNsYiG6K8AZ5ykuPbE=
+		8c6yOLihx/r8WOiW188WJ2SAr+s=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
-		xemvXRQAr6cO0GhRpKxi/HUZN7k=
+		h0f2okAqsSofkybqA/ZYnrSTYos=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
 		qA2Z+Fz51+lKkOE3XyVuO0ozaNA=
 		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/fonts/Raleway-Bold.ttf</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/fonts/MontserratAlternates-Bold.ttf</key>
 		<data>
-		/Xmbb7Sv8alALgcasC0d3qcxuGg=
+		7ix4/Qr4qolfFak/mmHhOpYMF/M=
 		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/fonts/Raleway-Regular.ttf</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/fonts/MontserratAlternates-Light.ttf</key>
 		<data>
-		wBqv8E6tSgi4m8uB09PZVDRetn8=
+		Z32DihUzAwYwfnnvUPg4xggQLFY=
 		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/fonts/Raleway-Thin.ttf</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/fonts/MontserratAlternates-Regular.ttf</key>
 		<data>
-		ga3vCAT2s9CuuPl38+xhgIuzonQ=
+		ikQaATu2XttC10fvyFyrptQUlGQ=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/fonts/MontserratAlternates-Thin.ttf</key>
+		<data>
+		tUuZigsRpTMIRVeQiEe+AB5CxTQ=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/icon_apple.svg</key>
 		<data>
@@ -232,6 +236,10 @@
 		<data>
 		PwvLDVmWRgDMf+v/ncW6Rbw8alM=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/parkovochka_logo.svg</key>
+		<data>
+		SEv79iVC27NviaD4vWVeClGS/K0=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
 		/CUoTuPQqqdexfyOT9lpJhV+2MQ=
@@ -242,7 +250,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		eGM78cSaEI2FiVZIYK/36vc6Ib0=
+		PrXbTz8eomOdAaev1A+FK7RY9ZM=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -1215,7 +1223,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		1SKa2qNq7TkzYhIfpsqd2V5xE1g=
+		lQ+K+YQA60ydzfs8w6og+m8bJ/8=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -1302,7 +1310,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kh+dwvWr4wC380Wh4kSqEN/QYcUAH5V3RQvSDvC0oH4=
+			6ddKz6ZPxP/MJDwKE6AE8wAVZaWfqD7bLDNrJZpMeGM=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -1316,21 +1324,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			B3Xc0W9MFGZL/dKwXzfsfj7vRQYFF4gUorJmGihyLRY=
+			h6tDh8/ulucjDRaZxY8fBve0As2BsmXLjg3t8knSaXE=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			A/Hlg6P5x5l6hCHUNYfaLOTuWOKagyTpWxWVAALyO4g=
+			8lyCFrHdTlTAhlH87f4xolNU35oqtlw9ygwsFjAPyRU=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9W7hzjBbfQGOVK9Gc1JIJp9w8+TeGNN5JPtd9TR8UAQ=
+			uCExAHaC409qfz9hFDX4c5lrn3DIzZDj2eZ0YFEbAVE=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
@@ -1340,25 +1348,32 @@
 			FceMphhEYJicoYe8PVj7R44l943JeL7yRIZZZuoc5fs=
 			</data>
 		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/fonts/Raleway-Bold.ttf</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/fonts/MontserratAlternates-Bold.ttf</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hcaoGOM66LYtFWclIsCxLy5gJoD3XEQU7oFac1lq02U=
+			SiBPIPghKdCRlvo/FvI0C5y74vxeJwOODlf3bgPZbjg=
 			</data>
 		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/fonts/Raleway-Regular.ttf</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/fonts/MontserratAlternates-Light.ttf</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3pDMTzv4x+lJyr/CWISkvX0JXMGZqGiqJy4imQN+92M=
+			9bs/uG/r1m535rzZ41J9b87v1GQIRhwUVaFxVzEj9N8=
 			</data>
 		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/fonts/Raleway-Thin.ttf</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/fonts/MontserratAlternates-Regular.ttf</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AzTmf2WikG3/HNPYx4S4NCyh9b7gBXm+VIU3YCcBzk4=
+			cgGH5vH+wNNRCpQHv9+LlS3GG9mQ7euqR3+9cvZndcU=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/fonts/MontserratAlternates-Thin.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			as/V0XdD5/g5kzzO4/BOY8CnuCV2CnZ4C2AVWly1mbw=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/icon_apple.svg</key>
@@ -1627,6 +1642,13 @@
 			FX01N0/X3jrD24rGJt3mTX8tgg65KSaDSrsO598fOm4=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/parkovochka_logo.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QgCa8hRVhNzk8FnitZQoVCXKdD1cEKJTSqiH7IPCBDQ=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<dict>
 			<key>hash2</key>
@@ -1645,7 +1667,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kURkdA2yIcH+zq2UxE+89ODHUS6DR9jjwbH5VsMHvVk=
+			CL68JYL7ep7RXeveJESnxHNDGfrsfMW/mecusRU/UZQ=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

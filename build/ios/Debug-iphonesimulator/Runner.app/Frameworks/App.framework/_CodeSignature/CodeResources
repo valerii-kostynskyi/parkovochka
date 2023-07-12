@@ -36,18 +36,6 @@
 		<data>
 		tUuZigsRpTMIRVeQiEe+AB5CxTQ=
 		</data>
-		<key>flutter_assets/assets/fonts/Raleway-Bold.ttf</key>
-		<data>
-		/Xmbb7Sv8alALgcasC0d3qcxuGg=
-		</data>
-		<key>flutter_assets/assets/fonts/Raleway-Regular.ttf</key>
-		<data>
-		wBqv8E6tSgi4m8uB09PZVDRetn8=
-		</data>
-		<key>flutter_assets/assets/fonts/Raleway-Thin.ttf</key>
-		<data>
-		ga3vCAT2s9CuuPl38+xhgIuzonQ=
-		</data>
 		<key>flutter_assets/assets/icons/icon_apple.svg</key>
 		<data>
 		XZcRYIKOuoBjnlw/DY1mUkTaNjA=
@@ -214,7 +202,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		r/I9VARQrzOUMBtXRLzEOTkdKp8=
+		g+FmCqePpJu2tfrhr7aG1PC/zU8=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -286,27 +274,6 @@
 			<key>hash2</key>
 			<data>
 			as/V0XdD5/g5kzzO4/BOY8CnuCV2CnZ4C2AVWly1mbw=
-			</data>
-		</dict>
-		<key>flutter_assets/assets/fonts/Raleway-Bold.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			hcaoGOM66LYtFWclIsCxLy5gJoD3XEQU7oFac1lq02U=
-			</data>
-		</dict>
-		<key>flutter_assets/assets/fonts/Raleway-Regular.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			3pDMTzv4x+lJyr/CWISkvX0JXMGZqGiqJy4imQN+92M=
-			</data>
-		</dict>
-		<key>flutter_assets/assets/fonts/Raleway-Thin.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			AzTmf2WikG3/HNPYx4S4NCyh9b7gBXm+VIU3YCcBzk4=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/icons/icon_apple.svg</key>
@@ -600,7 +567,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Cei4o2TCtNUGD/d9cDkY9Qnds6Wp5VM7DrNry0tbIXU=
+			WavCJguUcukFbjowTL81DEPtWMx+gvdfEHku+tR2Ubg=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

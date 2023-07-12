@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:parkovochka/bloc/geolocation/geolocation_bloc.dart';
+import 'package:parkovochka/presentation/home/bloc/home_bloc.dart';
 import 'package:parkovochka/presentation/widgets/button_widget.dart';
 import 'package:parkovochka/presentation/widgets/svg_icon_widget.dart';
 import 'package:parkovochka/style/theme.dart';
@@ -13,10 +14,18 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final geolocationBloc = GeolocationBloc()..add(LoadGeolocationEvent());
     GoogleMapController? mapController;
-    return BlocProvider(
-      create: (context) => geolocationBloc,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<GeolocationBloc>(
+          create: (BuildContext context) =>
+              GeolocationBloc()..add(LoadGeolocationEvent()),
+        ),
+        BlocProvider<HomeBloc>(
+          create: (BuildContext context) =>
+              HomeBloc()..add(LoadParkingListEvent()),
+        ),
+      ],
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -27,47 +36,63 @@ class HomeScreen extends StatelessWidget {
         ),
         body: BlocBuilder<GeolocationBloc, GeolocationState>(
           builder: (context, state) {
-            if (state is GeolocationInitialState) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
             if (state is GeolocationLoadedState) {
               final markers = state.markers.toSet();
-              return GoogleMap(
-                onTap: (LatLng latLng) {
-                  context.read<GeolocationBloc>().add(
-                        AddMarkerEvent(
-                          Marker(
-                            markerId: MarkerId(
-                                '${latLng.latitude}_${latLng.longitude}'),
-                            position: latLng,
-                            icon: BitmapDescriptor.defaultMarkerWithHue(
-                              BitmapDescriptor.hueRed,
+              return BlocBuilder<HomeBloc, HomeState>(
+                  builder: (context, homeState) {
+                if (homeState is LoadedParkingList) {
+                  final parkingMarkers =
+                      homeState.parkingList.map((parkingModel) {
+                    return Marker(
+                      markerId: MarkerId(
+                          '${parkingModel.coordinate.latitude}_${parkingModel.coordinate.longitude}'),
+                      position: LatLng(parkingModel.coordinate.latitude,
+                          parkingModel.coordinate.longitude),
+                      icon: BitmapDescriptor.defaultMarkerWithHue(
+                        BitmapDescriptor.hueRed,
+                      ),
+                    );
+                  }).toSet();
+
+                  markers.addAll(parkingMarkers);
+
+                  return GoogleMap(
+                    onTap: (LatLng latLng) {
+                      context.read<GeolocationBloc>().add(
+                            AddMarkerEvent(
+                              Marker(
+                                markerId: MarkerId(
+                                    '${latLng.latitude}_${latLng.longitude}'),
+                                position: latLng,
+                                icon: BitmapDescriptor.defaultMarkerWithHue(
+                                  BitmapDescriptor.hueRed,
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                      );
-                },
-                cameraTargetBounds: CameraTargetBounds.unbounded,
-                markers: markers,
-                mapType: MapType.normal,
-                myLocationButtonEnabled: false,
-                myLocationEnabled: true,
-                mapToolbarEnabled: true,
-                onMapCreated: (GoogleMapController controllerMap) {
-                  geolocationBloc.add(LoadGeolocationEvent());
-                  mapController = controllerMap;
-                },
-                initialCameraPosition: CameraPosition(
-                  target: LatLng(
-                    state.position.latitude,
-                    state.position.longitude,
-                  ),
-                  zoom: 17,
-                ),
-              );
+                          );
+                    },
+                    cameraTargetBounds: CameraTargetBounds.unbounded,
+                    markers: markers,
+                    mapType: MapType.normal,
+                    myLocationButtonEnabled: false,
+                    myLocationEnabled: true,
+                    mapToolbarEnabled: true,
+                    onMapCreated: (GoogleMapController controllerMap) {
+                      mapController = controllerMap;
+                    },
+                    initialCameraPosition: CameraPosition(
+                      target: LatLng(
+                        state.position.latitude,
+                        state.position.longitude,
+                      ),
+                      zoom: 17,
+                    ),
+                  );
+                }
+                return Container();
+              });
             }
+
             if (state is GeolocationErrorState) {
               return Center(
                 child: Text(state.exeption?.toString() ?? 'Error'),

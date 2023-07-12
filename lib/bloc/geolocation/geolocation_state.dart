@@ -20,7 +20,7 @@ class GeolocationLoadedState extends GeolocationState {
 
   GeolocationLoadedState copyWith({
     Position? position,
-     String? placeId,
+    String? placeId,
     List<Marker>? markers,
   }) {
     return GeolocationLoadedState(

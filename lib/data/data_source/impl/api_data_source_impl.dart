@@ -95,7 +95,16 @@ class ApiDataSourceImpl implements ApiDataSource {
   Future<List<ParkingModel>> getParkingList() async {
     final Response response = await dio.get('$apiUrl/parkings');
 
-    final List<ParkingModel> parkingList = response.data;
-    return parkingList;
+    if (response.statusCode == 200) {
+      List<dynamic> mapList = response.data;
+
+      List<ParkingModel> parkingList = mapList
+          .cast<Map<String, dynamic>>()
+          .map((map) => ParkingModel.fromJson(map))
+          .toList();
+      return parkingList;
+    }
+//TODO throw error
+    return [];
   }
 }

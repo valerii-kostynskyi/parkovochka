@@ -9,6 +9,7 @@ abstract class GeolocationEvent extends Equatable {
 
 class LoadGeolocationEvent extends GeolocationEvent {}
 
+
 class AddMarkerEvent extends GeolocationEvent {
   final Marker marker;
 

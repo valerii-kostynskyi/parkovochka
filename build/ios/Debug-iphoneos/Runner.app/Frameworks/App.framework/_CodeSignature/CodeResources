@@ -10,15 +10,31 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		hugkUQpJ+nNsYiG6K8AZ5ykuPbE=
+		8c6yOLihx/r8WOiW188WJ2SAr+s=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
-		xemvXRQAr6cO0GhRpKxi/HUZN7k=
+		h0f2okAqsSofkybqA/ZYnrSTYos=
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
 		qA2Z+Fz51+lKkOE3XyVuO0ozaNA=
+		</data>
+		<key>flutter_assets/assets/fonts/MontserratAlternates-Bold.ttf</key>
+		<data>
+		7ix4/Qr4qolfFak/mmHhOpYMF/M=
+		</data>
+		<key>flutter_assets/assets/fonts/MontserratAlternates-Light.ttf</key>
+		<data>
+		Z32DihUzAwYwfnnvUPg4xggQLFY=
+		</data>
+		<key>flutter_assets/assets/fonts/MontserratAlternates-Regular.ttf</key>
+		<data>
+		ikQaATu2XttC10fvyFyrptQUlGQ=
+		</data>
+		<key>flutter_assets/assets/fonts/MontserratAlternates-Thin.ttf</key>
+		<data>
+		tUuZigsRpTMIRVeQiEe+AB5CxTQ=
 		</data>
 		<key>flutter_assets/assets/fonts/Raleway-Bold.ttf</key>
 		<data>
@@ -184,6 +200,10 @@
 		<data>
 		PwvLDVmWRgDMf+v/ncW6Rbw8alM=
 		</data>
+		<key>flutter_assets/assets/icons/parkovochka_logo.svg</key>
+		<data>
+		SEv79iVC27NviaD4vWVeClGS/K0=
+		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
 		/CUoTuPQqqdexfyOT9lpJhV+2MQ=
@@ -194,7 +214,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		eGM78cSaEI2FiVZIYK/36vc6Ib0=
+		PrXbTz8eomOdAaev1A+FK7RY9ZM=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -223,14 +243,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			A/Hlg6P5x5l6hCHUNYfaLOTuWOKagyTpWxWVAALyO4g=
+			8lyCFrHdTlTAhlH87f4xolNU35oqtlw9ygwsFjAPyRU=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9W7hzjBbfQGOVK9Gc1JIJp9w8+TeGNN5JPtd9TR8UAQ=
+			uCExAHaC409qfz9hFDX4c5lrn3DIzZDj2eZ0YFEbAVE=
 			</data>
 		</dict>
 		<key>flutter_assets/NOTICES.Z</key>
@@ -238,6 +258,34 @@
 			<key>hash2</key>
 			<data>
 			FceMphhEYJicoYe8PVj7R44l943JeL7yRIZZZuoc5fs=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/fonts/MontserratAlternates-Bold.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			SiBPIPghKdCRlvo/FvI0C5y74vxeJwOODlf3bgPZbjg=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/fonts/MontserratAlternates-Light.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			9bs/uG/r1m535rzZ41J9b87v1GQIRhwUVaFxVzEj9N8=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/fonts/MontserratAlternates-Regular.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			cgGH5vH+wNNRCpQHv9+LlS3GG9mQ7euqR3+9cvZndcU=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/fonts/MontserratAlternates-Thin.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			as/V0XdD5/g5kzzO4/BOY8CnuCV2CnZ4C2AVWly1mbw=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/fonts/Raleway-Bold.ttf</key>
@@ -527,6 +575,13 @@
 			FX01N0/X3jrD24rGJt3mTX8tgg65KSaDSrsO598fOm4=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/icons/parkovochka_logo.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QgCa8hRVhNzk8FnitZQoVCXKdD1cEKJTSqiH7IPCBDQ=
+			</data>
+		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<dict>
 			<key>hash2</key>
@@ -545,7 +600,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kURkdA2yIcH+zq2UxE+89ODHUS6DR9jjwbH5VsMHvVk=
+			CL68JYL7ep7RXeveJESnxHNDGfrsfMW/mecusRU/UZQ=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
