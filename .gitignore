@@ -99,4 +99,5 @@ flutter_export_environment.sh
 !**/web/icons/*
 **/test/coverage/*
 
+# Build
 build/
