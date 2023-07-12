@@ -98,3 +98,5 @@ flutter_export_environment.sh
 !**/web/favicon.png
 !**/web/icons/*
 **/test/coverage/*
+
+build/

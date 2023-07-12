@@ -60,7 +60,6 @@ class HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    GoogleMapController? mapController;
     return MultiBlocProvider(
       providers: [
         BlocProvider<GeolocationBloc>(
@@ -102,8 +101,8 @@ class HomeScreenState extends State<HomeScreen> {
                     myLocationButtonEnabled: false,
                     myLocationEnabled: true,
                     mapToolbarEnabled: true,
-                    onMapCreated: (GoogleMapController controllerMap) {
-                      mapController = controllerMap;
+                    onMapCreated: (GoogleMapController controller) {
+                      mapController = controller;
                     },
                     initialCameraPosition: CameraPosition(
                       target: LatLng(
@@ -140,7 +139,8 @@ class HomeScreenState extends State<HomeScreen> {
               children: [
                 _addParkovochka(),
                 const SizedBox(width: 8),
-                _currentLocation(mapController),
+                _currentLocationButtom(
+                    mapController), // Here we're using the class member variable
               ],
             ),
           ),
@@ -149,7 +149,7 @@ class HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _currentLocation(GoogleMapController? mapController) {
+  Widget _currentLocationButtom(GoogleMapController? mapController) {
     return Expanded(
       child: Builder(
         builder: (context) {
@@ -157,7 +157,7 @@ class HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               mapController?.animateCamera(
                 CameraUpdate.newLatLng(
-                  LatLng(
+                  const LatLng(
                     48.621025,
                     22.288229,
                   ),
