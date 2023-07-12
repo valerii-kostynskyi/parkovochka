@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		YgfEpAmhMtENjqcegQNLdwcw2j0=
+		vlrojiQrikzp1WDalQFyatv36hI=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,11 +54,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		jqetp3HeM5weDnYzUJqkGp/dnRg=
+		jqLLHcLAWknTP/MPbUvzwyR9G+o=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		8c6yOLihx/r8WOiW188WJ2SAr+s=
+		8a2+em2njcLj/RgLFh2ZUlCjTck=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -196,6 +196,10 @@
 		<data>
 		hiIahmDi4gWKC6JRTCqsV6GIswA=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/icon_parkovochka.png</key>
+		<data>
+		f52WhnY8A3/blQRW+FH0noaZTas=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/icon_plus.svg</key>
 		<data>
 		DQ4Ezirin7tkLhG8udOtDEwL6hg=
@@ -240,6 +244,10 @@
 		<data>
 		SEv79iVC27NviaD4vWVeClGS/K0=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/parkovochka_short_logo.svg</key>
+		<data>
+		DV0LUPnL/v+ZsHMGZ05Y1/yUAOc=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
 		/CUoTuPQqqdexfyOT9lpJhV+2MQ=
@@ -250,7 +258,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		PrXbTz8eomOdAaev1A+FK7RY9ZM=
+		qLaXtbaBO5l31ef4jQmTt3LHsfI=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -378,7 +386,7 @@
 		</data>
 		<key>Frameworks/geolocator_apple.framework/geolocator_apple</key>
 		<data>
-		5XpsCnuNZPmrbtmM7dbFrYrjJIs=
+		CrMaNOCB5XDcxW1gDO4iWf3S8w8=
 		</data>
 		<key>Frameworks/package_info_plus.framework/Info.plist</key>
 		<data>
@@ -390,7 +398,7 @@
 		</data>
 		<key>Frameworks/package_info_plus.framework/package_info_plus</key>
 		<data>
-		S5CKOPYC49LZIiq7xNZPqXLxqNc=
+		VycwhXWOnBLZSyK40BFBcvabZnM=
 		</data>
 		<key>Frameworks/path_provider_foundation.framework/Info.plist</key>
 		<data>
@@ -402,7 +410,7 @@
 		</data>
 		<key>Frameworks/path_provider_foundation.framework/path_provider_foundation</key>
 		<data>
-		f6cjFR4pJQAVs/8OklQAYw4i94U=
+		nQVoEWae+5W5tKxu+x1Pdu1G1rg=
 		</data>
 		<key>Frameworks/share_plus.framework/Info.plist</key>
 		<data>
@@ -414,7 +422,7 @@
 		</data>
 		<key>Frameworks/share_plus.framework/share_plus</key>
 		<data>
-		QxaeGo8WTJ7z1fZlPTkkcEuP5q8=
+		PrNXW6xUIv6Wb0R0IAXaGNSBmEQ=
 		</data>
 		<key>Frameworks/url_launcher_ios.framework/Info.plist</key>
 		<data>
@@ -426,7 +434,7 @@
 		</data>
 		<key>Frameworks/url_launcher_ios.framework/url_launcher_ios</key>
 		<data>
-		74MNPoINvsEfKS4/CSL/5tix13M=
+		sQcfYy5bFR3kQALXJfZmY7izrPM=
 		</data>
 		<key>GoogleMaps.bundle/GMSCacheStorage.momd/Storage.mom</key>
 		<data>
@@ -1223,7 +1231,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		lQ+K+YQA60ydzfs8w6og+m8bJ/8=
+		1SKa2qNq7TkzYhIfpsqd2V5xE1g=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -1310,7 +1318,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6ddKz6ZPxP/MJDwKE6AE8wAVZaWfqD7bLDNrJZpMeGM=
+			zeADCbyd8+4cT8gKY7vOtOv6xjNGY9J2bngPfleBtC4=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -1324,14 +1332,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			h6tDh8/ulucjDRaZxY8fBve0As2BsmXLjg3t8knSaXE=
+			uR1xhr4nT+lu1L/qBGSHSNvyQ+NHI5lxNA9rtVXI6bk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8lyCFrHdTlTAhlH87f4xolNU35oqtlw9ygwsFjAPyRU=
+			d4ltx1DbuiKhvTnabCfQRU13x3fwKfeK+EuHsUEmGfE=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -1572,6 +1580,13 @@
 			IBlfkr3Wxg0wELVRq5HtVGZ/xbp88vyDG5zBWPFfVMQ=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/icon_parkovochka.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			J35XYiyScTvZSY9C7rYRmBK8W7D5bJu0MuNpu777GuI=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/icon_plus.svg</key>
 		<dict>
 			<key>hash2</key>
@@ -1649,6 +1664,13 @@
 			QgCa8hRVhNzk8FnitZQoVCXKdD1cEKJTSqiH7IPCBDQ=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/parkovochka_short_logo.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			SqaxyslQ/sA9QGdlZKEVxY9/U32e6ilNuKbKQ6yfUns=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<dict>
 			<key>hash2</key>
@@ -1667,7 +1689,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CL68JYL7ep7RXeveJESnxHNDGfrsfMW/mecusRU/UZQ=
+			pJ7gPd9QbO6sUX/MJ6jztHglR0joXlNg3VxR3/uNJnA=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -1891,7 +1913,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jIpcSS9mezR6b46uuqovfdzADBlzllaOYZ8J/tudpC0=
+			nTngW4gpf3J4QwQo2R5yNMMMzBdMBQYf67AbpPo0gW8=
 			</data>
 		</dict>
 		<key>Frameworks/package_info_plus.framework/Info.plist</key>
@@ -1912,7 +1934,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Hg8tWf+3BPGedggZMGwr++GQpC3W4Db6c1esD67F848=
+			0sFcRKg/g+voUSp+KXEnn9R7wdFKA/O7+5DMhrLJE0g=
 			</data>
 		</dict>
 		<key>Frameworks/path_provider_foundation.framework/Info.plist</key>
@@ -1933,7 +1955,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			te5NtkctyACWcSKgVBuyUv7Ov4NEuXabmGLPErtvQhQ=
+			gHMO6y7nL1/lIfhc8GgvQJG/1aZgpQxxF8J39rHE888=
 			</data>
 		</dict>
 		<key>Frameworks/share_plus.framework/Info.plist</key>
@@ -1954,7 +1976,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GdpXy9DhaEhjTX0k1KgF49LYoFGDXtvSfhFBXLHwMf0=
+			H7FjgsKQVsGVTFREERdXxvtHJSU6nMUPQwa9wSdNVhQ=
 			</data>
 		</dict>
 		<key>Frameworks/url_launcher_ios.framework/Info.plist</key>
@@ -1975,7 +1997,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YJYXxxXTtxf4Mprx3iZ/P8aj8VCTMYbWPdaaB0fxP64=
+			rcFK8ozV9hXNLihDs0omxicc3ZTRuuJ+zk7Sou/AodE=
 			</data>
 		</dict>
 		<key>GoogleMaps.bundle/GMSCacheStorage.momd/Storage.mom</key>

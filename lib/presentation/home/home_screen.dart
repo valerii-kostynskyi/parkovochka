@@ -7,10 +7,56 @@ import 'package:parkovochka/style/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'dart:ui' as ui;
+import 'package:flutter/services.dart';
 
 @RoutePage()
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  HomeScreenState createState() => HomeScreenState();
+}
+
+class HomeScreenState extends State<HomeScreen> {
+  BitmapDescriptor? customIcon;
+  GoogleMapController? mapController;
+  Set<Marker> markers = {};
+
+  Future<void> loadCustomIconAndMarkers(HomeBloc homeBloc) async {
+    customIcon = await _getMarkerIcon();
+    final homeState = homeBloc.state;
+    if (homeState is LoadedParkingList) {
+      final parkingMarkers = homeState.parkingList.map((parkingModel) {
+        return Marker(
+          markerId: MarkerId(
+              '${parkingModel.coordinate.latitude}_${parkingModel.coordinate.longitude}'),
+          position: LatLng(parkingModel.coordinate.latitude,
+              parkingModel.coordinate.longitude),
+          icon: customIcon ?? BitmapDescriptor.defaultMarker,
+        );
+      }).toSet();
+      setState(() {
+        markers.addAll(parkingMarkers);
+      });
+    }
+  }
+
+  Future<BitmapDescriptor> _getMarkerIcon() async {
+    final Uint8List markerIcon =
+        await getBytesFromAsset('assets/icons/icon_parkovochka.png', 130);
+    return BitmapDescriptor.fromBytes(markerIcon);
+  }
+
+  Future<Uint8List> getBytesFromAsset(String path, int width) async {
+    ByteData data = await rootBundle.load(path);
+    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(),
+        targetWidth: width);
+    ui.FrameInfo fi = await codec.getNextFrame();
+    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!
+        .buffer
+        .asUint8List();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,35 +87,14 @@ class HomeScreen extends StatelessWidget {
               return BlocBuilder<HomeBloc, HomeState>(
                   builder: (context, homeState) {
                 if (homeState is LoadedParkingList) {
-                  final parkingMarkers =
-                      homeState.parkingList.map((parkingModel) {
-                    return Marker(
-                      markerId: MarkerId(
-                          '${parkingModel.coordinate.latitude}_${parkingModel.coordinate.longitude}'),
-                      position: LatLng(parkingModel.coordinate.latitude,
-                          parkingModel.coordinate.longitude),
-                      icon: BitmapDescriptor.defaultMarkerWithHue(
-                        BitmapDescriptor.hueRed,
-                      ),
-                    );
-                  }).toSet();
-
-                  markers.addAll(parkingMarkers);
+                  final homeBloc = BlocProvider.of<HomeBloc>(context);
+                  loadCustomIconAndMarkers(homeBloc);
 
                   return GoogleMap(
                     onTap: (LatLng latLng) {
-                      context.read<GeolocationBloc>().add(
-                            AddMarkerEvent(
-                              Marker(
-                                markerId: MarkerId(
-                                    '${latLng.latitude}_${latLng.longitude}'),
-                                position: latLng,
-                                icon: BitmapDescriptor.defaultMarkerWithHue(
-                                  BitmapDescriptor.hueRed,
-                                ),
-                              ),
-                            ),
-                          );
+                      mapController?.animateCamera(
+                        CameraUpdate.newLatLng(latLng),
+                      );
                     },
                     cameraTargetBounds: CameraTargetBounds.unbounded,
                     markers: markers,
@@ -113,79 +138,74 @@ class HomeScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: Builder(
-                    builder: (context) {
-                      return ButtonWidget(
-                        onPressed: () {
-                          final geolocationState =
-                              context.read<GeolocationBloc>().state;
-                          if (geolocationState is GeolocationLoadedState) {
-                            final currentPosition = geolocationState.position;
-                            final marker = Marker(
-                              //TODO chek id is it correct
-                              markerId: MarkerId(
-                                  '${geolocationState.position.latitude}_${geolocationState.position.longitude}'),
-                              position: LatLng(
-                                currentPosition.latitude,
-                                currentPosition.longitude,
-                              ),
-                              icon: BitmapDescriptor.defaultMarkerWithHue(
-                                BitmapDescriptor.hueAzure,
-                              ),
-                            );
-                            context
-                                .read<GeolocationBloc>()
-                                .add(AddMarkerEvent(marker));
-                          }
-                        },
-                        text: 'add parkovochka'.toUpperCase(),
-                        leading: SVGIconWidget(
-                          icon: 'icon_plus',
-                          color: lightTheme.iconTheme.color,
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                _addParkovochka(),
                 const SizedBox(width: 8),
-                Expanded(
-                  child: Builder(
-                    builder: (context) {
-                      return ButtonWidget(
-                        onPressed: () {
-                          final geolocationState =
-                              context.read<GeolocationBloc>().state;
-                          if (geolocationState is GeolocationLoadedState) {
-                            final currentPosition = geolocationState.position;
-                            mapController?.animateCamera(
-                              CameraUpdate.newLatLng(
-                                LatLng(
-                                  48.621025,
-                                  22.288229,
-                                ),
-                                //current position
-                                // LatLng(
-                                //   currentPosition.latitude,
-                                //   currentPosition.longitude,
-                                // ),
-                              ),
-                            );
-                          }
-                        },
-                        text: 'current location'.toUpperCase(),
-                        leading: SVGIconWidget(
-                          icon: 'icon_location',
-                          color: lightTheme.iconTheme.color,
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                _currentLocation(mapController),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _currentLocation(GoogleMapController? mapController) {
+    return Expanded(
+      child: Builder(
+        builder: (context) {
+          return ButtonWidget(
+            onPressed: () {
+              mapController?.animateCamera(
+                CameraUpdate.newLatLng(
+                  LatLng(
+                    48.621025,
+                    22.288229,
+                  ),
+                ),
+              );
+            },
+            text: 'current location'.toUpperCase(),
+            leading: SVGIconWidget(
+              icon: 'icon_location',
+              color: lightTheme.iconTheme.color,
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _addParkovochka() {
+    return Expanded(
+      child: Builder(
+        builder: (context) {
+          return ButtonWidget(
+            onPressed: () {
+              final geolocationState = context.read<GeolocationBloc>().state;
+              if (geolocationState is GeolocationLoadedState) {
+                final currentPosition = geolocationState.position;
+                final marker = Marker(
+                  //TODO chek id is it correct
+                  markerId: MarkerId(
+                      '${geolocationState.position.latitude}_${geolocationState.position.longitude}'),
+                  position: LatLng(
+                    currentPosition.latitude,
+                    currentPosition.longitude,
+                  ),
+                  icon: BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueAzure,
+                  ),
+                );
+                context.read<GeolocationBloc>().add(AddMarkerEvent(marker));
+              }
+            },
+            text: 'add parkovochka'.toUpperCase(),
+            leading: SVGIconWidget(
+              icon: 'icon_plus',
+              color: lightTheme.iconTheme.color,
+            ),
+          );
+        },
       ),
     );
   }
