@@ -8,7 +8,6 @@
 .buildlog/
 .history
 .svn/
-migrate_working_dir/
 
 # IntelliJ related
 *.iml
@@ -23,31 +22,83 @@ migrate_working_dir/
 
 # Flutter/Dart/Pub related
 **/doc/api/
-**/ios/Flutter/.last_build_id
 .dart_tool/
 .flutter-plugins
-.flutter-plugins-dependencies
 .packages
-.pub-cache/
-.pub/
-/build/
 
 # Web related
+lib/generated_plugin_registrant.dart
 
-# Symbolication related
-app.*.symbols
+# Exceptions to above rules.
+!/packages/flutter_tools/**/*.dart
+!/packages/flutter_test/**/*.dart
+!/packages/flutter_web_plugins/**/*.dart
+!**/bin/cache/pkg/sky_engine/lib/
+!**/bin/cache/pkg/sky_engine/sdk_ext/
+!.dart_tool/package_config.json
 
-# Obfuscation related
-app.*.map.json
+# OS Files
+*.DS_Store
+*.swp
+*.lock
+*.out
 
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
-linux/flutter/ephemeral/.plugin_symlinks/package_info_plus
-linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux
-linux/flutter/ephemeral/.plugin_symlinks/smart_auth
+# Android/Ios related
+**/android/**/release/
+**/android/**/debug/
+**/android/.gradle
+android/app/google-services.json
+android/app/src/main/res/drawable-hdpi/
+android/app/src/main/res/drawable-mdpi/
+android/app/src/main/res/drawable-xhdpi/
+android/app/src/main/res/drawable-xxhdpi/
+android/app/src/main/res/drawable-xxxhdpi/
+android/app/src/main/res/mipmap-*
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.pbxuser
+**/ios/**/.DS_Store
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Generated.xcconfig
+ios/Flutter/app.flx
+ios/Flutter/app.zip
+ios/Flutter/flutter_assets/
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/podhelper.rb
+ios/Pods/
+!ios/Runner.xcworkspace/contents.xcworkspacedata
+!ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.moved-aside
+**/ios/**/*.pbxuser
+**/ios/**/.DS_Store
+**/*.jks
 
-# MaxOS
-/macos/
-/linux/
+# Flutter/Dart/Pub related
+**/doc/api/
+.dart_tool/
+.flutter-plugins
+.packages
+flutter_export_environment.sh
+
+# Exceptions to above rules.
+!/packages/flutter_tools/**/*.dart
+!/packages/flutter_test/**/*.dart
+!**/bin/cache/pkg/sky_engine/lib/
+!**/bin/cache/pkg/sky_engine/sdk_ext/
+!.dart_tool/package_config.json
+
+# web related
+**/web/*.*
+!**/web/index.html
+!**/web/manifest.json
+!**/web/favicon.png
+!**/web/icons/*
+**/test/coverage/*
+
+# Build
+build/
+
