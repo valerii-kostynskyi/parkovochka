@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		M5Im6i2IbAMf2kWVyjQLmoZz24Q=
+		2zjWaomr+0Wj+MvgUK0n2FBn9YE=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,11 +54,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		DbXaDtuWIQSmsq/zDLrthwVbqu4=
+		EECR0lDvsEVMBZSlA9dY9gaXeZI=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		8c6yOLihx/r8WOiW188WJ2SAr+s=
+		IMNc0RpG0jptAOYwMuDQ6CVOZqs=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -236,6 +236,10 @@
 		<data>
 		PwvLDVmWRgDMf+v/ncW6Rbw8alM=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/park_logo.png</key>
+		<data>
+		jdzRvHY8pYVMDtPczRJ6BIxi1zM=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/parkovochka_logo.svg</key>
 		<data>
 		SEv79iVC27NviaD4vWVeClGS/K0=
@@ -250,7 +254,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		g+FmCqePpJu2tfrhr7aG1PC/zU8=
+		qp1kVvkPa0Nyfk6srF57vLqkWEg=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -1306,7 +1310,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RJD/7jP4D8TZ5ldWip4m+VtgLYM3BLsm7ERQUuydlzg=
+			k6+arhmDtALY7WvtouGbqueXsHT/Vw1NnwYK9mxNpWY=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -1320,14 +1324,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ia/vsNymBV4/jAe9q6sGGnE5zjcRVjrn7NjV5JYcRRs=
+			MN4Bmh1aRDs6VePU0hho4ViKADQcG+FLEeKEbcgoq6o=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8lyCFrHdTlTAhlH87f4xolNU35oqtlw9ygwsFjAPyRU=
+			A5W0eRvqL7eLOERVECukvR4LsR7A1BbhEf0GJnnTVTw=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -1638,6 +1642,13 @@
 			FX01N0/X3jrD24rGJt3mTX8tgg65KSaDSrsO598fOm4=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/park_logo.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Db4CLmCgi+Ae8O1re86sbr9hlKthc6AjdryuCQMwts4=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/parkovochka_logo.svg</key>
 		<dict>
 			<key>hash2</key>
@@ -1663,7 +1674,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WavCJguUcukFbjowTL81DEPtWMx+gvdfEHku+tR2Ubg=
+			7R/A/7sWM6VWzFDPsaQBzxG2x1eIaYtzXZ1gN5k5O0c=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
