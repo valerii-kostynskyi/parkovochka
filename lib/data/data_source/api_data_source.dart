@@ -12,4 +12,6 @@ abstract class ApiDataSource {
   });
 
   Future<List<ParkingModel>> getParkingList();
+
+  Future<bool> postParking({required GooglePlaceModel googlePlace});
 }

@@ -22,4 +22,5 @@ class ParkingModel {
       coordinate: CoordinateModel.fromJson(json['coordinate']),
     );
   }
+  
 }

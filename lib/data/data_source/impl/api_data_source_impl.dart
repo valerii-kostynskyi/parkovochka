@@ -107,4 +107,12 @@ class ApiDataSourceImpl implements ApiDataSource {
 //TODO throw error
     return [];
   }
+
+  @override
+  Future<bool> postParking({
+    required GooglePlaceModel googlePlace,
+  }) async {
+    Response response = await dio.post('$apiUrl/parkings', data: googlePlace);
+    return response.statusCode == 200;
+  }
 }

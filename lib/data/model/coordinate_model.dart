@@ -13,4 +13,11 @@ class CoordinateModel {
       longitude: json['lng'] ?? json['longitude'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'latitude': latitude,
+      'longitude': longitude,
+    };
+  }
 }

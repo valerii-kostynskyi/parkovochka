@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		2zjWaomr+0Wj+MvgUK0n2FBn9YE=
+		v7Xe+R1XIbPrhPHsLRsRP/Xy5xs=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		EECR0lDvsEVMBZSlA9dY9gaXeZI=
+		RE+69LaBvTRbi3wWb7XgCgIORB4=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
@@ -254,7 +254,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		qp1kVvkPa0Nyfk6srF57vLqkWEg=
+		lxd3hHRALPf/eBzMvr1K5fT7bjU=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -360,18 +360,6 @@
 		<data>
 		iqxdhxDOeG6GKBcMhgGCL00SLGw=
 		</data>
-		<key>Frameworks/geocoding_ios.framework/Info.plist</key>
-		<data>
-		s9FCAPB0ELuNhgf83FDuydiaqn4=
-		</data>
-		<key>Frameworks/geocoding_ios.framework/_CodeSignature/CodeResources</key>
-		<data>
-		zHhAz7t0wnDiQhFtRKrtjfcvZ2E=
-		</data>
-		<key>Frameworks/geocoding_ios.framework/geocoding_ios</key>
-		<data>
-		dLIYG+t0tHGxnKQ6fxodtfs0Nnc=
-		</data>
 		<key>Frameworks/geolocator_apple.framework/Info.plist</key>
 		<data>
 		D7lgCKgOjuAmPE41Tu57ef0aXQ0=
@@ -382,7 +370,7 @@
 		</data>
 		<key>Frameworks/geolocator_apple.framework/geolocator_apple</key>
 		<data>
-		g7qMxFoJkllcJGCVxlHF0AD1k6w=
+		TIYh5lVWh8LEddmDsABbfo3adrQ=
 		</data>
 		<key>Frameworks/package_info_plus.framework/Info.plist</key>
 		<data>
@@ -394,7 +382,7 @@
 		</data>
 		<key>Frameworks/package_info_plus.framework/package_info_plus</key>
 		<data>
-		yXsronUVMNL5pbe8HTGG9uw34jY=
+		bS0aCdPuxLN1l92d9/6BXIY+SvU=
 		</data>
 		<key>Frameworks/path_provider_foundation.framework/Info.plist</key>
 		<data>
@@ -406,7 +394,7 @@
 		</data>
 		<key>Frameworks/path_provider_foundation.framework/path_provider_foundation</key>
 		<data>
-		CAoDfPWx9y/nr2ux96PYp+FKN7k=
+		Iv/xybioGbDW4k714iJGiBTk9AY=
 		</data>
 		<key>Frameworks/share_plus.framework/Info.plist</key>
 		<data>
@@ -418,7 +406,7 @@
 		</data>
 		<key>Frameworks/share_plus.framework/share_plus</key>
 		<data>
-		RszH5NGl3o7ObyxJ7OF0t7ypj98=
+		ewYv61MSAMJW466SvTczFnVXFuo=
 		</data>
 		<key>Frameworks/url_launcher_ios.framework/Info.plist</key>
 		<data>
@@ -430,7 +418,7 @@
 		</data>
 		<key>Frameworks/url_launcher_ios.framework/url_launcher_ios</key>
 		<data>
-		xDKl0A4XQPPVgFZqUmrXGY3MA54=
+		JGVlMq859CZjXWfxOgszWc8zASY=
 		</data>
 		<key>GoogleMaps.bundle/GMSCacheStorage.momd/Storage.mom</key>
 		<data>
@@ -1310,7 +1298,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			k6+arhmDtALY7WvtouGbqueXsHT/Vw1NnwYK9mxNpWY=
+			uE8kHIiQpC/vslk3bT2W7+E2vexmY+QA8nhDGKzX2u8=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -1324,7 +1312,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MN4Bmh1aRDs6VePU0hho4ViKADQcG+FLEeKEbcgoq6o=
+			Ekxyw+H4WXJCEYzzeK/oa9ROl2cf55/X7Isjmqc/t9A=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
@@ -1674,7 +1662,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7R/A/7sWM6VWzFDPsaQBzxG2x1eIaYtzXZ1gN5k5O0c=
+			Q/h8UM5PgfKdrJNVQvyvAmyrwJTEXK3Le04sHksLtSI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -1859,27 +1847,6 @@
 			d80FTlJMKYsTn7JmRt/E1O9oOh+k9tF0xR10Q3ZrKn4=
 			</data>
 		</dict>
-		<key>Frameworks/geocoding_ios.framework/Info.plist</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			cne0XO+QOMsrsDSgSpgGCfwa5dIXNDlHE6kiDfvbIbc=
-			</data>
-		</dict>
-		<key>Frameworks/geocoding_ios.framework/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			aK/yDwE07UKKl5sGnWXiK3NF6FXMnYT1OGMdQvf8e7A=
-			</data>
-		</dict>
-		<key>Frameworks/geocoding_ios.framework/geocoding_ios</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			nlVuME4VPRKihC6vKcnjwAIZ8uZqn3x1VoZuyqNWYbg=
-			</data>
-		</dict>
 		<key>Frameworks/geolocator_apple.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
@@ -1898,7 +1865,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0YJg7vFqoB8O+whTlZYdInmJe/tBwwwstPWHZnsF+Xo=
+			sS0Arz8d3VCQjgQ/49jTi8kxMCfr1k64oO+kt68FZNU=
 			</data>
 		</dict>
 		<key>Frameworks/package_info_plus.framework/Info.plist</key>
@@ -1919,7 +1886,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iMzLbEKCwPHPI6mVQUynKAtOHpLvDNcZwNTUY0zc/vE=
+			F6RSkl6vJbiEHFRrsyWBaQ1HDLH7jU3602sYxFrRM60=
 			</data>
 		</dict>
 		<key>Frameworks/path_provider_foundation.framework/Info.plist</key>
@@ -1940,7 +1907,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gqko+xc218eFu4sX3Wc13GXPhBbWG8MUU04aNhl7Mzs=
+			bBx8ZV/Zky1KWKdJrGwNkwWzs9SUSW+I67i5UjRaaWY=
 			</data>
 		</dict>
 		<key>Frameworks/share_plus.framework/Info.plist</key>
@@ -1961,7 +1928,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6HxBqEksWE6B30kXgvS7e6rczzOTWuL5z9MPqI0Vwzw=
+			daXUnAu3GPCElwJ4Jdf/ww49EQTjktnaKnlaC8/vcjU=
 			</data>
 		</dict>
 		<key>Frameworks/url_launcher_ios.framework/Info.plist</key>
@@ -1982,7 +1949,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XMLUQ3zi33suSbi7onJKxTQVM1EyfD4uOGkNk9IqYew=
+			eSFTwHGvOnA0Lx49IXMREB5Z/ffNoTarmwEkDLCZvwo=
 			</data>
 		</dict>
 		<key>GoogleMaps.bundle/GMSCacheStorage.momd/Storage.mom</key>

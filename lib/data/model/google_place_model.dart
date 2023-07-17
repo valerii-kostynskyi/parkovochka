@@ -19,4 +19,12 @@ class GooglePlaceModel {
       coordinate: CoordinateModel.fromJson(json['geometry']['location']),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'address': address,
+      'coordinate': coordinate.toJson(),
+      'googlePlaceId': googlePlaceId,
+    };
+  }
 }

@@ -15,7 +15,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<LoadParkingListEvent>(getParkingList);
   }
 
-  Future<void> getParkingList(LoadParkingListEvent event, Emitter<HomeState> emit) async {
+  Future<void> getParkingList(
+      LoadParkingListEvent event, Emitter<HomeState> emit) async {
     try {
       emit(LoadingParkingList());
       List<ParkingModel> parkingList = await parkingRepository.getParkingList();

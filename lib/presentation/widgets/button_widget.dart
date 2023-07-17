@@ -56,7 +56,7 @@ class ButtonWidget extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
           ),
-          child: Column(
+          child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -68,7 +68,9 @@ class ButtonWidget extends StatelessWidget {
                     child: Text(
                       text!,
                       textAlign: TextAlign.center,
-                      style: lightTheme.textTheme.labelSmall,
+                      style: lightTheme.textTheme.labelSmall!.copyWith(
+                        fontSize: 18,
+                      ),
                     ),
                   ),
                 ),
@@ -90,7 +92,7 @@ class ButtonWidget extends StatelessWidget {
 
   Widget _widget(Widget icon) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 4.0),
+      padding: const EdgeInsets.only(right: 8.0),
       child: SizedBox(
         height: 20,
         width: 20,
