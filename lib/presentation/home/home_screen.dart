@@ -26,8 +26,7 @@ class HomeScreen extends StatelessWidget {
               HomeBloc()..add(LoadParkingListEvent()),
         ),
         BlocProvider<BottomSheetBloc>(
-          create: (BuildContext context) =>
-              BottomSheetBloc(homeBloc: HomeBloc()),
+          create: (BuildContext context) => BottomSheetBloc(),
         ),
         BlocProvider<GeolocationBloc>(
           create: (BuildContext context) => GeolocationBloc(

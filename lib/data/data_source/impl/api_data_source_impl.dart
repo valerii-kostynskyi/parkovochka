@@ -15,7 +15,7 @@ class ApiDataSourceImpl implements ApiDataSource {
     dio.interceptors.add(
       TalkerDioLogger(
         talker: talker,
-        settings: const TalkerDioLoggerSettings(printResponseData: true),
+        settings: const TalkerDioLoggerSettings(printResponseData: false),
       ),
     );
   }
@@ -112,7 +112,8 @@ class ApiDataSourceImpl implements ApiDataSource {
   Future<bool> postParking({
     required GooglePlaceModel googlePlace,
   }) async {
-    Response response = await dio.post('$apiUrl/parkings', data: googlePlace);
-    return response.statusCode == 200;
+    Response response =
+        await dio.post('$apiUrl/parkings', data: googlePlace.toJson());
+    return response.statusCode == 204;
   }
 }

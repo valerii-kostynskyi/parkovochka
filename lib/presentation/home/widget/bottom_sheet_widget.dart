@@ -13,7 +13,7 @@ class BottomSheetWidget extends StatelessWidget {
         if (state is ShowBottomSheetState) {
           showModalBottomSheet(
             context: context,
-            builder: (context) => const AddParkingBottomSheet(),
+            builder: (context) => AddParkingBottomSheet(googlePlace: state.googlePlace),
             isScrollControlled: true,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
