@@ -3,14 +3,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:parkovochka/bloc/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:parkovochka/data/model/google_place_model.dart';
+import 'package:parkovochka/presentation/widgets/bottom_sheet/widget/add_photo_item_widget.dart';
+import 'package:parkovochka/presentation/widgets/bottom_sheet/widget/capacity_item_widget.dart';
+import 'package:parkovochka/presentation/widgets/bottom_sheet/widget/description_item_widget.dart';
+import 'package:parkovochka/presentation/widgets/bottom_sheet/widget/light_item_widget.dart';
+import 'package:parkovochka/presentation/widgets/bottom_sheet/widget/navigation_row_widget.dart';
+import 'package:parkovochka/presentation/widgets/bottom_sheet/widget/security_item_widget.dart';
+import 'package:parkovochka/presentation/widgets/bottom_sheet/widget/traffic_item_widget.dart';
+import 'package:parkovochka/presentation/widgets/bottom_sheet/widget/user_raiting_item_widget.dart';
+import 'package:parkovochka/presentation/widgets/bottom_sheet/widget/weather_protection_item_widget.dart';
 import 'package:parkovochka/presentation/widgets/button_widget.dart';
 import 'package:parkovochka/presentation/widgets/svg_icon_widget.dart';
 import 'package:parkovochka/style/theme.dart';
 
 class AddParkingBottomSheet extends StatelessWidget {
   final GooglePlaceModel googlePlace;
+  final PageController pageController = PageController();
 
-  const AddParkingBottomSheet({
+  AddParkingBottomSheet({
     super.key,
     required this.googlePlace,
   });
@@ -18,16 +28,19 @@ class AddParkingBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
+
     return BlocProvider(
       create: (context) => BottomSheetBloc(),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Expanded(child: InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-          )),
+          Expanded(
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
           Container(
             constraints: BoxConstraints(maxHeight: height * 0.9),
             decoration: const BoxDecoration(
@@ -53,6 +66,23 @@ class AddParkingBottomSheet extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 200,
+                  child: PageView(
+                    controller: pageController,
+                    children: [
+                      CapacityItemWidget(controller: pageController),
+                      SecurityItemWidget(controller: pageController),
+                      LightItemWidget(controller: pageController),
+                      TrafficItemWidget(controller: pageController),
+                      WetherProtectionItemWidget(controller: pageController),
+                      UserRaitingItemWidget(controller: pageController),
+                      AddPhotoItemWidget(controller: pageController),
+                      DescriptionItemWidget(controller: pageController),
+                    ],
+                  ),
+                ),
+                NavigationRowWidget(controller: pageController),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     vertical: 20,

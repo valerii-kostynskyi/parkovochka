@@ -15,7 +15,7 @@ class ApiDataSourceImpl implements ApiDataSource {
     dio.interceptors.add(
       TalkerDioLogger(
         talker: talker,
-        settings: const TalkerDioLoggerSettings(printResponseData: false),
+        settings: const TalkerDioLoggerSettings(printResponseData: true),
       ),
     );
   }

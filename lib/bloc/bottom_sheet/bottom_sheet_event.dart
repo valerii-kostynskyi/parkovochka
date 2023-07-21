@@ -17,3 +17,11 @@ class ShowBottomSheetEvent extends BottomSheetEvent {
 }
 
 class CloseBottomSheetEvent extends BottomSheetEvent {}
+
+class ChangeQuestionEvent extends BottomSheetEvent {
+  final int page;
+  const ChangeQuestionEvent({required this.page});
+  
+  @override
+  List<Object> get props => [page];
+}

@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		v7Xe+R1XIbPrhPHsLRsRP/Xy5xs=
+		LpARDfcNkzXnT4ePKfJ7+USWcCM=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,11 +54,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		RE+69LaBvTRbi3wWb7XgCgIORB4=
+		ugL/TnaHcHmWEVn7fKvWdJAuau4=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		IMNc0RpG0jptAOYwMuDQ6CVOZqs=
+		FqC3HH0dyppRbyzyUgX7rb1pgn8=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -83,6 +83,14 @@
 		<key>Frameworks/App.framework/flutter_assets/assets/fonts/MontserratAlternates-Thin.ttf</key>
 		<data>
 		tUuZigsRpTMIRVeQiEe+AB5CxTQ=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/dislike.svg</key>
+		<data>
+		AbE/ykG3LtpThu6tw2WPvw82KMs=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/disliked.svg</key>
+		<data>
+		KWowSpvd+kY1lEvLa0cjKneXj6g=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/icon_apple.svg</key>
 		<data>
@@ -232,6 +240,14 @@
 		<data>
 		MffvDnIj8Tpt8rIccunZV0NMQkc=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/like.svg</key>
+		<data>
+		jjLmyLTiiZ/ImXZSInzU1SZIXBE=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/liked.svg</key>
+		<data>
+		YAa6DCOKfZgM/XgBxXh/Zq5BZks=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/map.png</key>
 		<data>
 		PwvLDVmWRgDMf+v/ncW6Rbw8alM=
@@ -254,7 +270,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		lxd3hHRALPf/eBzMvr1K5fT7bjU=
+		VKGjDzs2+eqZSnoliqEdxzikalo=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -1298,7 +1314,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uE8kHIiQpC/vslk3bT2W7+E2vexmY+QA8nhDGKzX2u8=
+			d61njeduhy6kXtXrpPIbwypxyPtxY2bhvk+nn0c9rls=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -1312,14 +1328,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ekxyw+H4WXJCEYzzeK/oa9ROl2cf55/X7Isjmqc/t9A=
+			JWvCX2vrNxOR6U3n2xvKVNgMAVVYj5TCIQz2Re+38uA=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			A5W0eRvqL7eLOERVECukvR4LsR7A1BbhEf0GJnnTVTw=
+			AvZRfDaZkTPDRyYiBdOwKHBZdnfKryIAEG92NtQqj/Q=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -1362,6 +1378,20 @@
 			<key>hash2</key>
 			<data>
 			as/V0XdD5/g5kzzO4/BOY8CnuCV2CnZ4C2AVWly1mbw=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/dislike.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			GL2FeHr+qKvnU9sNhypuCjGqS9Tc3aEVS21TeB3hxts=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/disliked.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			yJDdoxopNmDqkjaQZ1gjFNvRqc6KuhqZhXoX+OEXuds=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/icon_apple.svg</key>
@@ -1623,6 +1653,20 @@
 			clx9vwSKTP5NT7IGbkcpcU8qXunDgLmWf8Ucn7wqFTw=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/like.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			nao+i2IkwkzWfaWTMwYX/XgjGrscDUI3OvHNKK7x3f8=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/liked.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RyQrBgqlI2mIG7eS51ZRpPa+KBvCFA/a1hYSyIWzTDw=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/map.png</key>
 		<dict>
 			<key>hash2</key>
@@ -1662,7 +1706,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Q/h8UM5PgfKdrJNVQvyvAmyrwJTEXK3Le04sHksLtSI=
+			h6rml93X6nQn5NjGw++FEMqubOigCAIM2rZblp9YRYo=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

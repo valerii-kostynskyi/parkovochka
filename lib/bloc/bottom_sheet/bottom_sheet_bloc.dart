@@ -14,6 +14,7 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
   BottomSheetBloc() : super(BottomSheetInitial()) {
     on<ShowBottomSheetEvent>(openBottomSheet);
     on<CloseBottomSheetEvent>(closeBottomSheet);
+    on<ChangeQuestionEvent>(changePageIndex);
   }
 
   void openBottomSheet(
@@ -36,5 +37,10 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
 
   void postParking(GooglePlaceModel googlePlace) {
     parkingRepository.postParking(googlePlace: googlePlace);
+  }
+
+  void changePageIndex(
+      ChangeQuestionEvent event, Emitter<BottomSheetState> emit) {
+    emit(ChangePageState(page: event.page));
   }
 }

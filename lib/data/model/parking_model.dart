@@ -5,13 +5,29 @@ class ParkingModel {
   String id;
   String address;
   String googlePlaceId;
+  String capacity;
+  String traffic;
+  String photoId;
+  String description;
+  bool security;
+  bool light;
+  bool weatherProtection;
+  int userRating;
   CoordinateModel coordinate;
 
   ParkingModel({
     required this.id,
     required this.address,
-    required this.coordinate,
     required this.googlePlaceId,
+    required this.capacity,
+    required this.traffic,
+    required this.photoId,
+    required this.description,
+    required this.security,
+    required this.light,
+    required this.weatherProtection,
+    required this.userRating,
+    required this.coordinate,
   });
 
   factory ParkingModel.fromJson(Map<String, dynamic> json) {
@@ -20,7 +36,14 @@ class ParkingModel {
       address: json.parseJsonAsString(key: 'address'),
       googlePlaceId: json.parseJsonAsString(key: 'googlePlaceId'),
       coordinate: CoordinateModel.fromJson(json['coordinate']),
+      capacity: '', //TODO ENUM
+      description: json.parseJsonAsString(key: 'description'),
+      light: json.parseJsonAsBool(key: 'light'),
+      photoId: json.parseJsonAsString(key: 'photoId'),
+      security: json.parseJsonAsBool(key: 'security'),
+      traffic: '', //TODO ENUM
+      userRating: json.parseJsonAsInt(key: 'photoId'),
+      weatherProtection: json.parseJsonAsBool(key: 'weatherProtection'),
     );
   }
-  
 }
