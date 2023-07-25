@@ -43,6 +43,8 @@ lib/generated_plugin_registrant.dart
 *.lock
 *.out
 
+build/
+
 # Android/Ios related
 **/android/**/release/
 **/android/**/debug/
@@ -80,6 +82,7 @@ ios/Pods/
 # Flutter/Dart/Pub related
 **/doc/api/
 .dart_tool/
+.dart_tool/flutter_build/
 .flutter-plugins
 .packages
 flutter_export_environment.sh

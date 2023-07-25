@@ -3,6 +3,7 @@ import 'package:parkovochka/data/data_source/api_data_source.dart';
 import 'package:parkovochka/data/model/google_place_model.dart';
 import 'package:dio/dio.dart';
 import 'package:parkovochka/data/model/parking_model.dart';
+import 'package:parkovochka/data/model/request/parking_request.dart';
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -112,8 +113,20 @@ class ApiDataSourceImpl implements ApiDataSource {
   Future<bool> postParking({
     required GooglePlaceModel googlePlace,
   }) async {
-    Response response =
-        await dio.post('$apiUrl/parkings', data: googlePlace.toJson());
+    Response response = await dio.post('$apiUrl/parkings',
+        data: ParkingRequest(
+          address: googlePlace.address,
+          googlePlaceId: googlePlace.googlePlaceId,
+          coordinate: googlePlace.coordinate,
+          capacity: 'value_1',
+          description: 'text text',
+          light: true,
+          // photoId: '',
+          security: false,
+          traffic: 'large',
+          userRating: 8,
+          weatherProtection: true,
+        ).toJson());
     return response.statusCode == 204;
   }
 }

@@ -36,12 +36,12 @@ class ParkingModel {
       address: json.parseJsonAsString(key: 'address'),
       googlePlaceId: json.parseJsonAsString(key: 'googlePlaceId'),
       coordinate: CoordinateModel.fromJson(json['coordinate']),
-      capacity: '', //TODO ENUM
+      capacity: json.parseJsonAsString(key: 'capacity'),
       description: json.parseJsonAsString(key: 'description'),
       light: json.parseJsonAsBool(key: 'light'),
       photoId: json.parseJsonAsString(key: 'photoId'),
       security: json.parseJsonAsBool(key: 'security'),
-      traffic: '', //TODO ENUM
+      traffic: json.parseJsonAsString(key: 'traffic'),
       userRating: json.parseJsonAsInt(key: 'photoId'),
       weatherProtection: json.parseJsonAsBool(key: 'weatherProtection'),
     );

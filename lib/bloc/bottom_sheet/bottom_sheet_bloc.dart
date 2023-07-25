@@ -43,4 +43,6 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
       ChangeQuestionEvent event, Emitter<BottomSheetState> emit) {
     emit(ChangePageState(page: event.page));
   }
+
+  void addCapacity(int index) {}
 }

@@ -71,6 +71,7 @@ class HomeScreen extends StatelessWidget {
         bottomNavigationBar: BottomAppBar(
           color: lightTheme.colorScheme.error.withOpacity(0),
           elevation: 0,
+          padding: const EdgeInsets.only(bottom: 5),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: SizedBox(

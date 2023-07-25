@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:parkovochka/bloc/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:parkovochka/style/theme.dart';
 
 class CapacityItemWidget extends StatelessWidget {
@@ -27,7 +29,7 @@ class CapacityItemWidget extends StatelessWidget {
             (index) => ValueListenableBuilder<int>(
               valueListenable: selectedIndexNotifier,
               builder: (context, selectedIndex, _) {
-                return _choiceItem(index);
+                return _choiceItem(context, index);
               },
             ),
           ),
@@ -36,9 +38,12 @@ class CapacityItemWidget extends StatelessWidget {
     );
   }
 
-  Widget _choiceItem(int index) {
+  Widget _choiceItem(BuildContext context, int index) {
     return GestureDetector(
-      onTap: () => selectedIndexNotifier.value = index,
+      onTap: () {
+        selectedIndexNotifier.value = index;
+        context.read<BottomSheetBloc>().addCapacity(index);
+      },
       child: Container(
         width: 100,
         height: 100,

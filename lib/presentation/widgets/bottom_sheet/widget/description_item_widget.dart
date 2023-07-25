@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:parkovochka/presentation/widgets/bottom_sheet/widget/navigation_row_widget.dart';
 
 class DescriptionItemWidget extends StatelessWidget {
   final PageController controller;

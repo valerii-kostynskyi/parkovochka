@@ -21,7 +21,7 @@ class SecurityItemWidget extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.all(8.0),
           child: Text(
-            'Оцінка рівня безпеки велопарковки. Наявність камери відеоспостереження чи охорони.',
+            'Рівень безпеки велопарковки. Наявність камери відеоспостереження чи охорони.',
           ),
         ),
         Expanded(
