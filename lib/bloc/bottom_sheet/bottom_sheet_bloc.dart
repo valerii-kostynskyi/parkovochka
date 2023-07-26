@@ -15,6 +15,7 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
     on<ShowBottomSheetEvent>(openBottomSheet);
     on<CloseBottomSheetEvent>(closeBottomSheet);
     on<ChangeQuestionEvent>(changePageIndex);
+    on<ChangeButtonVisibilityEvent>(changeButtonVisibility);
   }
 
   void openBottomSheet(
@@ -35,14 +36,29 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
     }
   }
 
-  void postParking(GooglePlaceModel googlePlace) {
-    parkingRepository.postParking(googlePlace: googlePlace);
+  void changeButtonVisibility(
+      ChangeButtonVisibilityEvent event, Emitter<BottomSheetState> emit) {
+    emit(ButtonVisibilityState(showButton: event.showButton));
+  }
+
+  void postParking() {
+    // parkingRepository.postParking(googlePlace: googlePlace);
   }
 
   void changePageIndex(
       ChangeQuestionEvent event, Emitter<BottomSheetState> emit) {
-    emit(ChangePageState(page: event.page));
+    if (event.page == 4) {
+      emit(
+        const ButtonVisibilityState(showButton: true),
+      );
+    } else {
+      emit(
+        const ButtonVisibilityState(showButton: false),
+      );
+    }
   }
 
   void addCapacity(int index) {}
+  void addTraffic(String value) {}
+  void addSecurity(bool value) {}
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:parkovochka/bloc/bottom_sheet/bottom_sheet_bloc.dart';
+import 'package:parkovochka/bloc/parking_bloc/parking_bloc.dart';
 import 'package:parkovochka/style/theme.dart';
 
 class CapacityItemWidget extends StatelessWidget {
@@ -16,12 +16,12 @@ class CapacityItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const Padding(
           padding: EdgeInsets.all(8.0),
           child: Text('Оцінка кількості місць для паркування велосипедів:'),
         ),
+        const SizedBox(height: 24),
         Wrap(
           spacing: 8,
           children: List.generate(
@@ -42,12 +42,19 @@ class CapacityItemWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         selectedIndexNotifier.value = index;
-        context.read<BottomSheetBloc>().addCapacity(index);
+        context.read<ParkingBloc>().add(
+              AddCapacityEvent(
+                capacity: chipLabels[index],
+              ),
+            );
       },
       child: Container(
         width: 100,
         height: 100,
-        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 5.0),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 12.0,
+          vertical: 5.0,
+        ),
         decoration: BoxDecoration(
           color: selectedIndexNotifier.value == index
               ? lightTheme.colorScheme.primary

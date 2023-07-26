@@ -29,11 +29,20 @@ class BottomSheetErrorState extends BottomSheetState {
   List<Object> get props => [exception];
 }
 
-class ChangePageState extends BottomSheetState {
+class ChangeQuestionPageState extends BottomSheetState {
   final int page;
 
-  const ChangePageState({this.page = 0});
+  const ChangeQuestionPageState({this.page = 0});
 
   @override
   List<Object> get props => [page];
+}
+
+class ButtonVisibilityState extends BottomSheetState {
+  final bool showButton;
+
+  const ButtonVisibilityState({this.showButton = false});
+
+  @override
+  List<Object> get props => [showButton];
 }

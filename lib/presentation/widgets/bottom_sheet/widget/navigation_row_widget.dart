@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:parkovochka/bloc/bottom_sheet/bottom_sheet_bloc.dart';
 
 class NavigationRowWidget extends StatelessWidget {
   final PageController controller;
@@ -12,6 +14,10 @@ class NavigationRowWidget extends StatelessWidget {
       children: [
         TextButton(
           onPressed: () {
+            context.read<BottomSheetBloc>().add(
+                  const ChangeButtonVisibilityEvent(),
+                );
+
             controller.previousPage(
               duration: const Duration(milliseconds: 500),
               curve: Curves.linear,
@@ -21,6 +27,9 @@ class NavigationRowWidget extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
+            context.read<BottomSheetBloc>().add(
+                  const ChangeButtonVisibilityEvent(),
+                );
             controller.nextPage(
               duration: const Duration(milliseconds: 500),
               curve: Curves.linear,

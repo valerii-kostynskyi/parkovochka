@@ -14,13 +14,13 @@ class TrafficItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const Padding(
           padding: EdgeInsets.all(8.0),
           child: Text(
               'Будь ласка, оцініть прохідність вулиці, на якій розташована велопарковка:'),
         ),
+        const SizedBox(height: 24),
         Wrap(
           spacing: 8,
           children: List.generate(

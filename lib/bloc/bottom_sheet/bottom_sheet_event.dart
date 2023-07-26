@@ -21,7 +21,18 @@ class CloseBottomSheetEvent extends BottomSheetEvent {}
 class ChangeQuestionEvent extends BottomSheetEvent {
   final int page;
   const ChangeQuestionEvent({required this.page});
-  
+
   @override
   List<Object> get props => [page];
+}
+
+class ChangeButtonVisibilityEvent extends BottomSheetEvent {
+  final bool showButton;
+
+  const ChangeButtonVisibilityEvent({
+    this.showButton = false,
+  });
+
+  @override
+  List<Object> get props => [showButton];
 }
