@@ -4,6 +4,8 @@ import 'package:parkovochka/data/model/google_place_model.dart';
 import 'package:dio/dio.dart';
 import 'package:parkovochka/data/model/parking_model.dart';
 import 'package:parkovochka/data/model/request/parking_request.dart';
+import 'package:parkovochka/data/model/response/traffic_respone.dart';
+import 'package:parkovochka/data/model/response/capacity_respone.dart';
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -16,7 +18,7 @@ class ApiDataSourceImpl implements ApiDataSource {
     dio.interceptors.add(
       TalkerDioLogger(
         talker: talker,
-        settings: const TalkerDioLoggerSettings(printResponseData: true),
+        settings: const TalkerDioLoggerSettings(printResponseData: false),
       ),
     );
   }
@@ -29,7 +31,6 @@ class ApiDataSourceImpl implements ApiDataSource {
     final Map<String, dynamic> query = {
       'latlng': '$lat,$lng',
       'key': googleApiKeyIos,
-      'result_type': 'point_of_interest',
     };
 
     Response response = await dio.get(
@@ -119,7 +120,7 @@ class ApiDataSourceImpl implements ApiDataSource {
           googlePlaceId: googlePlace.googlePlaceId,
           coordinate: googlePlace.coordinate,
           capacity: 'value_1',
-          description: 'text text',
+          // description: 'text text',
           light: true,
           // photoId: '',
           security: false,
@@ -128,5 +129,25 @@ class ApiDataSourceImpl implements ApiDataSource {
           weatherProtection: true,
         ).toJson());
     return response.statusCode == 204;
+  }
+
+  @override
+  Future<List<CapacityResponse>> getCapacity() async {
+    List<CapacityResponse> list = [
+      CapacityResponse(display: 'до 5', value: 'value_1'),
+      CapacityResponse(display: 'від 5 до 10', value: 'value_5'),
+      CapacityResponse(display: 'більше 10', value: 'value_10'),
+    ];
+    return list;
+  }
+
+  @override
+  Future<List<TrafficResponse>> getTraffic() async {
+    List<TrafficResponse> list = [
+      TrafficResponse(display: 'мала', value: 'low'),
+      TrafficResponse(display: 'середня', value: 'medium'),
+      TrafficResponse(display: 'висока', value: 'large'),
+    ];
+    return list;
   }
 }

@@ -36,8 +36,8 @@ class AddParkingBottomSheet extends StatelessWidget {
 
     return MultiBlocProvider(
       providers: [
-        BlocProvider<BottomSheetBloc>.value(value: this.bottomSheetBloc),
-        BlocProvider<ParkingBloc>.value(value: this.parkingBloc),
+        BlocProvider<BottomSheetBloc>.value(value: bottomSheetBloc),
+        BlocProvider<ParkingBloc>.value(value: parkingBloc),
       ],
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,

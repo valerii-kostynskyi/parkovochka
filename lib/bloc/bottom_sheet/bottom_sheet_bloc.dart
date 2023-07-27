@@ -47,14 +47,10 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
 
   void changePageIndex(
       ChangeQuestionEvent event, Emitter<BottomSheetState> emit) {
-    if (event.page == 4) {
-      emit(
-        const ButtonVisibilityState(showButton: true),
-      );
+    if (event.page == 5) {
+      emit(const ButtonVisibilityState(showButton: true));
     } else {
-      emit(
-        const ButtonVisibilityState(showButton: false),
-      );
+      emit(const ButtonVisibilityState(showButton: false));
     }
   }
 
