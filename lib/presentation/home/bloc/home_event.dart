@@ -8,4 +8,3 @@ abstract class HomeEvent extends Equatable {
 }
 
 class LoadParkingListEvent extends HomeEvent {}
-

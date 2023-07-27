@@ -16,6 +16,8 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
     on<CloseBottomSheetEvent>(closeBottomSheet);
     on<ChangeQuestionEvent>(changePageIndex);
     on<ChangeButtonVisibilityEvent>(changeButtonVisibility);
+    on<ShowBottomBarEvent>(showBottomBar);
+    on<HideBottomBarEvent>(hideBottomSheet);
   }
 
   void openBottomSheet(
@@ -51,6 +53,24 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
       emit(const ButtonVisibilityState(showButton: true));
     } else {
       emit(const ButtonVisibilityState(showButton: false));
+    }
+  }
+
+  void showBottomBar(
+      ShowBottomBarEvent event, Emitter<BottomSheetState> emit) async {
+    try {
+      emit(ShowBottomBarState(googlePlace: event.googlePlace));
+    } catch (e) {
+      emit(BottomSheetErrorState(exception: e));
+    }
+  }
+
+  void hideBottomSheet(
+      HideBottomBarEvent event, Emitter<BottomSheetState> emit) async {
+    try {
+      emit(HideBottomBarState());
+    } catch (e) {
+      emit(BottomSheetErrorState(exception: e));
     }
   }
 

@@ -18,7 +18,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GoogleMapController? mapController;
     return MultiBlocProvider(
       providers: [
         BlocProvider<HomeBloc>(
@@ -46,6 +45,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             BlocBuilder<HomeBloc, HomeState>(
               builder: (context, state) {
+                GoogleMapController? mapController;
                 if (state is LoadedParkingList) {
                   return GoogleMapWidget(
                     onMapCreated: (controller) => mapController = controller,
@@ -68,48 +68,60 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         extendBody: true,
-        bottomNavigationBar: BottomAppBar(
-          color: lightTheme.colorScheme.error.withOpacity(0),
-          elevation: 0,
-          padding: const EdgeInsets.only(bottom: 5),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: SizedBox(
-              height: 56,
-              width: double.infinity,
-              child: Builder(
-                builder: (context) {
-                  return ButtonWidget(
-                    onPressed: () {
-                      final geolocationState =
-                          context.read<GeolocationBloc>().state;
-                      if (geolocationState is GeolocationLoadedState) {
-                        final currentPosition = geolocationState.position;
-                        mapController?.animateCamera(
-                          CameraUpdate.newLatLng(
-                            LatLng(
-                              48.621025,
-                              22.288229,
-                            ),
-                            //current position
-                            // LatLng(
-                            //   currentPosition.latitude,
-                            //   currentPosition.longitude,
-                            // ),
+        bottomNavigationBar: BlocBuilder<BottomSheetBloc, BottomSheetState>(
+          builder: (context, state) {
+            return AnimatedCrossFade(
+              crossFadeState: (state is ShowBottomBarState)
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
+              duration: const Duration(milliseconds: 500),
+              secondChild: Container(
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(16),
+                    topLeft: Radius.circular(16),
+                  ),
+                  color: lightTheme.colorScheme.primary,
+                ),
+                height: 20,
+                child: const Center(
+                  child: Text('Оберіть локацію велопарковки на мапі =)'),
+                ),
+              ),
+              firstChild: BottomAppBar(
+                color: lightTheme.colorScheme.error.withOpacity(0),
+                elevation: 0,
+                padding: const EdgeInsets.only(bottom: 5),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: SizedBox(
+                    height: 56,
+                    width: double.infinity,
+                    child: Builder(
+                      builder: (context) {
+                        return ButtonWidget(
+                          onPressed: () {
+                            if (state is ShowBottomBarState) {
+                              context.read<BottomSheetBloc>().add(
+                                    ShowBottomSheetEvent(
+                                      googlePlace: state.googlePlace,
+                                    ),
+                                  );
+                            }
+                          },
+                          text: 'додати parkovochka'.toUpperCase(),
+                          leading: SVGIconWidget(
+                            icon: 'icon_plus',
+                            color: lightTheme.iconTheme.color,
                           ),
                         );
-                      }
-                    },
-                    text: 'current location'.toUpperCase(),
-                    leading: SVGIconWidget(
-                      icon: 'icon_location',
-                      color: lightTheme.iconTheme.color,
+                      },
                     ),
-                  );
-                },
+                  ),
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ),
     );

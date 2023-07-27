@@ -53,8 +53,12 @@ class GeolocationBloc extends Bloc<GeolocationEvent, GeolocationState> {
       try {
         final GeolocationLoadedState currentState =
             state as GeolocationLoadedState;
+
         final List<Marker> updatedMarkers = List.from(currentState.markers)
           ..add(event.marker);
+        if (updatedMarkers.length > 1) {
+          updatedMarkers.removeAt(0);
+        }
         final double latitude = event.marker.position.latitude;
         final double longitude = event.marker.position.longitude;
         final String placeId =
@@ -67,7 +71,7 @@ class GeolocationBloc extends Bloc<GeolocationEvent, GeolocationState> {
           placeId: placeId,
         );
 
-        bottomSheetBloc.add(ShowBottomSheetEvent(googlePlace: placeModel));
+        bottomSheetBloc.add(ShowBottomBarEvent(googlePlace: placeModel));
 
         emit(currentState.copyWith(markers: updatedMarkers));
       } catch (exception, stackTrace) {

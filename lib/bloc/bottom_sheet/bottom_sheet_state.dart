@@ -46,3 +46,16 @@ class ButtonVisibilityState extends BottomSheetState {
   @override
   List<Object> get props => [showButton];
 }
+
+
+class ShowBottomBarState extends BottomSheetState {
+    final GooglePlaceModel googlePlace;
+
+  const ShowBottomBarState({required this.googlePlace});
+
+  @override
+  List<Object> get props => [googlePlace];
+}
+
+class HideBottomBarState extends BottomSheetState {}
+
