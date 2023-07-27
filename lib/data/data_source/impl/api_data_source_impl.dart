@@ -133,21 +133,29 @@ class ApiDataSourceImpl implements ApiDataSource {
 
   @override
   Future<List<CapacityResponse>> getCapacity() async {
-    List<CapacityResponse> list = [
-      CapacityResponse(display: 'до 5', value: 'value_1'),
-      CapacityResponse(display: 'від 5 до 10', value: 'value_5'),
-      CapacityResponse(display: 'більше 10', value: 'value_10'),
-    ];
-    return list;
+    Response response = await dio.get('$apiUrl/dictionaries/capacity-types');
+    if (response.statusCode == 200) {
+      List<dynamic> mapList = response.data;
+
+      List<CapacityResponse> capacityList =
+          mapList.map((map) => CapacityResponse.fromJson(map)).toList();
+      return capacityList;
+    } else {
+      return [];
+    }
   }
 
   @override
   Future<List<TrafficResponse>> getTraffic() async {
-    List<TrafficResponse> list = [
-      TrafficResponse(display: 'мала', value: 'low'),
-      TrafficResponse(display: 'середня', value: 'medium'),
-      TrafficResponse(display: 'висока', value: 'large'),
-    ];
-    return list;
+    Response response = await dio.get('$apiUrl/dictionaries/traffic-types');
+    if (response.statusCode == 200) {
+      List<dynamic> mapList = response.data;
+
+      List<TrafficResponse> trafficList =
+          mapList.map((map) => TrafficResponse.fromJson(map)).toList();
+      return trafficList;
+    } else {
+      return [];
+    }
   }
 }

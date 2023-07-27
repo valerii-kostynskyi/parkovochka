@@ -56,7 +56,7 @@ class CapacityItemWidget extends StatelessWidget {
                                   );
                             },
                             selectedIndexNotifier: selectedIndexNotifier,
-                            title: snapshot.data![index].display,
+                            title: snapshot.data![index].name,
                           ),
                         );
                       },
