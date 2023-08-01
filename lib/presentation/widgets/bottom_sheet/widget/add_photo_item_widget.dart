@@ -13,7 +13,7 @@ class AddPhotoItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('AddPhotoItemWidget'),
+        const Text('AddPhotoItemWidget'),
         NavigationRowWidget(controller: controller),
       ],
     );

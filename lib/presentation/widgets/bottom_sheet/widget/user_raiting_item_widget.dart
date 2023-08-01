@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:parkovochka/bloc/parking_bloc/parking_bloc.dart';
 
 class UserRaitingItemWidget extends StatefulWidget {
   final PageController controller;
@@ -38,6 +40,9 @@ class UserRaitingItemWidgetState extends State<UserRaitingItemWidget> {
             onChanged: (newValue) {
               setState(() {
                 rating = newValue;
+                context.read<ParkingBloc>().add(AddUserRaitingEvent(
+                      userRaiting: rating.toInt(),
+                    ));
               });
             },
           ),

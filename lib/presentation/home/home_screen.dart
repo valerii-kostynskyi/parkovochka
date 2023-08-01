@@ -45,6 +45,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             BlocBuilder<HomeBloc, HomeState>(
               builder: (context, state) {
+                // ignore: unused_local_variable
                 GoogleMapController? mapController;
                 if (state is LoadedParkingList) {
                   return GoogleMapWidget(
@@ -83,7 +84,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   color: lightTheme.colorScheme.primary,
                 ),
-                height: 20,
+                height: 40,
                 child: const Center(
                   child: Text('Оберіть локацію велопарковки на мапі =)'),
                 ),

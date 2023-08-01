@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:parkovochka/bloc/parking_bloc/parking_bloc.dart';
 import 'package:parkovochka/style/theme.dart';
 
 class SecurityItemWidget extends StatelessWidget {
@@ -36,6 +38,9 @@ class SecurityItemWidget extends StatelessWidget {
                 onPressed: () {
                   likeSelected.value = true;
                   dislikeSelected.value = false;
+                  context.read<ParkingBloc>().add(
+                        AddSecurityEvent(security: true),
+                      );
                 },
               ),
               CustomIconButton(
@@ -45,6 +50,9 @@ class SecurityItemWidget extends StatelessWidget {
                 onPressed: () {
                   dislikeSelected.value = true;
                   likeSelected.value = false;
+                  context.read<ParkingBloc>().add(
+                        AddSecurityEvent(security: false),
+                      );
                 },
               ),
             ],

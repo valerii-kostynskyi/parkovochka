@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:parkovochka/data/model/google_place_model.dart';
+import 'package:parkovochka/data/model/request/parking_request.dart';
 import 'package:parkovochka/domain/parking_repository.dart';
 
 part 'bottom_sheet_event.dart';
@@ -17,13 +18,15 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
     on<ChangeQuestionEvent>(changePageIndex);
     on<ChangeButtonVisibilityEvent>(changeButtonVisibility);
     on<ShowBottomBarEvent>(showBottomBar);
-    on<HideBottomBarEvent>(hideBottomSheet);
+    on<HideBottomBarEvent>(hideBottomBar);
   }
 
   void openBottomSheet(
       ShowBottomSheetEvent event, Emitter<BottomSheetState> emit) async {
     try {
-      emit(ShowBottomSheetState(googlePlace: event.googlePlace));
+      emit(
+        ShowBottomSheetState(googlePlace: event.googlePlace),
+      );
     } catch (e) {
       emit(BottomSheetErrorState(exception: e));
     }
@@ -41,10 +44,6 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
   void changeButtonVisibility(
       ChangeButtonVisibilityEvent event, Emitter<BottomSheetState> emit) {
     emit(ButtonVisibilityState(showButton: event.showButton));
-  }
-
-  void postParking() {
-    // parkingRepository.postParking(googlePlace: googlePlace);
   }
 
   void changePageIndex(
@@ -65,7 +64,7 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
     }
   }
 
-  void hideBottomSheet(
+  void hideBottomBar(
       HideBottomBarEvent event, Emitter<BottomSheetState> emit) async {
     try {
       emit(HideBottomBarState());
@@ -74,7 +73,9 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
     }
   }
 
-  void addCapacity(int index) {}
-  void addTraffic(String value) {}
-  void addSecurity(bool value) {}
+  void postParking(ParkingRequest parking) {
+    parkingRepository.postParking(parking: parking).then(
+          (value) => add(CloseBottomSheetEvent()),
+        );
+  }
 }

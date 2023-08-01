@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:parkovochka/bloc/parking_bloc/parking_bloc.dart';
 
 class LightItemWidget extends StatelessWidget {
   final PageController controller;
@@ -28,6 +30,9 @@ class LightItemWidget extends StatelessWidget {
             selected: likeSelected,
             onPressed: () {
               likeSelected.value = !likeSelected.value;
+              context.read<ParkingBloc>().add(
+                    AddLightEvent(light: likeSelected.value),
+                  );
             },
           ),
         ),

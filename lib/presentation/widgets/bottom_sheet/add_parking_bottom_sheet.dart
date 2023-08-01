@@ -28,7 +28,11 @@ class AddParkingBottomSheet extends StatelessWidget {
     required this.googlePlace,
     required this.bottomSheetBloc,
     required this.parkingBloc,
-  });
+  }) {
+    parkingBloc.parkingRequest.address = googlePlace.address;
+    parkingBloc.parkingRequest.googlePlaceId = googlePlace.googlePlaceId;
+    parkingBloc.parkingRequest.coordinate = googlePlace.coordinate;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +117,8 @@ class AddParkingBottomSheet extends StatelessWidget {
                         ),
                         child: ButtonWidget(
                           onPressed: () {
-                            context.read<BottomSheetBloc>().postParking();
+                            context.read<BottomSheetBloc>().postParking(
+                                context.read<ParkingBloc>().parkingRequest);
                           },
                           text: 'add parkovochka'.toUpperCase(),
                           leading: SVGIconWidget(
