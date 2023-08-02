@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:parkovochka/style/theme.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String? text;
@@ -48,11 +47,11 @@ class ButtonWidget extends StatelessWidget {
           elevation: elevation,
           padding: const EdgeInsets.all(0),
           minWidth: 0,
-          disabledColor: lightTheme.dividerColor,
+          disabledColor: Theme.of(context).dividerColor,
           onPressed: onPressed,
           color: disabled || loading
-              ? lightTheme.disabledColor.withOpacity(0.5)
-              : lightTheme.colorScheme.primary,
+              ? Theme.of(context).disabledColor.withOpacity(0.5)
+              : Theme.of(context).colorScheme.primary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
           ),
@@ -68,9 +67,7 @@ class ButtonWidget extends StatelessWidget {
                     child: Text(
                       text!,
                       textAlign: TextAlign.center,
-                      style: lightTheme.textTheme.labelSmall!.copyWith(
-                        fontSize: 18,
-                      ),
+                      style: Theme.of(context).textTheme.headlineMedium,
                     ),
                   ),
                 ),

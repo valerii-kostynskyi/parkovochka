@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:parkovochka/style/theme.dart';
 
 class ChoiceItemButton extends StatelessWidget {
   final int index;
@@ -28,13 +27,13 @@ class ChoiceItemButton extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: selectedIndexNotifier.value == index
-              ? lightTheme.colorScheme.primary
-              : Colors.white,
+              ? Theme.of(context).colorScheme.primary
+              : Theme.of(context).colorScheme.background,
           borderRadius: BorderRadius.circular(20.0),
           border: Border.all(
             color: selectedIndexNotifier.value == index
-                ? lightTheme.colorScheme.primary
-                : Colors.grey,
+                ? Theme.of(context).colorScheme.primary
+                : Theme.of(context).dividerColor,
             width: 1,
           ),
         ),
@@ -46,8 +45,8 @@ class ChoiceItemButton extends StatelessWidget {
               title,
               style: TextStyle(
                 color: selectedIndexNotifier.value == index
-                    ? Colors.white
-                    : Colors.black,
+                    ? Theme.of(context).colorScheme.background
+                    : Theme.of(context).colorScheme.onBackground,
               ),
             ),
           ],

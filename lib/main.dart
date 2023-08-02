@@ -9,7 +9,6 @@ import 'package:parkovochka/routes/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:parkovochka/util/langs/app_locale.dart';
 import 'package:parkovochka/util/langs/app_localizations.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger_observer.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger_settings.dart';
@@ -18,6 +17,7 @@ import 'package:talker_flutter/talker_flutter.dart';
 import 'bloc/theme/theme_bloc.dart';
 import 'data/data_source/api_data_source.dart';
 import 'data/data_source/impl/api_data_source_impl.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
@@ -57,13 +57,14 @@ class ParkovochkaApp extends StatelessWidget {
           create: (BuildContext context) => ThemeBloc(),
         ),
         BlocProvider<LocaleBloc>(
-          create: (BuildContext context) =>
-              LocaleBloc(ApplicationLocale('en', 'US')),
+          create: (BuildContext context) => LocaleBloc(
+            const Locale('en', 'US'),
+          ),
         ),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, themeState) {
-          return BlocBuilder<LocaleBloc, ApplicationLocale>(
+          return BlocBuilder<LocaleBloc, Locale>(
             builder: (context, locale) {
               return MaterialApp.router(
                 theme: _getTheme(themeState),
@@ -77,7 +78,7 @@ class ParkovochkaApp extends StatelessWidget {
                   Locale('en', 'US'),
                   Locale('uk', 'UA'),
                 ],
-                locale: locale.toLocale(),
+                locale: locale,
                 routerConfig: _appRouter.config(
                   navigatorObservers: () => [
                     TalkerRouteObserver(GetIt.I<Talker>()),

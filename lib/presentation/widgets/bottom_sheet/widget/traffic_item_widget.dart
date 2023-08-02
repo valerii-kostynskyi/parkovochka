@@ -5,6 +5,8 @@ import 'package:parkovochka/bloc/parking_bloc/parking_bloc.dart';
 import 'package:parkovochka/data/model/response/traffic_respone.dart';
 import 'package:parkovochka/domain/parking_repository.dart';
 import 'package:parkovochka/presentation/widgets/bottom_sheet/widget/choice_item_button.dart';
+import 'package:parkovochka/util/langs/app_localizations.dart';
+import 'package:parkovochka/util/string_extention.dart';
 
 class TrafficItemWidget extends StatelessWidget {
   final PageController controller;
@@ -21,10 +23,14 @@ class TrafficItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.all(8.0),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Text(
-              'Будь ласка, оцініть прохідність вулиці, на якій розташована велопарковка:'),
+            AppLocalizations.of(context)
+                .translations['please_rate_the_passability']!
+                .capitalizeFirst(),
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
         ),
         const SizedBox(height: 24),
         FutureBuilder<List<TrafficResponse>>(

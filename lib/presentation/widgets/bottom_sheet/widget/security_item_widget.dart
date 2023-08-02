@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:parkovochka/bloc/parking_bloc/parking_bloc.dart';
-import 'package:parkovochka/style/theme.dart';
+import 'package:parkovochka/presentation/widgets/bottom_sheet/widget/custom_icon_button.dart';
+import 'package:parkovochka/util/langs/app_localizations.dart';
+import 'package:parkovochka/util/string_extention.dart';
 
 class SecurityItemWidget extends StatelessWidget {
   final PageController controller;
@@ -20,10 +21,13 @@ class SecurityItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.all(8.0),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Text(
-            'Рівень безпеки велопарковки. Наявність камери відеоспостереження чи охорони.',
+            AppLocalizations.of(context)
+                .translations['security_level_of_bicycle_parking']!
+                .capitalizeFirst(),
+            style: Theme.of(context).textTheme.displayMedium,
           ),
         ),
         Expanded(
@@ -35,6 +39,7 @@ class SecurityItemWidget extends StatelessWidget {
                 icon: 'assets/icons/like.svg',
                 selectedIcon: 'assets/icons/liked.svg',
                 selected: likeSelected,
+                fillIcon: true,
                 onPressed: () {
                   likeSelected.value = true;
                   dislikeSelected.value = false;
@@ -43,10 +48,12 @@ class SecurityItemWidget extends StatelessWidget {
                       );
                 },
               ),
+              const SizedBox(width: 16),
               CustomIconButton(
                 icon: 'assets/icons/dislike.svg',
                 selectedIcon: 'assets/icons/disliked.svg',
                 selected: dislikeSelected,
+                fillIcon: true,
                 onPressed: () {
                   dislikeSelected.value = true;
                   likeSelected.value = false;
@@ -59,48 +66,6 @@ class SecurityItemWidget extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class CustomIconButton extends StatelessWidget {
-  final String icon;
-  final String selectedIcon;
-  final ValueNotifier<bool> selected;
-  final VoidCallback onPressed;
-
-  const CustomIconButton({
-    Key? key,
-    required this.icon,
-    required this.selectedIcon,
-    required this.selected,
-    required this.onPressed,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: ValueListenableBuilder<bool>(
-        valueListenable: selected,
-        builder: (context, isSelected, child) {
-          return IconButton(
-            iconSize: 150,
-            color: Colors.red,
-            icon: SizedBox(
-              height: 100,
-              width: 100,
-              child: SvgPicture.asset(
-                isSelected ? selectedIcon : icon,
-                color: isSelected
-                    ? lightTheme.colorScheme.primary
-                    : lightTheme.colorScheme.onSurface,
-              ),
-            ),
-            onPressed: onPressed,
-          );
-        },
-      ),
     );
   }
 }

@@ -15,7 +15,6 @@ import 'package:parkovochka/presentation/widgets/bottom_sheet/widget/user_raitin
 import 'package:parkovochka/presentation/widgets/bottom_sheet/widget/weather_protection_item_widget.dart';
 import 'package:parkovochka/presentation/widgets/button_widget.dart';
 import 'package:parkovochka/presentation/widgets/svg_icon_widget.dart';
-import 'package:parkovochka/style/theme.dart';
 
 class AddParkingBottomSheet extends StatelessWidget {
   final GooglePlaceModel googlePlace;
@@ -55,9 +54,9 @@ class AddParkingBottomSheet extends StatelessWidget {
           ),
           Container(
             constraints: BoxConstraints(maxHeight: height * 0.9),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.vertical(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.background,
+              borderRadius: const BorderRadius.vertical(
                 top: Radius.circular(12),
               ),
             ),
@@ -123,7 +122,7 @@ class AddParkingBottomSheet extends StatelessWidget {
                           text: 'add parkovochka'.toUpperCase(),
                           leading: SVGIconWidget(
                             icon: 'icon_plus',
-                            color: lightTheme.iconTheme.color,
+                            color: Theme.of(context).iconTheme.color,
                           ),
                         ),
                       ),

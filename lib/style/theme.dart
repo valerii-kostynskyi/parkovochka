@@ -14,7 +14,7 @@ final lightTheme = ThemeData(
   colorScheme: const ColorScheme(
     tertiaryContainer: Colors.warning,
     background: Colors.white,
-    onBackground: Colors.white,
+    onBackground: Colors.text1,
     error: Colors.error,
     onError: Colors.errorWithOpacity,
     primary: Colors.primaryBlue,
@@ -54,6 +54,12 @@ final lightTheme = ThemeData(
     labelSmall: TextStyle(
       color: Colors.white,
       fontSize: 14,
+      letterSpacing: 0.25,
+      fontWeight: FontWeight.w300,
+    ),
+    headlineMedium: TextStyle(
+      color: Colors.white,
+      fontSize: 18,
       letterSpacing: 0.25,
       fontWeight: FontWeight.w300,
     ),
@@ -110,31 +116,6 @@ final lightTheme = ThemeData(
       fontWeight: FontWeight.w500,
     ),
   ),
-  tabBarTheme: const TabBarTheme(
-    labelPadding: EdgeInsets.only(
-      bottom: 13,
-      top: 13,
-    ),
-    labelColor: Colors.text2,
-    labelStyle: TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.w500,
-      color: Colors.text2,
-      letterSpacing: 0,
-    ),
-    unselectedLabelColor: Colors.text1,
-    unselectedLabelStyle: TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.w500,
-      letterSpacing: 0,
-    ),
-    indicator: UnderlineTabIndicator(
-      borderSide: BorderSide(
-        color: Colors.text2,
-        width: 1.0,
-      ),
-    ),
-  ),
 );
 
 final darkTheme = ThemeData(
@@ -150,7 +131,7 @@ final darkTheme = ThemeData(
   colorScheme: const ColorScheme(
     tertiaryContainer: Colors.warning,
     background: Colors.text1,
-    onBackground: Colors.text1,
+    onBackground: Colors.white,
     error: Colors.error,
     onError: Colors.errorWithOpacity,
     primary: Colors.primaryBlue,
@@ -168,17 +149,6 @@ final darkTheme = ThemeData(
   iconTheme: const IconThemeData(
     color: Colors.text1,
   ),
-  expansionTileTheme: const ExpansionTileThemeData(
-    backgroundColor: Colors.text1,
-    collapsedIconColor: Colors.dividers,
-    collapsedBackgroundColor: Colors.text1,
-    collapsedTextColor: Colors.text1,
-    iconColor: Colors.dividers,
-    tilePadding: EdgeInsets.symmetric(
-      vertical: 5,
-      horizontal: 16,
-    ),
-  ),
   fontFamily: 'Monserat',
   textTheme: const TextTheme(
     displayLarge: TextStyle(
@@ -187,13 +157,19 @@ final darkTheme = ThemeData(
       fontWeight: FontWeight.w600,
     ),
     displayMedium: TextStyle(
-      color: Colors.text2,
+      color: Colors.white,
       fontSize: 16,
       fontWeight: FontWeight.w300,
     ),
     labelSmall: TextStyle(
-      color: Colors.text3,
+      color: Colors.white,
       fontSize: 14,
+      letterSpacing: 0.25,
+      fontWeight: FontWeight.w300,
+    ),
+    headlineMedium: TextStyle(
+      color: Colors.text1,
+      fontSize: 18,
       letterSpacing: 0.25,
       fontWeight: FontWeight.w300,
     ),
@@ -212,32 +188,6 @@ final darkTheme = ThemeData(
       ),
     ),
   ),
-  chipTheme: ChipThemeData(
-    backgroundColor: Colors.text1,
-    secondarySelectedColor: Colors.white,
-    brightness: Brightness.light,
-    secondaryLabelStyle: const TextStyle(
-      color: Colors.text1,
-      fontSize: 14,
-      fontWeight: FontWeight.w400,
-    ),
-    deleteIconColor: Colors.text1,
-    disabledColor: Colors.text2.withOpacity(.5),
-    selectedColor: Colors.primaryRed,
-    padding: const EdgeInsets.only(
-      bottom: 0,
-    ),
-    labelStyle: const TextStyle(
-      color: Colors.text1,
-      fontSize: 14,
-      fontWeight: FontWeight.w400,
-    ),
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(10),
-      ),
-    ),
-  ),
   appBarTheme: AppBarTheme(
     backgroundColor: Colors.text1,
     elevation: 2,
@@ -248,31 +198,6 @@ final darkTheme = ThemeData(
       color: Colors.white,
       fontSize: 20,
       fontWeight: FontWeight.w500,
-    ),
-  ),
-  tabBarTheme: const TabBarTheme(
-    labelPadding: EdgeInsets.only(
-      bottom: 13,
-      top: 13,
-    ),
-    labelColor: Colors.white,
-    labelStyle: TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.w500,
-      color: Colors.white,
-      letterSpacing: 0,
-    ),
-    unselectedLabelColor: Colors.white,
-    unselectedLabelStyle: TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.w500,
-      letterSpacing: 0,
-    ),
-    indicator: UnderlineTabIndicator(
-      borderSide: BorderSide(
-        color: Colors.white,
-        width: 1.0,
-      ),
     ),
   ),
 );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:parkovochka/bloc/parking_bloc/parking_bloc.dart';
+import 'package:parkovochka/util/langs/app_localizations.dart';
+import 'package:parkovochka/util/string_extention.dart';
 
 class UserRaitingItemWidget extends StatefulWidget {
   final PageController controller;
@@ -22,7 +24,12 @@ class UserRaitingItemWidgetState extends State<UserRaitingItemWidget> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text('Оцініть велопарковку шкалою від 0 до 10'),
+        Text(
+          AppLocalizations.of(context)
+              .translations['rate_the_bicycle_parking_from']!
+              .capitalizeFirst(),
+          style: Theme.of(context).textTheme.displayMedium,
+        ),
         Text(
           rating.toInt().toString(),
           style: const TextStyle(
@@ -38,12 +45,14 @@ class UserRaitingItemWidgetState extends State<UserRaitingItemWidget> {
             max: 10,
             divisions: 10,
             onChanged: (newValue) {
-              setState(() {
-                rating = newValue;
-                context.read<ParkingBloc>().add(AddUserRaitingEvent(
-                      userRaiting: rating.toInt(),
-                    ));
-              });
+              setState(
+                () {
+                  rating = newValue;
+                  context.read<ParkingBloc>().add(
+                        AddUserRaitingEvent(userRaiting: rating.toInt()),
+                      );
+                },
+              );
             },
           ),
         ),

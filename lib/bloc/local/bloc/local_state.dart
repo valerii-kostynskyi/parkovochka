@@ -10,7 +10,7 @@ abstract class LocaleState extends Equatable {
 class LocaleInitial extends LocaleState {}
 
 class LocaleLoaded extends LocaleState {
-  final ApplicationLocale locale;
+  final Locale locale;
 
   const LocaleLoaded(this.locale);
 
