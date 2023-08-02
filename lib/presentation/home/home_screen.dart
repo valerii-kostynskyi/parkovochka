@@ -5,12 +5,14 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:parkovochka/bloc/bottom_sheet/bottom_sheet_bloc.dart';
 
 import 'package:parkovochka/bloc/geolocation/geolocation_bloc.dart';
+import 'package:parkovochka/presentation/drawer/app_drawer.dart';
 import 'package:parkovochka/presentation/home/bloc/home_bloc.dart';
 import 'package:parkovochka/presentation/home/widget/bottom_sheet_widget.dart';
 import 'package:parkovochka/presentation/home/widget/google_map_widget.dart';
 import 'package:parkovochka/presentation/widgets/button_widget.dart';
 import 'package:parkovochka/presentation/widgets/svg_icon_widget.dart';
 import 'package:parkovochka/style/theme.dart';
+import 'package:parkovochka/util/langs/app_localizations.dart';
 
 @RoutePage()
 class HomeScreen extends StatelessWidget {
@@ -34,12 +36,18 @@ class HomeScreen extends StatelessWidget {
         ),
       ],
       child: Scaffold(
+        drawer: AppDrawer(),
         appBar: AppBar(
           centerTitle: true,
           title: const SVGIconWidget(
             height: 30,
             icon: 'parkovochka_logo',
           ),
+          // actions: [
+          //   TextButton(
+          //       onPressed: () => context.read<ThemeBloc>().add(ThemeToggled()),
+          //       child: Text('Change theme'))
+          // ],
         ),
         body: Stack(
           children: [
@@ -85,8 +93,11 @@ class HomeScreen extends StatelessWidget {
                   color: lightTheme.colorScheme.primary,
                 ),
                 height: 40,
-                child: const Center(
-                  child: Text('Оберіть локацію велопарковки на мапі =)'),
+                child: Center(
+                  child: Text(
+                    AppLocalizations.of(context)
+                        .translations['please_choose_veloparking_location']!,
+                  ),
                 ),
               ),
               firstChild: BottomAppBar(

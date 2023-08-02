@@ -1,14 +1,16 @@
 import 'dart:async';
 
+import 'package:parkovochka/bloc/local/bloc/local_bloc.dart';
 import 'package:parkovochka/domain/geolocation_repository.dart';
 import 'package:parkovochka/domain/impl/geolocation_repository_impl.dart';
 import 'package:parkovochka/domain/impl/parking_repository_impl.dart';
 import 'package:parkovochka/domain/parking_repository.dart';
 import 'package:parkovochka/routes/router.dart';
-import 'package:parkovochka/style/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:parkovochka/util/langs/app_locale.dart';
+import 'package:parkovochka/util/langs/app_localizations.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger_observer.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger_settings.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -16,6 +18,7 @@ import 'package:talker_flutter/talker_flutter.dart';
 import 'bloc/theme/theme_bloc.dart';
 import 'data/data_source/api_data_source.dart';
 import 'data/data_source/impl/api_data_source_impl.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   final talker = TalkerFlutter.init();
@@ -48,21 +51,48 @@ class ParkovochkaApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ThemeBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ThemeBloc>(
+          create: (BuildContext context) => ThemeBloc(),
+        ),
+        BlocProvider<LocaleBloc>(
+          create: (BuildContext context) =>
+              LocaleBloc(ApplicationLocale('en', 'US')),
+        ),
+      ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
-        builder: (context, state) {
-          return MaterialApp.router(
-            theme: lightTheme,
-            debugShowCheckedModeBanner: false,
-            routerConfig: _appRouter.config(
-              navigatorObservers: () => [
-                TalkerRouteObserver(GetIt.I<Talker>()),
-              ],
-            ),
+        builder: (context, themeState) {
+          return BlocBuilder<LocaleBloc, ApplicationLocale>(
+            builder: (context, locale) {
+              return MaterialApp.router(
+                theme: _getTheme(themeState),
+                localizationsDelegates: const [
+                  AppLocalizations.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: const [
+                  Locale('en', 'US'),
+                  Locale('uk', 'UA'),
+                ],
+                locale: locale.toLocale(),
+                routerConfig: _appRouter.config(
+                  navigatorObservers: () => [
+                    TalkerRouteObserver(GetIt.I<Talker>()),
+                  ],
+                ),
+                debugShowCheckedModeBanner: false,
+              );
+            },
           );
         },
       ),
     );
+  }
+
+  ThemeData _getTheme(ThemeState state) {
+    return state.themeData;
   }
 }
