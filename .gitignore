@@ -1,0 +1,107 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+.dart_tool/
+.flutter-plugins
+.packages
+
+# Web related
+lib/generated_plugin_registrant.dart
+
+# Exceptions to above rules.
+!/packages/flutter_tools/**/*.dart
+!/packages/flutter_test/**/*.dart
+!/packages/flutter_web_plugins/**/*.dart
+!**/bin/cache/pkg/sky_engine/lib/
+!**/bin/cache/pkg/sky_engine/sdk_ext/
+!.dart_tool/package_config.json
+
+# OS Files
+*.DS_Store
+*.swp
+*.lock
+*.out
+
+build/
+
+# Android/Ios related
+**/android/**/release/
+**/android/**/debug/
+**/android/.gradle
+android/app/google-services.json
+android/app/src/main/res/drawable-hdpi/
+android/app/src/main/res/drawable-mdpi/
+android/app/src/main/res/drawable-xhdpi/
+android/app/src/main/res/drawable-xxhdpi/
+android/app/src/main/res/drawable-xxxhdpi/
+android/app/src/main/res/mipmap-*
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.pbxuser
+**/ios/**/.DS_Store
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Generated.xcconfig
+ios/Flutter/app.flx
+ios/Flutter/app.zip
+ios/Flutter/flutter_assets/
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/podhelper.rb
+ios/Pods/
+!ios/Runner.xcworkspace/contents.xcworkspacedata
+!ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.moved-aside
+**/ios/**/*.pbxuser
+**/ios/**/.DS_Store
+**/*.jks
+
+# Flutter/Dart/Pub related
+**/doc/api/
+.dart_tool/
+.dart_tool/flutter_build/
+.flutter-plugins
+.packages
+flutter_export_environment.sh
+
+# Exceptions to above rules.
+!/packages/flutter_tools/**/*.dart
+!/packages/flutter_test/**/*.dart
+!**/bin/cache/pkg/sky_engine/lib/
+!**/bin/cache/pkg/sky_engine/sdk_ext/
+!.dart_tool/package_config.json
+
+# web related
+**/web/*.*
+!**/web/index.html
+!**/web/manifest.json
+!**/web/favicon.png
+!**/web/icons/*
+**/test/coverage/*
+
+# Build
+build/
+
