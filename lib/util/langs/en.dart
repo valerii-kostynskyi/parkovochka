@@ -15,4 +15,6 @@ const Map<String, String> en = {
   'does_the_bicycle_parking_have_weather_protection':
       'Does the bicycle parking have weather protection (canopy, side walls)?',
   'rate_the_bicycle_parking_from': 'Rate the bicycle parking from 0 to 10',
+  'dark_theme': 'dark theme',
+  'auth_pls': 'if you want to add a new bicycle parking, please sign in!',
 };

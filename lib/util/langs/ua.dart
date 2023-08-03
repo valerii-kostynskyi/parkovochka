@@ -15,4 +15,7 @@ const Map<String, String> uk = {
   'does_the_bicycle_parking_have_weather_protection':
       'Чи має велопарковка захист від негоди (навіс, бічні стінки)?',
   'rate_the_bicycle_parking_from': 'Оцініть велопарковку шкалою від 0 до 10',
+  'dark_theme': 'темна тема',
+  'auth_pls':
+      'якщо ви хочете додати нову стоянку для велосипедів, авторизуйтесь!',
 };
