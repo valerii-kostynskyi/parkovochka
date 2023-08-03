@@ -9,70 +9,72 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localeBloc = BlocProvider.of<LocaleBloc>(context);
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blue,
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.5,
+      child: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration:
+                  BoxDecoration(color: Theme.of(context).colorScheme.primary),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 50,
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    'John Doe',
+                    style: Theme.of(context).textTheme.displayMedium,
+                  ),
+                ],
+              ),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 50,
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'John Doe',
-                  style: Theme.of(context).textTheme.displayMedium,
-                ),
-              ],
+            ListTile(
+              leading: Icon(Icons.palette, color: Colors.blue),
+              title: Text(
+                'Change Theme',
+                style: TextStyle(fontSize: 16),
+              ),
+              onTap: () => context.read<ThemeBloc>().add(
+                    ThemeToggled(),
+                  ),
             ),
-          ),
-          ListTile(
-            leading: Icon(Icons.palette, color: Colors.blue),
-            title: Text(
-              'Change Theme',
-              style: TextStyle(fontSize: 16),
+            ListTile(
+              leading: Icon(Icons.language, color: Colors.blue),
+              title: Text(
+                'English',
+                style: TextStyle(fontSize: 16),
+              ),
+              onTap: () {
+                localeBloc.add(
+                  ChangeLocaleEvent(
+                    Locale('en', 'US'),
+                  ),
+                );
+                Navigator.pop(context); // Close the drawer
+              },
             ),
-            onTap: () => context.read<ThemeBloc>().add(
-                  ThemeToggled(),
-                ),
-          ),
-          ListTile(
-            leading: Icon(Icons.language, color: Colors.blue),
-            title: Text(
-              'English',
-              style: TextStyle(fontSize: 16),
+            ListTile(
+              leading: Icon(Icons.language, color: Colors.blue),
+              title: Text(
+                'Українська',
+                style: TextStyle(fontSize: 16),
+              ),
+              onTap: () {
+                localeBloc.add(
+                  ChangeLocaleEvent(
+                    Locale('uk', 'UA'),
+                  ),
+                );
+                Navigator.pop(context); // Close the drawer
+              },
             ),
-            onTap: () {
-              localeBloc.add(
-                ChangeLocaleEvent(
-                  Locale('en', 'US'),
-                ),
-              );
-              Navigator.pop(context); // Close the drawer
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.language, color: Colors.blue),
-            title: Text(
-              'Українська',
-              style: TextStyle(fontSize: 16),
-            ),
-            onTap: () {
-              localeBloc.add(
-                ChangeLocaleEvent(
-                  Locale('uk', 'UA'),
-                ),
-              );
-              Navigator.pop(context); // Close the drawer
-            },
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

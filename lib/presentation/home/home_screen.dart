@@ -31,7 +31,9 @@ class HomeScreen extends StatelessWidget {
         BlocProvider<GeolocationBloc>(
           create: (BuildContext context) => GeolocationBloc(
             bottomSheetBloc: context.read<BottomSheetBloc>(),
-          )..add(LoadGeolocationEvent()),
+          )..add(
+              LoadGeolocationEvent(),
+            ),
         ),
       ],
       child: Scaffold(

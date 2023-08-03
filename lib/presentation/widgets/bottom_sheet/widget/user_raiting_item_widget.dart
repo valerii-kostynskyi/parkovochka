@@ -32,10 +32,7 @@ class UserRaitingItemWidgetState extends State<UserRaitingItemWidget> {
         ),
         Text(
           rating.toInt().toString(),
-          style: const TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.labelLarge,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),

@@ -57,6 +57,12 @@ final lightTheme = ThemeData(
       letterSpacing: 0.25,
       fontWeight: FontWeight.w300,
     ),
+    labelLarge: TextStyle(
+      color: Colors.text2,
+      fontSize: 24,
+      letterSpacing: 0.25,
+      fontWeight: FontWeight.w600,
+    ),
     headlineMedium: TextStyle(
       color: Colors.white,
       fontSize: 18,
@@ -160,6 +166,12 @@ final darkTheme = ThemeData(
       color: Colors.white,
       fontSize: 16,
       fontWeight: FontWeight.w300,
+    ),
+    labelLarge: TextStyle(
+      color: Colors.white,
+      fontSize: 24,
+      letterSpacing: 0.25,
+      fontWeight: FontWeight.w600,
     ),
     labelSmall: TextStyle(
       color: Colors.white,
