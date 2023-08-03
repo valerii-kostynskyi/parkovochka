@@ -1,0 +1,18 @@
+const Map<String, String> uk = {
+  'app_name': 'Парковочка',
+  'previous': 'повернутись',
+  'next': 'вперед',
+  'please_choose_veloparking_location':
+      'будь ласка, оберіть локацію велопарковки',
+  'add_parkovochka': 'додати парковочку',
+  'estimated_number_of_bicycle_parking_spaces':
+      'оцінка кількості місць для паркування велосипедів:',
+  'security_level_of_bicycle_parking':
+      'рівень безпеки велопарковки. Наявність камери відеоспостереження чи охорони.',
+  'does_the_bicycle_parking_have_lighting': 'чи є у велопарковки освітлення?',
+  'please_rate_the_passability':
+      'будь ласка, оцініть прохідність вулиці, на якій розташована велопарковка:',
+  'does_the_bicycle_parking_have_weather_protection':
+      'Чи має велопарковка захист від негоди (навіс, бічні стінки)?',
+  'rate_the_bicycle_parking_from': 'Оцініть велопарковку шкалою від 0 до 10',
+};
