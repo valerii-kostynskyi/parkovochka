@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:parkovochka/bloc/bottom_sheet/bottom_sheet_bloc.dart';
 
 import 'package:parkovochka/bloc/geolocation/geolocation_bloc.dart';
@@ -11,8 +10,8 @@ import 'package:parkovochka/presentation/home/widget/bottom_sheet_widget.dart';
 import 'package:parkovochka/presentation/home/widget/google_map_widget.dart';
 import 'package:parkovochka/presentation/widgets/button_widget.dart';
 import 'package:parkovochka/presentation/widgets/svg_icon_widget.dart';
-import 'package:parkovochka/style/theme.dart';
 import 'package:parkovochka/util/langs/app_localizations.dart';
+import 'package:parkovochka/util/string_extention.dart';
 
 @RoutePage()
 class HomeScreen extends StatelessWidget {
@@ -32,33 +31,27 @@ class HomeScreen extends StatelessWidget {
         BlocProvider<GeolocationBloc>(
           create: (BuildContext context) => GeolocationBloc(
             bottomSheetBloc: context.read<BottomSheetBloc>(),
-          )..add(LoadGeolocationEvent()),
+          )..add(
+              LoadGeolocationEvent(),
+            ),
         ),
       ],
       child: Scaffold(
-        drawer: AppDrawer(),
+        drawer: const AppDrawer(),
         appBar: AppBar(
           centerTitle: true,
-          title: const SVGIconWidget(
+          title: SVGIconWidget(
             height: 30,
             icon: 'parkovochka_logo',
+            color: Theme.of(context).colorScheme.onBackground,
           ),
-          // actions: [
-          //   TextButton(
-          //       onPressed: () => context.read<ThemeBloc>().add(ThemeToggled()),
-          //       child: Text('Change theme'))
-          // ],
         ),
         body: Stack(
           children: [
             BlocBuilder<HomeBloc, HomeState>(
               builder: (context, state) {
-                // ignore: unused_local_variable
-                GoogleMapController? mapController;
                 if (state is LoadedParkingList) {
-                  return GoogleMapWidget(
-                    onMapCreated: (controller) => mapController = controller,
-                  );
+                  return const GoogleMapWidget();
                 } else {
                   return Container();
                 }
@@ -90,18 +83,20 @@ class HomeScreen extends StatelessWidget {
                     topRight: Radius.circular(16),
                     topLeft: Radius.circular(16),
                   ),
-                  color: lightTheme.colorScheme.primary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 height: 40,
                 child: Center(
                   child: Text(
                     AppLocalizations.of(context)
-                        .translations['please_choose_veloparking_location']!,
+                        .translations['please_choose_veloparking_location']!
+                        .capitalizeFirst(),
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                 ),
               ),
               firstChild: BottomAppBar(
-                color: lightTheme.colorScheme.error.withOpacity(0),
+                color: Theme.of(context).colorScheme.error.withOpacity(0),
                 elevation: 0,
                 padding: const EdgeInsets.only(bottom: 5),
                 child: Padding(
@@ -121,10 +116,12 @@ class HomeScreen extends StatelessWidget {
                                   );
                             }
                           },
-                          text: 'додати parkovochka'.toUpperCase(),
+                          text: AppLocalizations.of(context)
+                              .translations['add_parkovochka']!
+                              .toUpperCase(),
                           leading: SVGIconWidget(
                             icon: 'icon_plus',
-                            color: lightTheme.iconTheme.color,
+                            color: Theme.of(context).iconTheme.color,
                           ),
                         );
                       },
