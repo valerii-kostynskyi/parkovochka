@@ -18,4 +18,8 @@ const Map<String, String> uk = {
   'dark_theme': 'темна тема',
   'auth_pls':
       'якщо ви хочете додати нову стоянку для велосипедів, авторизуйтесь!',
+  'sign_in_with_google': 'авторизуйтесь з Гугл',
+  'sign_in_with_apple': 'авторизуйтесь з Епл',
+  'sign_in_with_facebook': 'авторизуйтесь з Фуйсбук',
+  'sign_in': 'авторизуйтесь:',
 };

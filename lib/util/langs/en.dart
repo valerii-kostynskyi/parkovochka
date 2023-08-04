@@ -17,4 +17,8 @@ const Map<String, String> en = {
   'rate_the_bicycle_parking_from': 'Rate the bicycle parking from 0 to 10',
   'dark_theme': 'dark theme',
   'auth_pls': 'if you want to add a new bicycle parking, please sign in!',
+  'sign_in_with_google': 'sign in with Google',
+  'sign_in_with_apple': 'sign in with Apple',
+  'sign_in_with_facebook': 'sign in with Facebook',
+  'sign_in': 'sign in:',
 };

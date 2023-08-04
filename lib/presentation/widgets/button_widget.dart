@@ -51,7 +51,7 @@ class ButtonWidget extends StatelessWidget {
           onPressed: onPressed,
           color: disabled || loading
               ? Theme.of(context).disabledColor.withOpacity(0.5)
-              : Theme.of(context).colorScheme.primary,
+              : color ?? Theme.of(context).colorScheme.primary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
           ),
@@ -67,7 +67,8 @@ class ButtonWidget extends StatelessWidget {
                     child: Text(
                       text!,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headlineMedium,
+                      style: textStyle ??
+                          Theme.of(context).textTheme.headlineMedium,
                     ),
                   ),
                 ),

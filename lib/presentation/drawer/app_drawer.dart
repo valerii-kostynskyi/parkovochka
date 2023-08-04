@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:parkovochka/bloc/local/bloc/local_bloc.dart';
 import 'package:parkovochka/bloc/theme/theme_bloc.dart';
+import 'package:parkovochka/presentation/widgets/button_widget.dart';
+import 'package:parkovochka/presentation/widgets/svg_icon_widget.dart';
 import 'package:parkovochka/style/theme.dart';
 import 'package:parkovochka/util/langs/app_localizations.dart';
 import 'package:parkovochka/util/string_extention.dart';
@@ -32,21 +34,63 @@ class AppDrawer extends StatelessWidget {
             child: Drawer(
               child: ListView(
                 padding: EdgeInsets.zero,
-                children: <Widget>[
-                  DrawerHeader(
-                    decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.primary),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          AppLocalizations.of(context)
-                              .translations['auth_pls']!
-                              .capitalizeFirst(),
-                          style: Theme.of(context).textTheme.displayMedium,
-                        ),
-                      ],
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    child: DrawerHeader(
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            AppLocalizations.of(context)
+                                .translations['sign_in']!
+                                .capitalizeFirst(),
+                            style: Theme.of(context).textTheme.headlineMedium,
+                          ),
+                          const SizedBox(height: 16),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                _authButton(
+                                  context,
+                                  onTap: () {},
+                                  icon: 'google',
+                                ),
+                                const SizedBox(width: 8),
+                                _authButton(
+                                  context,
+                                  onTap: () {},
+                                  icon: 'facebook',
+                                ),
+                                const SizedBox(width: 8),
+                                _authButton(
+                                  context,
+                                  onTap: () {},
+                                  icon: 'apple',
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onBackground,
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          Text(
+                            AppLocalizations.of(context)
+                                .translations['auth_pls']!
+                                .capitalizeFirst(),
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelSmall!
+                                .copyWith(fontSize: 10),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   ListTile(
@@ -71,8 +115,9 @@ class AppDrawer extends StatelessWidget {
                   ),
                   ListTile(
                     title: SizedBox(
-                      width: 150,
+                      width: MediaQuery.of(context).size.width * 0.9,
                       child: DropdownButton<Locale>(
+                        dropdownColor: Theme.of(context).colorScheme.background,
                         isExpanded: true,
                         icon: const Icon(Icons.arrow_drop_down),
                         items: [
@@ -125,6 +170,39 @@ class AppDrawer extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  Widget _authButton(
+    BuildContext context, {
+    required void Function()? onTap,
+    required String icon,
+    Color? color,
+  }) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: 60,
+        height: 60,
+        padding: const EdgeInsets.symmetric(
+          horizontal: 12.0,
+          vertical: 5.0,
+        ),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.background,
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Center(
+          child: SizedBox(
+            width: 30,
+            height: 30,
+            child: SVGIconWidget(
+              icon: icon,
+              color: color,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

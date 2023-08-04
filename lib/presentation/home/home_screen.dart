@@ -88,10 +88,14 @@ class HomeScreen extends StatelessWidget {
                 height: 40,
                 child: Center(
                   child: Text(
+                    textAlign: TextAlign.center,
                     AppLocalizations.of(context)
                         .translations['please_choose_veloparking_location']!
                         .capitalizeFirst(),
-                    style: Theme.of(context).textTheme.displayMedium,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineMedium!
+                        .copyWith(fontSize: 16),
                   ),
                 ),
               ),
