@@ -1,4 +1,5 @@
 import 'package:parkovochka/data/model/coordinate_model.dart';
+import 'package:parkovochka/data/model/google_place_model.dart';
 
 class ParkingRequest {
   String address;
@@ -26,6 +27,19 @@ class ParkingRequest {
     required this.weatherProtection,
     required this.userRating,
   });
+
+  ParkingRequest.fromGooglePlaceModel(GooglePlaceModel googlePlace)
+      : address = googlePlace.address,
+        googlePlaceId = googlePlace.googlePlaceId,
+        coordinate = googlePlace.coordinate,
+        capacity = 'value_1',
+        traffic = 'low',
+        photoId = null,
+        description = null,
+        security = true,
+        light = true,
+        weatherProtection = true,
+        userRating = 5;
 
   Map toJson() => {
         'address': address,

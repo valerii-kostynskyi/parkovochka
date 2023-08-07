@@ -2,7 +2,6 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:parkovochka/data/model/google_place_model.dart';
-import 'package:parkovochka/data/model/request/parking_request.dart';
 import 'package:parkovochka/domain/parking_repository.dart';
 
 part 'bottom_sheet_event.dart';
@@ -71,11 +70,5 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
     } catch (e) {
       emit(BottomSheetErrorState(exception: e));
     }
-  }
-
-  void postParking(ParkingRequest parking) {
-    parkingRepository.postParking(parking: parking).then(
-          (value) => add(CloseBottomSheetEvent()),
-        );
   }
 }

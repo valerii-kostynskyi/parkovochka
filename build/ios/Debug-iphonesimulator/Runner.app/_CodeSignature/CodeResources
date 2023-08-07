@@ -18,7 +18,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		uGL4IK5laY7o12wXRvYdzE8JqmI=
+		ucJXGVMX2DSCLT4gIzE6jjUtaUQ=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		4ZLQm+E99+SnfIO48VZb4XiQJtw=
+		DIsvgvRb4jh4yVo7NeEEqfD6mp0=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,11 +54,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		GI4pH6m5IW+tEtkf9kqrLjBf6v8=
+		FgR3Gijmm4yDilmTqdrkks3pl/s=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		UHeDZwFHEjoxoIm9/C0NXkMJGD4=
+		S/G/YALLbExiW96YVAfu1bl+744=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -84,6 +84,10 @@
 		<data>
 		tUuZigsRpTMIRVeQiEe+AB5CxTQ=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/apple.svg</key>
+		<data>
+		lXL/gHkPVMBtV/xisDO/lbtdZ2o=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/dislike.svg</key>
 		<data>
 		AbE/ykG3LtpThu6tw2WPvw82KMs=
@@ -91,6 +95,14 @@
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/disliked.svg</key>
 		<data>
 		KWowSpvd+kY1lEvLa0cjKneXj6g=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/facebook.svg</key>
+		<data>
+		4VFLVK7AX86J7YowYjN3xGKQGl8=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/google.svg</key>
+		<data>
+		sMzuzhL9WBrIhVjfnHQ5LdikAd0=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/icon_apple.svg</key>
 		<data>
@@ -286,7 +298,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		uQlNMQeSLbRQVimWJ6nbk/hTMgU=
+		A5YvMADWCYE7+EKYX5phLrfeERw=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -1271,7 +1283,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		T94MLtGW4q35d/gJEzalvzzhKcs=
+		ukfmuZ1lACoJzdEH/hRJbxWjgR8=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -1305,7 +1317,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UNlnh2dRCRsTdYcTM16Oe3OIXj1laFHO0toUt2KlWpo=
+			tK8sv427BV42bquVvbSkxnTw97hmtJjWMj3aeb31PXA=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -1354,7 +1366,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xwXL9KxsuYZ1QRVfOfdgXL7Q3Tn8i7+VdtQNk29ARhA=
+			NmdG42m6Ob7ctpT9ThCqfjJm+ci6EorUvYwjx9E17dg=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -1368,14 +1380,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			v8wUlnmJlGF+pmHyPVwecUGXZWTeMhBzkhac3eeL6sU=
+			jfG7xNnliUap/rme96SS8HOTWxZg6iz2cyoj7d1uTvw=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9i101ZOqA4gvT6kqBiqXhbAh/lTclprl9m4RAxQYLk4=
+			M6ywjDul7GmLLeNPI0A4asOSsQ8Z4l29tSlwO3AVmZE=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -1420,6 +1432,13 @@
 			as/V0XdD5/g5kzzO4/BOY8CnuCV2CnZ4C2AVWly1mbw=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/apple.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			e59A6mK0LWoxO3huCgqu/TxY+z4esiMoWMWmTxwSLPI=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/dislike.svg</key>
 		<dict>
 			<key>hash2</key>
@@ -1432,6 +1451,20 @@
 			<key>hash2</key>
 			<data>
 			yJDdoxopNmDqkjaQZ1gjFNvRqc6KuhqZhXoX+OEXuds=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/facebook.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			7O3wNVTBdev3ptPx8TW6weY/HME8susUxYyH+hl9g0I=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/google.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			swr6RI6jLJg/ONALioclXbnV3Pj9ohq/bSDXvnK6sHk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/icon_apple.svg</key>
@@ -1774,7 +1807,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9oDVrOGd7EARxTeL9vLx7WK/F018LGz4k8lsF+NbEqA=
+			3VKn53KwzPDc+qVVRHgqVLyWtCaEKF2apz+x5nf/trE=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

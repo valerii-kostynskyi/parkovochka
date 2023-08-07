@@ -18,20 +18,12 @@ import 'package:parkovochka/presentation/widgets/svg_icon_widget.dart';
 
 class AddParkingBottomSheet extends StatelessWidget {
   final GooglePlaceModel googlePlace;
-  final BottomSheetBloc bottomSheetBloc;
-  final ParkingBloc parkingBloc;
   final PageController pageController = PageController();
 
   AddParkingBottomSheet({
     super.key,
     required this.googlePlace,
-    required this.bottomSheetBloc,
-    required this.parkingBloc,
-  }) {
-    parkingBloc.parkingRequest.address = googlePlace.address;
-    parkingBloc.parkingRequest.googlePlaceId = googlePlace.googlePlaceId;
-    parkingBloc.parkingRequest.coordinate = googlePlace.coordinate;
-  }
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +31,13 @@ class AddParkingBottomSheet extends StatelessWidget {
 
     return MultiBlocProvider(
       providers: [
-        BlocProvider<BottomSheetBloc>.value(value: bottomSheetBloc),
-        BlocProvider<ParkingBloc>.value(value: parkingBloc),
+        BlocProvider<BottomSheetBloc>(
+          create: (BuildContext context) => BottomSheetBloc(),
+        ),
+        BlocProvider<ParkingBloc>(
+          create: (BuildContext context) =>
+              ParkingBloc(googlePlace: googlePlace),
+        ),
       ],
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -116,8 +113,7 @@ class AddParkingBottomSheet extends StatelessWidget {
                         ),
                         child: ButtonWidget(
                           onPressed: () {
-                            context.read<BottomSheetBloc>().postParking(
-                                context.read<ParkingBloc>().parkingRequest);
+                            context.read<ParkingBloc>().postParking(context);
                           },
                           text: 'add parkovochka'.toUpperCase(),
                           leading: SVGIconWidget(

@@ -6,8 +6,8 @@ import 'package:parkovochka/bloc/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:parkovochka/bloc/geolocation/geolocation_bloc.dart';
 import 'package:parkovochka/presentation/drawer/app_drawer.dart';
 import 'package:parkovochka/presentation/home/bloc/home_bloc.dart';
-import 'package:parkovochka/presentation/home/widget/bottom_sheet_widget.dart';
 import 'package:parkovochka/presentation/home/widget/google_map_widget.dart';
+import 'package:parkovochka/presentation/widgets/bottom_sheet/add_parking_bottom_sheet.dart';
 import 'package:parkovochka/presentation/widgets/button_widget.dart';
 import 'package:parkovochka/presentation/widgets/svg_icon_widget.dart';
 import 'package:parkovochka/util/langs/app_localizations.dart';
@@ -46,28 +46,14 @@ class HomeScreen extends StatelessWidget {
             color: Theme.of(context).colorScheme.onBackground,
           ),
         ),
-        body: Stack(
-          children: [
-            BlocBuilder<HomeBloc, HomeState>(
-              builder: (context, state) {
-                if (state is LoadedParkingList) {
-                  return const GoogleMapWidget();
-                } else {
-                  return Container();
-                }
-              },
-            ),
-            BlocBuilder<HomeBloc, HomeState>(
-              builder: (context, state) {
-                if (state is LoadedParkingList ||
-                    state is ShowBottomSheetState) {
-                  return const BottomSheetWidget();
-                } else {
-                  return const SizedBox.shrink();
-                }
-              },
-            ),
-          ],
+        body: BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            if (state is LoadedParkingList) {
+              return const GoogleMapWidget();
+            } else {
+              return Container();
+            }
+          },
         ),
         extendBody: true,
         bottomNavigationBar: BlocBuilder<BottomSheetBloc, BottomSheetState>(
@@ -113,11 +99,23 @@ class HomeScreen extends StatelessWidget {
                         return ButtonWidget(
                           onPressed: () {
                             if (state is ShowBottomBarState) {
-                              context.read<BottomSheetBloc>().add(
-                                    ShowBottomSheetEvent(
-                                      googlePlace: state.googlePlace,
-                                    ),
-                                  );
+                              showModalBottomSheet(
+                                context: context,
+                                builder: (context) => AddParkingBottomSheet(
+                                  googlePlace: state.googlePlace,
+                                ),
+                                isScrollControlled: true,
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(16),
+                                    topRight: Radius.circular(16),
+                                  ),
+                                ),
+                                backgroundColor: Colors.transparent,
+                                clipBehavior: Clip.antiAliasWithSaveLayer,
+                                elevation: 0,
+                                useRootNavigator: true,
+                              );
                             }
                           },
                           text: AppLocalizations.of(context)

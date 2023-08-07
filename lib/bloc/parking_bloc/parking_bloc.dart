@@ -1,7 +1,9 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:parkovochka/data/model/coordinate_model.dart';
+import 'package:parkovochka/bloc/bottom_sheet/bottom_sheet_bloc.dart';
+import 'package:parkovochka/data/model/google_place_model.dart';
 import 'package:parkovochka/data/model/request/parking_request.dart';
 import 'package:parkovochka/domain/parking_repository.dart';
 
@@ -12,42 +14,20 @@ class ParkingBloc extends Bloc<ParkingEvent, ParkingRequest> {
       GetIt.instance.get<ParkingRepository>();
   bool showButton = false;
 
-  ParkingRequest parkingRequest = ParkingRequest(
-    address: '',
-    googlePlaceId: '',
-    coordinate: CoordinateModel(
-      latitude: 0.0,
-      longitude: 0.0,
-    ),
-    capacity: 'value_1',
-    traffic: 'low',
-    photoId: null,
-    description: null,
-    security: true,
-    light: true,
-    weatherProtection: true,
-    userRating: 5,
-  );
-
-  ParkingBloc()
-      : super(
-          ParkingRequest(
-            address: '',
-            googlePlaceId: '',
-            coordinate: CoordinateModel(
-              latitude: 0.0,
-              longitude: 0.0,
-            ),
-            capacity: 'value_1',
-            traffic: 'low',
-            photoId: null,
-            description: null,
-            security: true,
-            light: true,
-            weatherProtection: true,
-            userRating: 5,
-          ),
-        ) {
+  ParkingBloc({required GooglePlaceModel googlePlace})
+      : super(ParkingRequest(
+          address: googlePlace.address,
+          googlePlaceId: googlePlace.googlePlaceId,
+          coordinate: googlePlace.coordinate,
+          capacity: 'value_1',
+          traffic: 'low',
+          photoId: null,
+          description: null,
+          security: true,
+          light: true,
+          weatherProtection: true,
+          userRating: 5,
+        )) {
     on<AddCapacityEvent>(addCapacity);
     on<AddSecurityEvent>(addSecurity);
     on<AddLightEvent>(addLight);
@@ -62,33 +42,43 @@ class ParkingBloc extends Bloc<ParkingEvent, ParkingRequest> {
   }
 
   void addCapacity(AddCapacityEvent event, Emitter<ParkingRequest> emit) {
-    parkingRequest.capacity = event.capacity;
-    emit(parkingRequest);
+    state.capacity = event.capacity;
+    emit(state);
   }
 
   void addTraffic(AddTrafficEvent event, Emitter<ParkingRequest> emit) {
-    parkingRequest.traffic = event.traffic;
-    emit(parkingRequest);
+    state.traffic = event.traffic;
+    emit(state);
   }
 
   void addSecurity(AddSecurityEvent event, Emitter<ParkingRequest> emit) {
-    parkingRequest.security = event.security;
-    emit(parkingRequest);
+    state.security = event.security;
+    emit(state);
   }
 
   void addLight(AddLightEvent event, Emitter<ParkingRequest> emit) {
-    parkingRequest.light = event.light;
-    emit(parkingRequest);
+    state.light = event.light;
+    emit(state);
   }
 
   void addWetherProtection(
       AddWetherProtectionEvent event, Emitter<ParkingRequest> emit) {
-    parkingRequest.weatherProtection = event.wetherProtection;
-    emit(parkingRequest);
+    state.weatherProtection = event.wetherProtection;
+    emit(state);
   }
 
   void addUserRaiting(AddUserRaitingEvent event, Emitter<ParkingRequest> emit) {
-    parkingRequest.userRating = event.userRaiting;
-    emit(parkingRequest);
+    state.userRating = event.userRaiting;
+    emit(state);
+  }
+
+  void postParking(BuildContext context) {
+    Navigator.pop(context);
+    BlocProvider.of<BottomSheetBloc>(context).add(CloseBottomSheetEvent());
+    // parkingRepository.postParking(parking: state).then(
+    //       (value) => {
+    //         BlocProvider.of<BottomSheetBloc>(context).add(HideBottomBarEvent())
+    //       },
+    //     );
   }
 }
