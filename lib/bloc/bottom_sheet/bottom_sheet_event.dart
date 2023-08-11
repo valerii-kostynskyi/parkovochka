@@ -7,16 +7,16 @@ abstract class BottomSheetEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class ShowBottomSheetEvent extends BottomSheetEvent {
-  final GooglePlaceModel googlePlace;
+// class ShowBottomSheetEvent extends BottomSheetEvent {
+//   final GooglePlaceModel googlePlace;
 
-  const ShowBottomSheetEvent({required this.googlePlace});
+//   const ShowBottomSheetEvent({required this.googlePlace});
 
-  @override
-  List<Object> get props => [googlePlace];
-}
+//   @override
+//   List<Object> get props => [googlePlace];
+// }
 
-class CloseBottomSheetEvent extends BottomSheetEvent {}
+// class CloseBottomSheetEvent extends BottomSheetEvent {}
 
 class ChangeQuestionEvent extends BottomSheetEvent {
   final int page;

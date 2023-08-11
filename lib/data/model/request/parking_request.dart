@@ -1,5 +1,4 @@
 import 'package:parkovochka/data/model/coordinate_model.dart';
-import 'package:parkovochka/data/model/google_place_model.dart';
 
 class ParkingRequest {
   String address;
@@ -28,10 +27,10 @@ class ParkingRequest {
     required this.userRating,
   });
 
-  ParkingRequest.fromGooglePlaceModel(GooglePlaceModel googlePlace)
-      : address = googlePlace.address,
-        googlePlaceId = googlePlace.googlePlaceId,
-        coordinate = googlePlace.coordinate,
+  ParkingRequest.withDefaultValues()
+      : address = '',
+        googlePlaceId = '',
+        coordinate = CoordinateModel(latitude: 0.0, longitude: 0.0),
         capacity = 'value_1',
         traffic = 'low',
         photoId = null,
@@ -54,4 +53,15 @@ class ParkingRequest {
         // 'description': description,
         // 'photoId': photoId,
       };
+
+  bool isValid() {
+    return address.isNotEmpty &&
+        googlePlaceId.isNotEmpty &&
+        (capacity == 'value_1' ||
+            capacity == 'value_6' ||
+            capacity == 'value_10') &&
+        (traffic == 'low' || traffic == 'medium' || traffic == 'large') &&
+        (userRating >= 1 && userRating <= 10) &&
+        (coordinate.latitude != 0.0 && coordinate.longitude != 0.0);
+  }
 }

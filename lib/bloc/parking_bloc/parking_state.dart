@@ -6,6 +6,10 @@ abstract class ParkingState extends Equatable {
   List<Object> get props => [];
 }
 
+class ParkingStateInitial extends ParkingState {}
+
+class ParkingPostedSuccess extends ParkingState {}
+
 class ParkingInitial extends ParkingState {
   @override
   List<Object> get props => [];

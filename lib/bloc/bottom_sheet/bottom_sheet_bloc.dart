@@ -12,32 +12,8 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
       GetIt.instance.get<ParkingRepository>();
 
   BottomSheetBloc() : super(BottomSheetInitial()) {
-    on<ShowBottomSheetEvent>(openBottomSheet);
-    on<CloseBottomSheetEvent>(closeBottomSheet);
     on<ChangeQuestionEvent>(changePageIndex);
     on<ChangeButtonVisibilityEvent>(changeButtonVisibility);
-    on<ShowBottomBarEvent>(showBottomBar);
-    on<HideBottomBarEvent>(hideBottomBar);
-  }
-
-  void openBottomSheet(
-      ShowBottomSheetEvent event, Emitter<BottomSheetState> emit) async {
-    try {
-      emit(
-        ShowBottomSheetState(googlePlace: event.googlePlace),
-      );
-    } catch (e) {
-      emit(BottomSheetErrorState(exception: e));
-    }
-  }
-
-  void closeBottomSheet(
-      CloseBottomSheetEvent event, Emitter<BottomSheetState> emit) async {
-    try {
-      emit(HideBottomSheetState());
-    } catch (e) {
-      emit(BottomSheetErrorState(exception: e));
-    }
   }
 
   void changeButtonVisibility(
@@ -51,24 +27,6 @@ class BottomSheetBloc extends Bloc<BottomSheetEvent, BottomSheetState> {
       emit(const ButtonVisibilityState(showButton: true));
     } else {
       emit(const ButtonVisibilityState(showButton: false));
-    }
-  }
-
-  void showBottomBar(
-      ShowBottomBarEvent event, Emitter<BottomSheetState> emit) async {
-    try {
-      emit(ShowBottomBarState(googlePlace: event.googlePlace));
-    } catch (e) {
-      emit(BottomSheetErrorState(exception: e));
-    }
-  }
-
-  void hideBottomBar(
-      HideBottomBarEvent event, Emitter<BottomSheetState> emit) async {
-    try {
-      emit(HideBottomBarState());
-    } catch (e) {
-      emit(BottomSheetErrorState(exception: e));
     }
   }
 }

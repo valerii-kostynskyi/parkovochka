@@ -9,16 +9,16 @@ abstract class BottomSheetState extends Equatable {
 
 class BottomSheetInitial extends BottomSheetState {}
 
-class ShowBottomSheetState extends BottomSheetState {
-  final GooglePlaceModel googlePlace;
+// class ShowBottomSheetState extends BottomSheetState {
+//   final GooglePlaceModel googlePlace;
 
-  const ShowBottomSheetState({required this.googlePlace});
+//   const ShowBottomSheetState({required this.googlePlace});
 
-  @override
-  List<Object> get props => [googlePlace];
-}
+//   @override
+//   List<Object> get props => [googlePlace];
+// }
 
-class HideBottomSheetState extends BottomSheetState {}
+// class HideBottomSheetState extends BottomSheetState {}
 
 class BottomSheetErrorState extends BottomSheetState {
   final Object exception;
@@ -48,14 +48,14 @@ class ButtonVisibilityState extends BottomSheetState {
 }
 
 
-class ShowBottomBarState extends BottomSheetState {
-    final GooglePlaceModel googlePlace;
+// class ShowBottomBarState extends BottomSheetState {
+//     final GooglePlaceModel googlePlace;
 
-  const ShowBottomBarState({required this.googlePlace});
+//   const ShowBottomBarState({required this.googlePlace});
 
-  @override
-  List<Object> get props => [googlePlace];
-}
+//   @override
+//   List<Object> get props => [googlePlace];
+// }
 
-class HideBottomBarState extends BottomSheetState {}
+// class HideBottomBarState extends BottomSheetState {}
 

@@ -13,4 +13,6 @@ abstract class ParkingRepository {
   Future<List<CapacityResponse>> getCapacity();
 
   Future<List<TrafficResponse>> getTraffic();
+
+  Stream<void> get parkingPostedStream; 
 }

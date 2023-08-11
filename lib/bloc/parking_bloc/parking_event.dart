@@ -13,6 +13,18 @@ class AddCapacityEvent extends ParkingEvent {
   List<Object?> get props => [capacity];
 }
 
+class FetchPlaceModelEvent extends ParkingEvent {
+  FetchPlaceModelEvent();
+
+  @override
+  List<Object?> get props => [];
+}
+
+class PostParkingEvent extends ParkingEvent {
+  @override
+  List<Object?> get props => [];
+}
+
 class AddTrafficEvent extends ParkingEvent {
   final String traffic;
 

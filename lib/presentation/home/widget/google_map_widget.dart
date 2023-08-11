@@ -67,7 +67,7 @@ class GoogleMapWidgetState extends State<GoogleMapWidget>
                           parkingModel.coordinate.latitude,
                           parkingModel.coordinate.longitude,
                         ),
-                        icon: myIcon!);
+                        icon: myIcon ?? BitmapDescriptor.defaultMarker);
                   }).toSet();
 
                   markers.addAll(parkingMarkers);

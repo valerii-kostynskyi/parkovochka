@@ -29,9 +29,8 @@ class HomeScreen extends StatelessWidget {
           create: (BuildContext context) => BottomSheetBloc(),
         ),
         BlocProvider<GeolocationBloc>(
-          create: (BuildContext context) => GeolocationBloc(
-            bottomSheetBloc: context.read<BottomSheetBloc>(),
-          )..add(
+          create: (BuildContext context) => GeolocationBloc()
+            ..add(
               LoadGeolocationEvent(),
             ),
         ),
@@ -56,83 +55,90 @@ class HomeScreen extends StatelessWidget {
           },
         ),
         extendBody: true,
-        bottomNavigationBar: BlocBuilder<BottomSheetBloc, BottomSheetState>(
-          builder: (context, state) {
-            return AnimatedCrossFade(
-              crossFadeState: (state is ShowBottomBarState)
-                  ? CrossFadeState.showFirst
-                  : CrossFadeState.showSecond,
-              duration: const Duration(milliseconds: 500),
-              secondChild: Container(
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(16),
-                    topLeft: Radius.circular(16),
+        bottomNavigationBar: BlocListener<GeolocationBloc, GeolocationState>(
+          listener: (context, state) {
+            if (state is GeolocationLoadedState && state.markers.length == 1) {
+              BlocProvider.of<HomeBloc>(context)
+                  .add(const ChangeButtonVisibilityHomeEvent(showButton: true));
+            }
+          },
+          child: BlocBuilder<HomeBloc, HomeState>(
+            builder: (context, state) {
+              return AnimatedCrossFade(
+                crossFadeState: (state is LoadedParkingList && state.showButton)
+                    ? CrossFadeState.showFirst
+                    : CrossFadeState.showSecond,
+                duration: const Duration(milliseconds: 500),
+                secondChild: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(16),
+                      topLeft: Radius.circular(16),
+                    ),
+                    color: Theme.of(context).colorScheme.primary,
                   ),
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-                height: 40,
-                child: Center(
-                  child: Text(
-                    textAlign: TextAlign.center,
-                    AppLocalizations.of(context)
-                        .translations['please_choose_veloparking_location']!
-                        .capitalizeFirst(),
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineMedium!
-                        .copyWith(fontSize: 16),
-                  ),
-                ),
-              ),
-              firstChild: BottomAppBar(
-                color: Theme.of(context).colorScheme.error.withOpacity(0),
-                elevation: 0,
-                padding: const EdgeInsets.only(bottom: 5),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: SizedBox(
-                    height: 56,
-                    width: double.infinity,
-                    child: Builder(
-                      builder: (context) {
-                        return ButtonWidget(
-                          onPressed: () {
-                            if (state is ShowBottomBarState) {
-                              showModalBottomSheet(
-                                context: context,
-                                builder: (context) => AddParkingBottomSheet(
-                                  googlePlace: state.googlePlace,
-                                ),
-                                isScrollControlled: true,
-                                shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(16),
-                                    topRight: Radius.circular(16),
-                                  ),
-                                ),
-                                backgroundColor: Colors.transparent,
-                                clipBehavior: Clip.antiAliasWithSaveLayer,
-                                elevation: 0,
-                                useRootNavigator: true,
-                              );
-                            }
-                          },
-                          text: AppLocalizations.of(context)
-                              .translations['add_parkovochka']!
-                              .toUpperCase(),
-                          leading: SVGIconWidget(
-                            icon: 'icon_plus',
-                            color: Theme.of(context).iconTheme.color,
-                          ),
-                        );
-                      },
+                  height: 40,
+                  child: Center(
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      AppLocalizations.of(context)
+                          .translations['please_choose_veloparking_location']!
+                          .capitalizeFirst(),
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineMedium!
+                          .copyWith(fontSize: 16),
                     ),
                   ),
                 ),
-              ),
-            );
-          },
+                firstChild: BottomAppBar(
+                  color: Theme.of(context).colorScheme.error.withOpacity(0),
+                  elevation: 0,
+                  padding: const EdgeInsets.only(bottom: 5),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: SizedBox(
+                      height: 56,
+                      width: double.infinity,
+                      child: Builder(
+                        builder: (context) {
+                          return ButtonWidget(
+                            onPressed: () {
+                              if (state is LoadedParkingList &&
+                                  state.showButton) {
+                                showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) => AddParkingBottomSheet(),
+                                  isScrollControlled: true,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(16),
+                                      topRight: Radius.circular(16),
+                                    ),
+                                  ),
+                                  backgroundColor: Colors.transparent,
+                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                  elevation: 0,
+                                  useRootNavigator: true,
+                                );
+                              }
+                            },
+                            text: AppLocalizations.of(context)
+                                .translations['add_parkovochka']!
+                                .toUpperCase(),
+                            leading: SVGIconWidget(
+                              icon: 'icon_plus',
+                              color: Theme.of(context).iconTheme.color,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

@@ -2,32 +2,24 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:parkovochka/bloc/bottom_sheet/bottom_sheet_bloc.dart';
+import 'package:parkovochka/bloc/parking_bloc/parking_state.dart';
 import 'package:parkovochka/data/model/google_place_model.dart';
 import 'package:parkovochka/data/model/request/parking_request.dart';
+import 'package:parkovochka/domain/geolocation_repository.dart';
 import 'package:parkovochka/domain/parking_repository.dart';
 
 part 'parking_event.dart';
 
-class ParkingBloc extends Bloc<ParkingEvent, ParkingRequest> {
+class ParkingBloc extends Bloc<ParkingEvent, ParkingState> {
   final ParkingRepository parkingRepository =
       GetIt.instance.get<ParkingRepository>();
+  final GeolocationRepository geolocationRepository =
+      GetIt.instance.get<GeolocationRepository>();
+  ParkingRequest parkingRequest = ParkingRequest.withDefaultValues();
+
   bool showButton = false;
 
-  ParkingBloc({required GooglePlaceModel googlePlace})
-      : super(ParkingRequest(
-          address: googlePlace.address,
-          googlePlaceId: googlePlace.googlePlaceId,
-          coordinate: googlePlace.coordinate,
-          capacity: 'value_1',
-          traffic: 'low',
-          photoId: null,
-          description: null,
-          security: true,
-          light: true,
-          weatherProtection: true,
-          userRating: 5,
-        )) {
+  ParkingBloc() : super(ParkingStateInitial()) {
     on<AddCapacityEvent>(addCapacity);
     on<AddSecurityEvent>(addSecurity);
     on<AddLightEvent>(addLight);
@@ -35,50 +27,98 @@ class ParkingBloc extends Bloc<ParkingEvent, ParkingRequest> {
     on<AddWetherProtectionEvent>(addWetherProtection);
     on<AddUserRaitingEvent>(addUserRaiting);
     on<ShowButtonEvent>(showButtonFunc);
+    on<FetchPlaceModelEvent>(fetchPlaceModel);
+    on<PostParkingEvent>(postParking);
   }
 
-  void showButtonFunc(ShowButtonEvent event, Emitter<ParkingRequest> emit) {
-    showButton = event.showButton;
+  void fetchPlaceModel(FetchPlaceModelEvent event, Emitter<ParkingState> emit) {
+    emit(ParkingLoading());
+    GooglePlaceModel? placeModel = geolocationRepository.getPlaceModel();
+    if (placeModel != null) {
+      parkingRequest.address = placeModel.address;
+      parkingRequest.googlePlaceId = placeModel.googlePlaceId;
+      parkingRequest.coordinate = placeModel.coordinate;
+      emit(ParkingSuccess(parkingRequest: parkingRequest));
+    } else {
+      emit(ParkingFailure(error: "Failed to fetch place model"));
+    }
   }
 
-  void addCapacity(AddCapacityEvent event, Emitter<ParkingRequest> emit) {
-    state.capacity = event.capacity;
-    emit(state);
+  void addCapacity(AddCapacityEvent event, Emitter<ParkingState> emit) {
+    try {
+      parkingRequest.capacity = event.capacity;
+      emit(ParkingSuccess(parkingRequest: parkingRequest));
+    } catch (e) {
+      emit(ParkingFailure(error: e.toString()));
+    }
   }
 
-  void addTraffic(AddTrafficEvent event, Emitter<ParkingRequest> emit) {
-    state.traffic = event.traffic;
-    emit(state);
+  void addTraffic(AddTrafficEvent event, Emitter<ParkingState> emit) {
+    try {
+      parkingRequest.traffic = event.traffic;
+      emit(ParkingSuccess(parkingRequest: parkingRequest));
+    } catch (e) {
+      emit(ParkingFailure(error: e.toString()));
+    }
   }
 
-  void addSecurity(AddSecurityEvent event, Emitter<ParkingRequest> emit) {
-    state.security = event.security;
-    emit(state);
+  void addSecurity(AddSecurityEvent event, Emitter<ParkingState> emit) {
+    try {
+      parkingRequest.security = event.security;
+      emit(ParkingSuccess(parkingRequest: parkingRequest));
+    } catch (e) {
+      emit(ParkingFailure(error: e.toString()));
+    }
   }
 
-  void addLight(AddLightEvent event, Emitter<ParkingRequest> emit) {
-    state.light = event.light;
-    emit(state);
+  void addLight(AddLightEvent event, Emitter<ParkingState> emit) {
+    try {
+      parkingRequest.light = event.light;
+      emit(ParkingSuccess(parkingRequest: parkingRequest));
+    } catch (e) {
+      emit(ParkingFailure(error: e.toString()));
+    }
   }
 
   void addWetherProtection(
-      AddWetherProtectionEvent event, Emitter<ParkingRequest> emit) {
-    state.weatherProtection = event.wetherProtection;
-    emit(state);
+      AddWetherProtectionEvent event, Emitter<ParkingState> emit) {
+    try {
+      parkingRequest.weatherProtection = event.wetherProtection;
+      emit(ParkingSuccess(parkingRequest: parkingRequest));
+    } catch (e) {
+      emit(ParkingFailure(error: e.toString()));
+    }
   }
 
-  void addUserRaiting(AddUserRaitingEvent event, Emitter<ParkingRequest> emit) {
-    state.userRating = event.userRaiting;
-    emit(state);
+  void addUserRaiting(AddUserRaitingEvent event, Emitter<ParkingState> emit) {
+    try {
+      parkingRequest.userRating = event.userRaiting;
+      emit(ParkingSuccess(parkingRequest: parkingRequest));
+    } catch (e) {
+      emit(ParkingFailure(error: e.toString()));
+    }
   }
 
-  void postParking(BuildContext context) {
-    Navigator.pop(context);
-    BlocProvider.of<BottomSheetBloc>(context).add(CloseBottomSheetEvent());
-    // parkingRepository.postParking(parking: state).then(
-    //       (value) => {
-    //         BlocProvider.of<BottomSheetBloc>(context).add(HideBottomBarEvent())
-    //       },
-    //     );
+  void showButtonFunc(ShowButtonEvent event, Emitter<ParkingState> emit) {
+    showButton = event.showButton;
+  }
+
+  Future<void> postParking(
+      PostParkingEvent event, Emitter<ParkingState> emit) async {
+    try {
+      if (parkingRequest.isValid()) {
+        bool result =
+            await parkingRepository.postParking(parking: parkingRequest);
+        if (result) {
+          emit(ParkingPostedSuccess());
+        } else {
+          emit(ParkingFailure(error: "Failed to post parking."));
+        }
+      } else {
+        emit(ParkingFailure(error: "invalide parking, we can show exeption"));
+      }
+    } catch (error) {
+      emit(ParkingFailure(error: error.toString()));
+    }
   }
 }
