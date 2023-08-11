@@ -11,11 +11,15 @@ class LoadingParkingList extends HomeState {}
 
 class LoadedParkingList extends HomeState {
   final List<ParkingModel> parkingList;
+  final bool showButton;
 
-  const LoadedParkingList({required this.parkingList});
+  const LoadedParkingList({
+    required this.parkingList,
+    this.showButton = false,
+  });
 
   @override
-  List<Object> get props => [parkingList];
+  List<Object> get props => [parkingList, showButton];
 }
 
 class ParkingListErrorState extends HomeState {

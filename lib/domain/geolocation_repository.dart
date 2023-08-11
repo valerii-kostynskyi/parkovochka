@@ -12,4 +12,10 @@ abstract class GeolocationRepository {
   Future<GooglePlaceModel> getLocationDetails({
     required String placeId,
   });
+
+  // transfering data
+
+  void savePlaceModel(GooglePlaceModel placeModel);
+
+  GooglePlaceModel? getPlaceModel();
 }

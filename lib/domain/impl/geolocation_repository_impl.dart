@@ -5,8 +5,11 @@ import 'package:parkovochka/domain/geolocation_repository.dart';
 
 class GeolocationRepositoryImpl implements GeolocationRepository {
   final ApiDataSource _apiDataSource;
+  GooglePlaceModel? _placeModel;
 
-  GeolocationRepositoryImpl(this._apiDataSource);
+  GeolocationRepositoryImpl(
+    this._apiDataSource,
+  );
 
   @override
   Future<Position?> getCurrentPosition() async {
@@ -35,5 +38,15 @@ class GeolocationRepositoryImpl implements GeolocationRepository {
     required String placeId,
   }) {
     return _apiDataSource.getLocationDetails(placeId: placeId);
+  }
+
+  @override
+  GooglePlaceModel? getPlaceModel() {
+    return _placeModel;
+  }
+
+  @override
+  void savePlaceModel(GooglePlaceModel placeModel) {
+    _placeModel = placeModel;
   }
 }

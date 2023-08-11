@@ -69,6 +69,12 @@ final lightTheme = ThemeData(
       letterSpacing: 0.25,
       fontWeight: FontWeight.w300,
     ),
+    headlineSmall: TextStyle(
+      color: Colors.text1,
+      fontSize: 14,
+      letterSpacing: 0.25,
+      fontWeight: FontWeight.w300,
+    ),
   ),
   cardTheme: CardTheme(
     shape: RoundedRectangleBorder(
@@ -174,7 +180,7 @@ final darkTheme = ThemeData(
       fontWeight: FontWeight.w600,
     ),
     labelSmall: TextStyle(
-      color: Colors.white,
+      color: Colors.text1,
       fontSize: 14,
       letterSpacing: 0.25,
       fontWeight: FontWeight.w300,
@@ -182,6 +188,12 @@ final darkTheme = ThemeData(
     headlineMedium: TextStyle(
       color: Colors.text1,
       fontSize: 18,
+      letterSpacing: 0.25,
+      fontWeight: FontWeight.w300,
+    ),
+    headlineSmall: TextStyle(
+      color: Colors.white,
+      fontSize: 14,
       letterSpacing: 0.25,
       fontWeight: FontWeight.w300,
     ),

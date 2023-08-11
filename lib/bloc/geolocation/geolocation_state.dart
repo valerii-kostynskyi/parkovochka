@@ -22,6 +22,7 @@ class GeolocationLoadedState extends GeolocationState {
     Position? position,
     String? placeId,
     List<Marker>? markers,
+    bool? showButton,
   }) {
     return GeolocationLoadedState(
       position: position ?? this.position,
@@ -31,7 +32,7 @@ class GeolocationLoadedState extends GeolocationState {
   }
 
   @override
-  List<Object?> get props => [position, markers];
+  List<Object?> get props => [position, markers, placeId];
 }
 
 class GeolocationErrorState extends GeolocationState {

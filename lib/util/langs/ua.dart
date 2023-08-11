@@ -15,4 +15,11 @@ const Map<String, String> uk = {
   'does_the_bicycle_parking_have_weather_protection':
       'Чи має велопарковка захист від негоди (навіс, бічні стінки)?',
   'rate_the_bicycle_parking_from': 'Оцініть велопарковку шкалою від 0 до 10',
+  'dark_theme': 'темна тема',
+  'auth_pls':
+      'якщо ви хочете додати нову стоянку для велосипедів, авторизуйтесь!',
+  'sign_in_with_google': 'авторизуйтесь з Гугл',
+  'sign_in_with_apple': 'авторизуйтесь з Епл',
+  'sign_in_with_facebook': 'авторизуйтесь з Фуйсбук',
+  'sign_in': 'авторизуйтесь:',
 };

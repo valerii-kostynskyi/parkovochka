@@ -27,6 +27,19 @@ class ParkingRequest {
     required this.userRating,
   });
 
+  ParkingRequest.withDefaultValues()
+      : address = '',
+        googlePlaceId = '',
+        coordinate = CoordinateModel(latitude: 0.0, longitude: 0.0),
+        capacity = 'value_1',
+        traffic = 'low',
+        photoId = null,
+        description = null,
+        security = true,
+        light = true,
+        weatherProtection = true,
+        userRating = 5;
+
   Map toJson() => {
         'address': address,
         'googlePlaceId': googlePlaceId,
@@ -40,4 +53,15 @@ class ParkingRequest {
         // 'description': description,
         // 'photoId': photoId,
       };
+
+  bool isValid() {
+    return address.isNotEmpty &&
+        googlePlaceId.isNotEmpty &&
+        (capacity == 'value_1' ||
+            capacity == 'value_6' ||
+            capacity == 'value_10') &&
+        (traffic == 'low' || traffic == 'medium' || traffic == 'large') &&
+        (userRating >= 1 && userRating <= 10) &&
+        (coordinate.latitude != 0.0 && coordinate.longitude != 0.0);
+  }
 }

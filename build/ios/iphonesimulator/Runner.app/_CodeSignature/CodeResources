@@ -18,7 +18,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		uGL4IK5laY7o12wXRvYdzE8JqmI=
+		ucJXGVMX2DSCLT4gIzE6jjUtaUQ=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		cEf4+EdF428Se0j2dVhvHJkWdX4=
+		ehEIlPg3r0YpH8vBr0ogoeHSlaE=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,11 +54,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		Y2I/UZm0wme2yQ986jRUctAQyF0=
+		yQOPOiHtuzVwQmvg2A2Av68LpkM=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		UHeDZwFHEjoxoIm9/C0NXkMJGD4=
+		S/G/YALLbExiW96YVAfu1bl+744=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -84,6 +84,10 @@
 		<data>
 		tUuZigsRpTMIRVeQiEe+AB5CxTQ=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/apple.svg</key>
+		<data>
+		lXL/gHkPVMBtV/xisDO/lbtdZ2o=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/dislike.svg</key>
 		<data>
 		AbE/ykG3LtpThu6tw2WPvw82KMs=
@@ -91,6 +95,14 @@
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/disliked.svg</key>
 		<data>
 		KWowSpvd+kY1lEvLa0cjKneXj6g=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/facebook.svg</key>
+		<data>
+		4VFLVK7AX86J7YowYjN3xGKQGl8=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/google.svg</key>
+		<data>
+		sMzuzhL9WBrIhVjfnHQ5LdikAd0=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/icon_apple.svg</key>
 		<data>
@@ -286,7 +298,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		qcvfZbowKazpO+ciGlEJidxiFto=
+		06u346ViQJwlHTv2xUynSjpvUIw=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -402,7 +414,7 @@
 		</data>
 		<key>Frameworks/flutter_localization.framework/flutter_localization</key>
 		<data>
-		nqBgNK2xXidRcLhFzFdzjYaAbWA=
+		B7aHJ0fflRb2mxvnh99cYGHsu8I=
 		</data>
 		<key>Frameworks/geolocator_apple.framework/Info.plist</key>
 		<data>
@@ -462,7 +474,7 @@
 		</data>
 		<key>Frameworks/shared_preferences_foundation.framework/shared_preferences_foundation</key>
 		<data>
-		GOEo3J/D3+04g5c+upLp0pcBBFQ=
+		+aZcTQ1qf48T/sGURgd8QfElcXU=
 		</data>
 		<key>Frameworks/url_launcher_ios.framework/Info.plist</key>
 		<data>
@@ -1305,7 +1317,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UNlnh2dRCRsTdYcTM16Oe3OIXj1laFHO0toUt2KlWpo=
+			tK8sv427BV42bquVvbSkxnTw97hmtJjWMj3aeb31PXA=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -1354,7 +1366,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AhgtFP6XWHailBs06NqDjIoZvnTJv+uciu9SuuKldwA=
+			u0ylFCGsABumhGb08SWUCjaXcVaXZFk+tb0ZnLNR9uk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -1368,14 +1380,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KbNmHNPq8uuddnsUChwFI2uxdTJkS7iqOCP1jz85+SQ=
+			Y5NtZO6FH0uMFfqBmje2x0zhBjGoKdLm5GIbAt9quMQ=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9i101ZOqA4gvT6kqBiqXhbAh/lTclprl9m4RAxQYLk4=
+			M6ywjDul7GmLLeNPI0A4asOSsQ8Z4l29tSlwO3AVmZE=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -1420,6 +1432,13 @@
 			as/V0XdD5/g5kzzO4/BOY8CnuCV2CnZ4C2AVWly1mbw=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/apple.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			e59A6mK0LWoxO3huCgqu/TxY+z4esiMoWMWmTxwSLPI=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/dislike.svg</key>
 		<dict>
 			<key>hash2</key>
@@ -1432,6 +1451,20 @@
 			<key>hash2</key>
 			<data>
 			yJDdoxopNmDqkjaQZ1gjFNvRqc6KuhqZhXoX+OEXuds=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/facebook.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			7O3wNVTBdev3ptPx8TW6weY/HME8susUxYyH+hl9g0I=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/google.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			swr6RI6jLJg/ONALioclXbnV3Pj9ohq/bSDXvnK6sHk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/icon_apple.svg</key>
@@ -1774,7 +1807,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1h2T5I1JWvsFb/j8jF+e5DCTo15iBYv8rq0+4QjT6zQ=
+			IdtcXWH69tOObiCMjZIVats3m6YyvzJBhpGmhUZVOOE=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -1977,7 +2010,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8FYMrpWsQ4IhB6pG0HGZ0TD3u/9lwXapeYKSUHTgjjI=
+			nyYFyiQ93ob3pwcLqL2rjogEdGBbpDQ0kEsihE9Zma4=
 			</data>
 		</dict>
 		<key>Frameworks/geolocator_apple.framework/Info.plist</key>
@@ -2082,7 +2115,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bosMja147KQCCrtms7Swe2D0cteo1nanFh4svvQ3TPc=
+			YeqMcApY8roJ9hRm7hdsXKdxdHVIeSQhCWXEgjUziEc=
 			</data>
 		</dict>
 		<key>Frameworks/url_launcher_ios.framework/Info.plist</key>
