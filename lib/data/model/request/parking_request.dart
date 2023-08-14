@@ -50,8 +50,8 @@ class ParkingRequest {
         'traffic': traffic,
         'weatherProtection': weatherProtection,
         'userRating': userRating,
-        // 'description': description,
-        // 'photoId': photoId,
+        'description': description,
+        'photoId': photoId,
       };
 
   bool isValid() {

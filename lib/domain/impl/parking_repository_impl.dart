@@ -39,4 +39,9 @@ class ParkingRepositoryImpl implements ParkingRepository {
   Future<List<CapacityResponse>> getCapacity() {
     return apiDataSource.getCapacity();
   }
+
+  @override
+  Future<String?> uploadPhoto(String path) {
+    return apiDataSource.uploadPhoto(path);
+  }
 }

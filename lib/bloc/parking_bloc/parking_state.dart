@@ -37,3 +37,23 @@ class ParkingFailure extends ParkingState {
   @override
   List<Object> get props => [error];
 }
+
+class PhotoUploading extends ParkingState {}
+
+class PhotoUploadSuccess extends ParkingState {
+  final String photoUrl;
+
+  PhotoUploadSuccess({required this.photoUrl});
+
+  @override
+  List<Object> get props => [photoUrl];
+}
+
+class PhotoUploadFailure extends ParkingState {
+  final String error;
+
+  PhotoUploadFailure({required this.error});
+
+  @override
+  List<Object> get props => [error];
+}
