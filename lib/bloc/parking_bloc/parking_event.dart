@@ -35,6 +35,15 @@ class AddTrafficEvent extends ParkingEvent {
   List<Object?> get props => [traffic];
 }
 
+class PhotoEvent extends ParkingEvent {
+  final ImageSource source;
+
+  PhotoEvent(this.source);
+
+  @override
+  List<Object?> get props => [source];
+}
+
 class AddSecurityEvent extends ParkingEvent {
   final bool security;
 

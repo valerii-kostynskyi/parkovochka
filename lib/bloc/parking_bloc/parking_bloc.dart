@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:get_it/get_it.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:parkovochka/bloc/parking_bloc/parking_state.dart';
 import 'package:parkovochka/data/model/google_place_model.dart';
 import 'package:parkovochka/data/model/request/parking_request.dart';
@@ -29,6 +32,7 @@ class ParkingBloc extends Bloc<ParkingEvent, ParkingState> {
     on<ShowButtonEvent>(showButtonFunc);
     on<FetchPlaceModelEvent>(fetchPlaceModel);
     on<PostParkingEvent>(postParking);
+    on<PhotoEvent>(processPhoto);
   }
 
   void fetchPlaceModel(FetchPlaceModelEvent event, Emitter<ParkingState> emit) {
@@ -119,6 +123,38 @@ class ParkingBloc extends Bloc<ParkingEvent, ParkingState> {
       }
     } catch (error) {
       emit(ParkingFailure(error: error.toString()));
+    }
+  }
+
+  Future<void> processPhoto(
+      PhotoEvent event, Emitter<ParkingState> emit) async {
+    try {
+      final pickedFile = await ImagePicker().pickImage(source: event.source);
+      print(event.source == ImageSource.camera ? 'take Photo' : 'add photo');
+
+      if (pickedFile != null) {
+        print(
+            '${event.source == ImageSource.camera ? 'take Photo' : 'add photo'} pickedFile ${pickedFile.path}');
+
+        final XFile? compressedFile =
+            await FlutterImageCompress.compressAndGetFile(
+          pickedFile.path,
+          "${pickedFile.path}_compressed.jpg",
+        );
+
+        if (compressedFile != null) {
+          print(
+              '${event.source == ImageSource.camera ? 'take Photo' : 'add photo'} compressedFile ${compressedFile.path}');
+          emit(ParkingLoading());
+          // final String? uploadedPhotoUrl =
+          //     await parkingRepository.uploadPhoto(compressedFile.path);
+          emit(PhotoUploadSuccess(photoUrl: ''));
+        } else {
+          throw Exception("Photo picking or compressing failed.");
+        }
+      }
+    } catch (error) {
+      emit(PhotoUploadFailure(error: error.toString()));
     }
   }
 }

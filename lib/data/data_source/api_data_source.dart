@@ -23,4 +23,6 @@ abstract class ApiDataSource {
   Future<List<CapacityResponse>> getCapacity();
 
   Future<List<TrafficResponse>> getTraffic();
+
+  Future<String?> uploadPhoto(String path);
 }

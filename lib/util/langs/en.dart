@@ -21,4 +21,8 @@ const Map<String, String> en = {
   'sign_in_with_apple': 'sign in with Apple',
   'sign_in_with_facebook': 'sign in with Facebook',
   'sign_in': 'sign in:',
+  'take_a_photo': 'take a photo',
+  'upload_a_photo': 'upload a photo',
+  'please_take_a_photo_of_the_bike_park':
+      'Please take a photo of the bike park!',
 };

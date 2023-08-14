@@ -14,5 +14,7 @@ abstract class ParkingRepository {
 
   Future<List<TrafficResponse>> getTraffic();
 
+  Future<String?> uploadPhoto(String path);
+
   Stream<void> get parkingPostedStream; 
 }

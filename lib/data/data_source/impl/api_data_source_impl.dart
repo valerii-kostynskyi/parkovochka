@@ -146,4 +146,16 @@ class ApiDataSourceImpl implements ApiDataSource {
       return [];
     }
   }
+
+  @override
+  Future<String?> uploadPhoto(String path) async {
+    FormData formData = FormData.fromMap({
+      "file": await MultipartFile.fromFile(path, filename: "upload.jpg")
+    });
+    var response = await dio.post("YOUR_API_ENDPOINT", data: formData);
+    if (response.statusCode == 200) {
+      return response.data['url'];  // assuming this is the structure of your response
+    }
+    throw Exception('Failed to upload photo');
+  }
 }

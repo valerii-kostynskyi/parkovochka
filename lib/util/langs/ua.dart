@@ -22,4 +22,8 @@ const Map<String, String> uk = {
   'sign_in_with_apple': 'авторизуйтесь з Епл',
   'sign_in_with_facebook': 'авторизуйтесь з Фуйсбук',
   'sign_in': 'авторизуйтесь:',
+  'take_a_photo': 'зробіть світлину',
+  'upload_a_photo': 'завантажте світлину',
+  'please_take_a_photo_of_the_bike_park':
+      'Будь ласка, зробіть фото велопарковки!',
 };
