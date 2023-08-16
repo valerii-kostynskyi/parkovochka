@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 
 import 'package:parkovochka/bloc/geolocation/geolocation_bloc.dart';
 import 'package:parkovochka/bloc/theme/theme_bloc.dart';
+import 'package:parkovochka/data/model/parking_model.dart';
 import 'package:parkovochka/presentation/home/bloc/home_bloc.dart';
 import 'package:parkovochka/presentation/parking_details/parking_details.dart';
 import 'package:parkovochka/routes/router.dart';
@@ -71,9 +72,7 @@ class GoogleMapWidgetState extends State<GoogleMapWidget>
                           parkingModel.coordinate.longitude,
                         ),
                         onTap: () {
-                          context.router.push(
-                            ParkingDetailsRoute(parkingModel: parkingModel),
-                          );
+                          showParkingDetailsModal(context, parkingModel);
                         },
                         icon: myIcon ?? BitmapDescriptor.defaultMarker);
                   }).toSet();
@@ -142,5 +141,58 @@ class GoogleMapWidgetState extends State<GoogleMapWidget>
       }
       mapController!.setMapStyle(style);
     }
+  }
+
+  // void showParkingDetailsModal(
+  //   BuildContext context,
+  //   ParkingModel parkingModel,
+  // ) {
+  //   showDialog(
+  //     context: context,
+  //     builder: (context) {
+  //       return Dialog(
+  //         shape:
+  //             RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+  //         child: ParkingDetails(parkingModel: parkingModel),
+  //       );
+  //     },
+  //   );
+  // }
+
+  void showParkingDetailsModal(
+    BuildContext context,
+    ParkingModel parkingModel,
+  ) {
+    showGeneralDialog(
+      context: context,
+      pageBuilder: (BuildContext buildContext, Animation animation,
+          Animation secondaryAnimation) {
+        return _buildAnimatedDialog(
+          context,
+          Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: ParkingDetails(parkingModel: parkingModel),
+          ),
+        );
+      },
+      barrierDismissible: true,
+      barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+      barrierColor:
+          Colors.black.withOpacity(0.5), // semi-transparent background
+      transitionDuration: Duration(milliseconds: 500),
+    );
+  }
+
+  Widget _buildAnimatedDialog(BuildContext context, Widget child) {
+    return FadeTransition(
+      opacity: CurvedAnimation(
+        parent: ModalRoute.of(context)!.animation!,
+        curve: Curves.easeOut,
+        reverseCurve: Curves.easeIn,
+      ),
+      child: child,
+    );
   }
 }
