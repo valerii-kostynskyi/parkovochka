@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:parkovochka/bloc/bottom_sheet/bottom_sheet_bloc.dart';
 
 import 'package:parkovochka/bloc/geolocation/geolocation_bloc.dart';
+import 'package:parkovochka/bloc/home/home_bloc.dart';
 import 'package:parkovochka/presentation/drawer/app_drawer.dart';
-import 'package:parkovochka/presentation/home/bloc/home_bloc.dart';
 import 'package:parkovochka/presentation/home/widget/google_map_widget.dart';
 import 'package:parkovochka/presentation/widgets/bottom_sheet/add_parking_bottom_sheet.dart';
 import 'package:parkovochka/presentation/widgets/button_widget.dart';
@@ -29,10 +29,8 @@ class HomeScreen extends StatelessWidget {
           create: (BuildContext context) => BottomSheetBloc(),
         ),
         BlocProvider<GeolocationBloc>(
-          create: (BuildContext context) => GeolocationBloc()
-            ..add(
-              LoadGeolocationEvent(),
-            ),
+          create: (BuildContext context) =>
+              GeolocationBloc()..add(LoadGeolocationEvent()),
         ),
       ],
       child: Scaffold(
