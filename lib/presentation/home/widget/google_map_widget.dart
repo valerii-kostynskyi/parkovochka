@@ -1,15 +1,13 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/services.dart';
 
 import 'package:parkovochka/bloc/geolocation/geolocation_bloc.dart';
+import 'package:parkovochka/bloc/home/home_bloc.dart';
 import 'package:parkovochka/bloc/theme/theme_bloc.dart';
 import 'package:parkovochka/data/model/parking_model.dart';
-import 'package:parkovochka/presentation/home/bloc/home_bloc.dart';
 import 'package:parkovochka/presentation/parking_details/parking_details.dart';
-import 'package:parkovochka/routes/router.dart';
 import 'package:parkovochka/style/theme.dart';
 
 class GoogleMapWidget extends StatefulWidget {
