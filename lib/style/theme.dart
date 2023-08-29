@@ -3,7 +3,7 @@ import 'package:flutter/material.dart' hide Colors;
 
 final lightTheme = ThemeData(
   brightness: Brightness.light,
-  shadowColor: Colors.shadow,
+  shadowColor: Colors.text3,
   scaffoldBackgroundColor: Colors.white,
   cardColor: Colors.white,
   dividerColor: Colors.dividers,
@@ -14,19 +14,16 @@ final lightTheme = ThemeData(
   colorScheme: const ColorScheme(
     tertiaryContainer: Colors.warning,
     background: Colors.white,
-    onBackground: Colors.white,
+    onBackground: Colors.text1,
     error: Colors.error,
     onError: Colors.errorWithOpacity,
     primary: Colors.primaryBlue,
-    onPrimary: Colors.primaryVariantBlue,
+    onPrimary: Colors.primaryBlue,
     secondary: Colors.primaryRed,
-    onSecondary: Colors.primaryVariantRed,
-    surface: Colors.surfaceGreyBlue,
-    onSurface: Colors.surfaceGreyBlue,
+    onSecondary: Colors.primaryRed,
+    surface: Colors.text3,
+    onSurface: Colors.text3,
     brightness: Brightness.light,
-    outline: Colors.text2,
-    tertiary: Colors.text1,
-    onTertiary: Colors.darkBG,
   ),
   drawerTheme: const DrawerThemeData(backgroundColor: Colors.white),
   primaryIconTheme: const IconThemeData(color: Colors.text2),
@@ -42,7 +39,7 @@ final lightTheme = ThemeData(
       horizontal: 16,
     ),
   ),
-  fontFamily: 'Raleway',
+  fontFamily: 'Monserat',
   textTheme: const TextTheme(
     displayLarge: TextStyle(
       color: Colors.primaryBlue,
@@ -54,47 +51,29 @@ final lightTheme = ThemeData(
       fontSize: 16,
       fontWeight: FontWeight.w300,
     ),
-    // headlineMedium: TextStyle(
-    //   color: Colors.text1,
-    //   fontSize: 16,
-    //   fontWeight: FontWeight.w500,
-    // ),
-    // labelMedium: TextStyle(
-    //   color: Colors.primaryBlue,
-    //   fontSize: 14,
-    //   fontWeight: FontWeight.w400,
-    // ),
-    // titleMedium: TextStyle(
-    //   color: Colors.text1,
-    //   fontSize: 14,
-    //   fontWeight: FontWeight.w500,
-    // ),
-    // bodyMedium: TextStyle(
-    //   color: Colors.text2,
-    //   fontSize: 14,
-    //   fontWeight: FontWeight.w400,
-    // ),
-    // bodyLarge: TextStyle(
-    //   color: Colors.text3,
-    //   fontSize: 14,
-    //   fontWeight: FontWeight.w400,
-    // ),
-    // titleSmall: TextStyle(
-    //   color: Colors.white,
-    //   fontWeight: FontWeight.w500,
-    //   fontSize: 14,
-    // ),
-    // labelSmall: TextStyle(
-    //   color: Colors.lightBG,
-    //   fontSize: 14,
-    //   letterSpacing: 0.25,
-    //   fontWeight: FontWeight.w400,
-    // ),
-    bodySmall: TextStyle(
-      color: Colors.text3,
-      fontSize: 12,
-      fontWeight: FontWeight.w100,
-      letterSpacing: 0.04,
+    labelSmall: TextStyle(
+      color: Colors.white,
+      fontSize: 14,
+      letterSpacing: 0.25,
+      fontWeight: FontWeight.w300,
+    ),
+    labelLarge: TextStyle(
+      color: Colors.text2,
+      fontSize: 24,
+      letterSpacing: 0.25,
+      fontWeight: FontWeight.w600,
+    ),
+    headlineMedium: TextStyle(
+      color: Colors.white,
+      fontSize: 18,
+      letterSpacing: 0.25,
+      fontWeight: FontWeight.w300,
+    ),
+    headlineSmall: TextStyle(
+      color: Colors.text1,
+      fontSize: 14,
+      letterSpacing: 0.25,
+      fontWeight: FontWeight.w300,
     ),
   ),
   cardTheme: CardTheme(
@@ -140,7 +119,7 @@ final lightTheme = ThemeData(
   appBarTheme: AppBarTheme(
     backgroundColor: Colors.white,
     elevation: 2,
-    shadowColor: Colors.shadow.withOpacity(0.15),
+    shadowColor: Colors.text3.withOpacity(0.15),
     toolbarHeight: 56,
     iconTheme: const IconThemeData(color: Colors.text1),
     titleTextStyle: const TextStyle(
@@ -149,29 +128,100 @@ final lightTheme = ThemeData(
       fontWeight: FontWeight.w500,
     ),
   ),
-  tabBarTheme: const TabBarTheme(
-    labelPadding: EdgeInsets.only(
-      bottom: 13,
-      top: 13,
+);
+
+final darkTheme = ThemeData(
+  brightness: Brightness.light,
+  shadowColor: Colors.text3,
+  scaffoldBackgroundColor: Colors.text1,
+  cardColor: Colors.text1,
+  dividerColor: Colors.dividers,
+  hintColor: Colors.dividers,
+  unselectedWidgetColor: Colors.primaryBlue,
+  indicatorColor: Colors.successful,
+  textSelectionTheme: const TextSelectionThemeData(cursorColor: Colors.white),
+  colorScheme: const ColorScheme(
+    tertiaryContainer: Colors.warning,
+    background: Colors.text1,
+    onBackground: Colors.white,
+    error: Colors.error,
+    onError: Colors.errorWithOpacity,
+    primary: Colors.primaryBlue,
+    onPrimary: Colors.primaryBlue,
+    secondary: Colors.primaryRed,
+    onSecondary: Colors.primaryRed,
+    surface: Colors.text3,
+    onSurface: Colors.text3,
+    brightness: Brightness.light,
+  ),
+  drawerTheme: const DrawerThemeData(
+    backgroundColor: Colors.text1,
+  ),
+  primaryIconTheme: const IconThemeData(color: Colors.text2),
+  iconTheme: const IconThemeData(
+    color: Colors.text1,
+  ),
+  fontFamily: 'Monserat',
+  textTheme: const TextTheme(
+    displayLarge: TextStyle(
+      color: Colors.primaryBlue,
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
     ),
-    labelColor: Colors.text2,
-    labelStyle: TextStyle(
+    displayMedium: TextStyle(
+      color: Colors.white,
+      fontSize: 16,
+      fontWeight: FontWeight.w300,
+    ),
+    labelLarge: TextStyle(
+      color: Colors.white,
+      fontSize: 24,
+      letterSpacing: 0.25,
+      fontWeight: FontWeight.w600,
+    ),
+    labelSmall: TextStyle(
+      color: Colors.text1,
       fontSize: 14,
-      fontWeight: FontWeight.w500,
-      color: Colors.text2,
-      letterSpacing: 0,
+      letterSpacing: 0.25,
+      fontWeight: FontWeight.w300,
     ),
-    unselectedLabelColor: Colors.text1,
-    unselectedLabelStyle: TextStyle(
+    headlineMedium: TextStyle(
+      color: Colors.text1,
+      fontSize: 18,
+      letterSpacing: 0.25,
+      fontWeight: FontWeight.w300,
+    ),
+    headlineSmall: TextStyle(
+      color: Colors.white,
       fontSize: 14,
-      fontWeight: FontWeight.w500,
-      letterSpacing: 0,
+      letterSpacing: 0.25,
+      fontWeight: FontWeight.w300,
     ),
-    indicator: UnderlineTabIndicator(
-      borderSide: BorderSide(
-        color: Colors.text2,
-        width: 1.0,
+  ),
+  cardTheme: CardTheme(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(6.0),
+    ),
+  ),
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(
+      textStyle: const TextStyle(
+        color: Colors.white,
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
       ),
+    ),
+  ),
+  appBarTheme: AppBarTheme(
+    backgroundColor: Colors.text1,
+    elevation: 2,
+    shadowColor: Colors.text3.withOpacity(0.15),
+    toolbarHeight: 56,
+    iconTheme: const IconThemeData(color: Colors.white),
+    titleTextStyle: const TextStyle(
+      color: Colors.white,
+      fontSize: 20,
+      fontWeight: FontWeight.w500,
     ),
   ),
 );
