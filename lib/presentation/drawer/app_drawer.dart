@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:parkovochka/bloc/local/bloc/local_bloc.dart';
+import 'package:parkovochka/bloc/local/local_bloc.dart';
 import 'package:parkovochka/bloc/theme/theme_bloc.dart';
 import 'package:parkovochka/presentation/widgets/svg_icon_widget.dart';
 import 'package:parkovochka/style/theme.dart';

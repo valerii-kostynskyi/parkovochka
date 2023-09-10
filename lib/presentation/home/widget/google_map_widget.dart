@@ -141,22 +141,6 @@ class GoogleMapWidgetState extends State<GoogleMapWidget>
     }
   }
 
-  // void showParkingDetailsModal(
-  //   BuildContext context,
-  //   ParkingModel parkingModel,
-  // ) {
-  //   showDialog(
-  //     context: context,
-  //     builder: (context) {
-  //       return Dialog(
-  //         shape:
-  //             RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-  //         child: ParkingDetails(parkingModel: parkingModel),
-  //       );
-  //     },
-  //   );
-  // }
-
   void showParkingDetailsModal(
     BuildContext context,
     ParkingModel parkingModel,
@@ -165,32 +149,26 @@ class GoogleMapWidgetState extends State<GoogleMapWidget>
       context: context,
       pageBuilder: (BuildContext buildContext, Animation animation,
           Animation secondaryAnimation) {
-        return _buildAnimatedDialog(
-          context,
-          Dialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
+        return const SizedBox();
+      },
+      transitionBuilder: (context, animation, secondaryAnimation, child) {
+        return ScaleTransition(
+          scale: Tween<double>(begin: 0.1, end: 1.0).animate(animation),
+          child: FadeTransition(
+            opacity: Tween<double>(begin: 0.5, end: 1.0).animate(animation),
+            child: Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ParkingDetails(parkingModel: parkingModel),
             ),
-            child: ParkingDetails(parkingModel: parkingModel),
           ),
         );
       },
       barrierDismissible: true,
       barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-      barrierColor:
-          Colors.black.withOpacity(0.5), // semi-transparent background
-      transitionDuration: Duration(milliseconds: 500),
-    );
-  }
-
-  Widget _buildAnimatedDialog(BuildContext context, Widget child) {
-    return FadeTransition(
-      opacity: CurvedAnimation(
-        parent: ModalRoute.of(context)!.animation!,
-        curve: Curves.easeOut,
-        reverseCurve: Curves.easeIn,
-      ),
-      child: child,
+      barrierColor: Colors.black.withOpacity(0.5),
+      transitionDuration: const Duration(milliseconds: 300),
     );
   }
 }

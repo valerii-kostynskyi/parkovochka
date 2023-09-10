@@ -126,6 +126,8 @@ class ParkingBloc extends Bloc<ParkingEvent, ParkingState> {
     }
   }
 
+
+//TODO in proccess 
   Future<void> processPhoto(
       PhotoEvent event, Emitter<ParkingState> emit) async {
     try {
