@@ -14,7 +14,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "981449599664-0cif7btkgageb6oh0u7gqcpg2f1jnvur.apps.googleusercontent.com",
+          "client_id": "981449599664-7uht3so2d0uai9vgbbmljlri0bel345s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -29,6 +29,13 @@
             {
               "client_id": "981449599664-0cif7btkgageb6oh0u7gqcpg2f1jnvur.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "981449599664-heumd9u35jkbeuj2smnjma3svmao6jis.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.parkovochka"
+              }
             }
           ]
         }

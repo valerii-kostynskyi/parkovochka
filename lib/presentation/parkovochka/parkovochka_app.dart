@@ -22,9 +22,8 @@ class ParkovochkaApp extends StatelessWidget {
           create: (BuildContext context) => ThemeBloc(),
         ),
         BlocProvider<LocaleBloc>(
-          create: (BuildContext context) => LocaleBloc(
-            const Locale('en', 'US'),
-          ),
+          create: (BuildContext context) =>
+              LocaleBloc(const Locale('en', 'US')),
         ),
       ],
       child: _buildMaterialApp(),
